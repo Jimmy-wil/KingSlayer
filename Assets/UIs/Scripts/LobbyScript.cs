@@ -21,6 +21,7 @@ using UnityEngine.UI;
 public class LobbyScript : NetworkBehaviour
 {
     public GameObject MainMenuGUI;
+    public GameObject LoadingScreenGUI;
 
     public GameObject MessagePanelObject;
     public GameObject CreateLobbyMenu;
@@ -409,25 +410,33 @@ public class LobbyScript : NetworkBehaviour
         MyServerRpc("Ping");
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == "Game")
+        {
+            Debug.Log("Scene loaded");
+            LoadingScreenGUI.gameObject.SetActive(false);
+        }
+    }
 
     [ClientRpc] 
     private void StartGameClientRpc() 
     {
         MainMenuGUI.gameObject.SetActive(false);
+        LoadingScreenGUI.gameObject.SetActive(true);
+        SceneManager.sceneLoaded += OnSceneLoaded; // trigger OnSceneLoaded if sceneLoaded (subscribe)
     }
     [ServerRpc]
     private void StartGameServerRpc() 
     {
-        StartGameClientRpc();
         NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        StartGameClientRpc();
     }
 
     public void StartGame()
     {
         StartGameServerRpc();
 
-        //NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
-        //SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
 

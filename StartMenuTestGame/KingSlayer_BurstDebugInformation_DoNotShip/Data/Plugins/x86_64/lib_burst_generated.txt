@@ -1,4 +1,4 @@
-Library: C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+Library: C:\Users\User\Desktop\Projet\KingSlayer\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --platform=Windows
 --backend=burst-llvm-15
 --target=X64_SSE2
@@ -9,7 +9,6 @@ Library: C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib
 --target-framework=NetFramework
 --assembly-defines=UnityEngine;
 --assembly-defines=Assembly-CSharp;
---assembly-defines=Unity.Multiplayer.Tools.NetStatsMonitor.Component;
 --assembly-defines=Unity.2D.IK.Runtime;
 --assembly-defines=Unity.Services.Core.Environments.Internal;
 --assembly-defines=Unity.Services.Core;
@@ -32,11 +31,11 @@ Library: C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib
 --assembly-defines=Unity.Multiplayer.Samples.Utilities.RNSM;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.TextMeshPro;
---assembly-defines=Unity.Services.Core.Analytics;
 --assembly-defines=Unity.Multiplayer.Samples.Utilities;
+--assembly-defines=Unity.Services.Core.Analytics;
 --assembly-defines=Unity.Services.Wire.Internal;
---assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Multiplayer.Tools.Common;
+--assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Multiplayer.Samples.Utilities.ClientAuthority;
 --assembly-defines=Unity.Services.Core.Internal;
@@ -63,6 +62,7 @@ Library: C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib
 --assembly-defines=Unity.Services.Core.Registration;
 --assembly-defines=Unity.VisualScripting.State;
 --assembly-defines=Unity.Multiplayer.Tools.NetStatsReporting;
+--assembly-defines=Unity.Multiplayer.Tools.NetStatsMonitor.Component;
 --assembly-defines=Unity.Multiplayer.Tools.MetricEvents;
 --assembly-defines=websocket-sharp;
 --assembly-defines=Unity.Collections.LowLevel.ILSupport;
@@ -93,10 +93,10 @@ Library: C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib
 --assembly-defines=mscorlib;
 --linker-options=PdbAltPath="KingSlayer_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\drago\start menu test\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.11f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\drago\start menu test\Library\Burst
---output=C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=C:\Users\User\Desktop\Projet\KingSlayer\Temp\Burst
+--key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=C:\Users\User\Desktop\Projet\KingSlayer\Library\Burst
+--output=C:\Users\User\Desktop\Projet\KingSlayer\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
@@ -202,7 +202,6 @@ Library: C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib
 --target-framework=NetFramework
 --assembly-defines=UnityEngine;
 --assembly-defines=Assembly-CSharp;
---assembly-defines=Unity.Multiplayer.Tools.NetStatsMonitor.Component;
 --assembly-defines=Unity.2D.IK.Runtime;
 --assembly-defines=Unity.Services.Core.Environments.Internal;
 --assembly-defines=Unity.Services.Core;
@@ -225,11 +224,11 @@ Library: C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib
 --assembly-defines=Unity.Multiplayer.Samples.Utilities.RNSM;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.TextMeshPro;
---assembly-defines=Unity.Services.Core.Analytics;
 --assembly-defines=Unity.Multiplayer.Samples.Utilities;
+--assembly-defines=Unity.Services.Core.Analytics;
 --assembly-defines=Unity.Services.Wire.Internal;
---assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Multiplayer.Tools.Common;
+--assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Multiplayer.Samples.Utilities.ClientAuthority;
 --assembly-defines=Unity.Services.Core.Internal;
@@ -256,6 +255,7 @@ Library: C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib
 --assembly-defines=Unity.Services.Core.Registration;
 --assembly-defines=Unity.VisualScripting.State;
 --assembly-defines=Unity.Multiplayer.Tools.NetStatsReporting;
+--assembly-defines=Unity.Multiplayer.Tools.NetStatsMonitor.Component;
 --assembly-defines=Unity.Multiplayer.Tools.MetricEvents;
 --assembly-defines=websocket-sharp;
 --assembly-defines=Unity.Collections.LowLevel.ILSupport;
@@ -286,10 +286,10 @@ Library: C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib
 --assembly-defines=mscorlib;
 --linker-options=PdbAltPath="KingSlayer_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\drago\start menu test\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.11f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\Users\drago\start menu test\Library\Burst
---output=C:\Users\drago\start menu test\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=C:\Users\User\Desktop\Projet\KingSlayer\Temp\Burst
+--key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=C:\Users\User\Desktop\Projet\KingSlayer\Library\Burst
+--output=C:\Users\User\Desktop\Projet\KingSlayer\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10

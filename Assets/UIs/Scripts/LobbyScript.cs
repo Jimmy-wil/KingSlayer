@@ -18,9 +18,10 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LobbyScript : MonoBehaviour
+public class LobbyScript : NetworkBehaviour
 {
     public GameObject MainMenuGUI;
+    public GameObject LoadingScreenGUI;
 
     public GameObject MessagePanelObject;
     public GameObject CreateLobbyMenu;
@@ -33,7 +34,7 @@ public class LobbyScript : MonoBehaviour
     public Toggle HostPrivateToggle;
     public GameObject ListOfPlayers;
 
-    public TMP_Text LobbyCode; 
+    public TMP_Text LobbyCode;
     public TMP_InputField _playerName;
 
 
@@ -41,7 +42,7 @@ public class LobbyScript : MonoBehaviour
     public TMP_InputField _lobbyNameInput;
     public Slider _maxPlayersInput;
     public Toggle _private;
-    
+
     private Lobby hostLobby;
     private Lobby joinedLobby;
     private float heartbeatTimer;
@@ -56,7 +57,7 @@ public class LobbyScript : MonoBehaviour
         await UnityServices.InitializeAsync();
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-        DisplayErrorMessage("Welcome to my game!");
+        // DisplayErrorMessage("Welcome to my game!");
     }
     private async void Awake()
     {
@@ -78,14 +79,19 @@ public class LobbyScript : MonoBehaviour
         if (hostLobby != null)
         {
             heartbeatTimer -= Time.deltaTime;
-            if (heartbeatTimer < 0f) 
+            if (heartbeatTimer < 0f)
             {
                 float heartbeatTimerMax = 15;
                 heartbeatTimer += heartbeatTimerMax;
 
                 await LobbyService.Instance.SendHeartbeatPingAsync(hostLobby.Id);
+                foreach (var client in NetworkManager.ConnectedClients)
+                {
+                    Debug.Log(client.Key);
+                }
             }
         }
+
     }
     private async void HandleLobbyPollForUpdates()
     {
@@ -99,12 +105,15 @@ public class LobbyScript : MonoBehaviour
 
                 if (!IsPlayerInLobby())
                 {
-                    DisplayErrorMessage("You have left the lobby because the host left/disconnected!");
+
+                    DisplayErrorMessage("You have left the lobby because the host left or disconnected!");
                     joinedLobby = null;
                     hostLobby = null;
 
                     CurrentLobby.SetActive(false);
                     PlayMenu.SetActive(true);
+
+                    NetworkManager.Shutdown(); // stop client/host
 
                 }
                 else
@@ -119,8 +128,6 @@ public class LobbyScript : MonoBehaviour
             }
         }
     }
-
-
     private void DisplayErrorMessage(string messageContent)
     {
         GameObject clone = Instantiate(MessagePanelObject);
@@ -129,7 +136,7 @@ public class LobbyScript : MonoBehaviour
         TMPtext.text = messageContent;
 
         clone.transform.SetParent(MainMenuGUI.transform, false);
-        
+
         clone.SetActive(true);
     }
 
@@ -150,6 +157,7 @@ public class LobbyScript : MonoBehaviour
 
         return false;
     }
+    // Display current players
     private void DisplayListOfPlayers()
     {
         try
@@ -157,7 +165,7 @@ public class LobbyScript : MonoBehaviour
             if (joinedLobby != null)
             {
                 // Displays all current players
-                for(int i = 0; i < joinedLobby.Players.Count; i++)
+                for (int i = 0; i < joinedLobby.Players.Count; i++)
                 {
                     ListOfPlayers.transform.GetChild(i).gameObject.SetActive(true);
                     GameObject playerPanel = ListOfPlayers.transform.GetChild(i).gameObject;
@@ -165,14 +173,14 @@ public class LobbyScript : MonoBehaviour
                     playerPanel.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = joinedLobby.Players[i].Data["PlayerName"].Value;
                 }
                 // Display the rest (no players)
-                for(int i = joinedLobby.Players.Count; i < joinedLobby.MaxPlayers; i++)
+                for (int i = joinedLobby.Players.Count; i < joinedLobby.MaxPlayers; i++)
                 {
                     ListOfPlayers.transform.GetChild(i).gameObject.SetActive(true);
                     GameObject playerPanel = ListOfPlayers.transform.GetChild(i).gameObject;
                     playerPanel.transform.GetChild(1).gameObject.SetActive(true);
                     playerPanel.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = "...";
                 }
-                for (int i = joinedLobby.MaxPlayers; i < 8; i++) 
+                for (int i = joinedLobby.MaxPlayers; i < 8; i++)
                 {
                     ListOfPlayers.transform.GetChild(i).gameObject.SetActive(false);
                 }
@@ -183,7 +191,6 @@ public class LobbyScript : MonoBehaviour
         {
             Debug.Log(e);
         }
-        // Display current players
     }
     private Player GetPlayer()
     {
@@ -198,7 +205,7 @@ public class LobbyScript : MonoBehaviour
     // list all current players in a lobby through console logs
     public void PrintPlayers(Lobby lobby)
     {
-        Debug.Log("Players in " + lobby.Players[0].Data["PlayerName"].Value + "'s lobby:" );
+        Debug.Log("Players in " + lobby.Players[0].Data["PlayerName"].Value + "'s lobby:");
         foreach (Player player in lobby.Players)
         {
             Debug.Log(player.Id + " : " + player.Data["PlayerName"].Value);
@@ -206,7 +213,7 @@ public class LobbyScript : MonoBehaviour
     }
 
 
-    // --------------------- create / join lobby ---------------------
+    // --------------------- create and join lobby ---------------------
     public async void CreateLobby()
     {
         try
@@ -243,6 +250,11 @@ public class LobbyScript : MonoBehaviour
             LobbyCode.text = hostLobby.LobbyCode;
             LobbyCode.gameObject.SetActive(true);
 
+
+            _transport.SetHostRelayData(a.RelayServer.IpV4, (ushort)a.RelayServer.Port, a.AllocationIdBytes, a.Key, a.ConnectionData);
+
+            NetworkManager.Singleton.StartHost();
+
             OnLobbyJoined();
 
             CreateLobbyMenu.SetActive(false);
@@ -255,9 +267,8 @@ public class LobbyScript : MonoBehaviour
             Debug.Log(e);
             DisplayErrorMessage("Failed to create lobby!");
         }
-            
-    }
 
+    }
 
     public async void JoinLobbyByCode()
     {
@@ -278,14 +289,16 @@ public class LobbyScript : MonoBehaviour
             OnLobbyJoined();
 
             JoinAllocation a = await RelayService.Instance.JoinAllocationAsync(joinedLobby.Data["JoinCodeKey"].Value);
+            _transport.SetClientRelayData(a.RelayServer.IpV4, (ushort)a.RelayServer.Port, a.AllocationIdBytes, a.Key, a.ConnectionData, a.HostConnectionData);
 
+            NetworkManager.Singleton.StartClient(); // you join as a client
 
             Debug.Log("Joined " + joinedLobby.Players[0].Data["PlayerName"].Value + " lobby with code " + _CodeInput.text + "!");
 
             PrintPlayers(joinedLobby);
 
 
-        } catch(LobbyServiceException e)
+        } catch (LobbyServiceException e)
         {
             Debug.Log(e);
             DisplayErrorMessage("Failed to join a lobby by code!");
@@ -305,10 +318,10 @@ public class LobbyScript : MonoBehaviour
             Debug.Log("Quick joining a lobby");
             PrintPlayers(joinedLobby);
 
-
             JoinAllocation a = await RelayService.Instance.JoinAllocationAsync(joinedLobby.Data["JoinCodeKey"].Value);
+            _transport.SetClientRelayData(a.RelayServer.IpV4, (ushort)a.RelayServer.Port, a.AllocationIdBytes, a.Key, a.ConnectionData, a.HostConnectionData);
 
-
+            NetworkManager.Singleton.StartClient(); // you join as a client
         }
         catch (LobbyServiceException e)
         {
@@ -328,22 +341,22 @@ public class LobbyScript : MonoBehaviour
                 },
 
                 // Order by number of players
-                Order = new List<QueryOrder> { 
+                Order = new List<QueryOrder> {
                     new QueryOrder(false, QueryOrder.FieldOptions.AvailableSlots)
                 }
 
             };
 
             // Query all lobbies with queryOptions as a filter
-            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync(queryOptions); 
+            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync(queryOptions);
 
 
             // display all lobbies on console 
             Debug.Log("Lobbies found: " + queryResponse.Results.Count);
-            foreach (var lobby in queryResponse.Results) 
+            foreach (var lobby in queryResponse.Results)
             {
                 Debug.Log("Lobby name: " + lobby.Name + " | " + lobby.Players.Count + "/" + lobby.MaxPlayers + " | IsPrivate: " + lobby.IsPrivate);
-        
+
             }
 
         } catch (LobbyServiceException e)
@@ -353,7 +366,6 @@ public class LobbyScript : MonoBehaviour
         }
 
     }
-
 
     public void OnLobbyJoined()
     {
@@ -380,15 +392,50 @@ public class LobbyScript : MonoBehaviour
 
 
     // --------------------- start the game -------------------
+    [ClientRpc]
+    void PongClientRpc(string content)
+    {
+        Debug.Log(content);
+    }
+    [ServerRpc]
+    void PongServerRpc(string content)
+    {
+        Debug.Log(content);
+        PongClientRpc("Pong");
+    }
+    public void Ping()
+    {
+        PongServerRpc("Ping");
+    }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == "Game")
+        {
+            Debug.Log("Scene loaded");
+            LoadingScreenGUI.gameObject.SetActive(false);
+        }
+    }
+
+    [ClientRpc] 
+    private void StartGameClientRpc() 
+    {
+        MainMenuGUI.gameObject.SetActive(false);
+        LoadingScreenGUI.gameObject.SetActive(true);
+        SceneManager.sceneLoaded += OnSceneLoaded; // trigger OnSceneLoaded if sceneLoaded (subscribe)
+        this.GetComponent<PlayerSpawnZoneScript>().RandomSpawnPlayer();
+
+    }
+    [ServerRpc]
+    private void StartGameServerRpc() 
+    {
+        NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        StartGameClientRpc();
+    }
     public void StartGame()
     {
+        StartGameServerRpc();
 
-
-        MainMenuGUI.gameObject.SetActive(false);
-
-        NetworkManager.Singleton.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
-        //SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
 
@@ -402,6 +449,7 @@ public class LobbyScript : MonoBehaviour
             {
                 IsPrivate = _private.isOn
             };
+
             // do not forget to check if maxplayersInput is correct
             hostLobby = await Lobbies.Instance.UpdateLobbyAsync(hostLobby.Id, updateLobbyOptions);
             joinedLobby = hostLobby;
@@ -451,6 +499,7 @@ public class LobbyScript : MonoBehaviour
                 Debug.Log("You left " + joinedLobby.Players[0].Data["PlayerName"].Value + "'s lobby!");
 
             }
+            NetworkManager.Shutdown();
             joinedLobby = null;
             hostLobby = null;
 
@@ -499,7 +548,22 @@ public class LobbyScript : MonoBehaviour
             DisplayErrorMessage("Failed to disconnect player!");
         }
     }
+    public async void DeleteLobbyHandler()
+    {
+        try
+        {
+            Debug.Log("Deleting lobby");
+            await LobbyService.Instance.DeleteLobbyAsync(joinedLobby.Id);
+            joinedLobby = null;
+            hostLobby = null;
 
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+            DisplayErrorMessage("Failed to delete lobby!");
+        }
+    }
     public async void MigrateLobbyHost()
     {
         try
@@ -529,48 +593,37 @@ public class LobbyScript : MonoBehaviour
     public IEnumerator DeleteLobby()
     {
         DisconnectAllPlayersInLobby();
-        while (joinedLobby.Players.Count != 1)
+        while (joinedLobby.Players.Count > 1)
         {
             yield return new WaitForSeconds(0.2f);
 
         }
         DeleteLobbyHandler();
     }
-    public async void DeleteLobbyHandler()
-    {
-        try
-        {
-            await LobbyService.Instance.DeleteLobbyAsync(joinedLobby.Id);
-            joinedLobby = null;
-            hostLobby = null;
 
-        } catch (LobbyServiceException e)
-        {
-            Debug.Log(e);
-            DisplayErrorMessage("Failed to delete lobby!");
-        }
-    }
-
-    private async void OnDestroy()
+    public override async void OnDestroy()
     {
         try
         {
             if (joinedLobby != null)
             {
-                StopAllCoroutines();
                 if (joinedLobby.HostId == AuthenticationService.Instance.PlayerId)
                 {
-                    StartCoroutine (DeleteLobby());
+                    StartCoroutine(DeleteLobby());
                 }
                 else
                 {
                     await LobbyService.Instance.RemovePlayerAsync(joinedLobby.Id, AuthenticationService.Instance.PlayerId);
                 }
+                StopAllCoroutines();
             }
+
+            base.OnDestroy();
+
         } catch (LobbyServiceException e)
         {
             Debug.Log(e);
         }
     }
-
+    
 }

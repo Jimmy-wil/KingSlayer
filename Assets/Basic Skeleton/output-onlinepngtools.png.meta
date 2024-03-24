@@ -126,12 +126,12 @@ TextureImporter:
       name: output-onlinepngtools_0
       rect:
         serializedVersion: 2
-        x: 918
-        y: 3592
-        width: 5
-        height: 5
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 2700
+        width: 900
+        height: 900
+      alignment: 9
+      pivot: {x: 0.57346183, y: 0.33471057}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: output-onlinepngtools_2
       rect:
         serializedVersion: 2
-        x: 4498
-        y: 2685
-        width: 733
-        height: 915
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1800
+        y: 2700
+        width: 900
+        height: 900
+      alignment: 9
+      pivot: {x: 0.5596875, y: 0.34389323}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: output-onlinepngtools_4
       rect:
         serializedVersion: 2
-        x: 37
-        y: 2695
-        width: 717
-        height: 813
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 3600
+        y: 2700
+        width: 900
+        height: 900
+      alignment: 9
+      pivot: {x: 0.57346135, y: 0.3209364}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: output-onlinepngtools_5
       rect:
         serializedVersion: 2
-        x: 933
-        y: 2706
-        width: 720
-        height: 820
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 4500
+        y: 2700
+        width: 900
+        height: 900
+      alignment: 9
+      pivot: {x: 0.59641874, y: 0.30257106}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: output-onlinepngtools_11
       rect:
         serializedVersion: 2
-        x: 100
-        y: 1788
-        width: 709
-        height: 659
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 4500
+        y: 1800
+        width: 900
+        height: 880
+      alignment: 9
+      pivot: {x: 0.5505051, y: 0.33011937}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: output-onlinepngtools_12
       rect:
         serializedVersion: 2
-        x: 1002
-        y: 1796
-        width: 651
-        height: 686
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 900
+        width: 900
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: output-onlinepngtools_13
       rect:
         serializedVersion: 2
-        x: 1809
-        y: 1780
-        width: 735
-        height: 696
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 900
+        y: 900
+        width: 900
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: output-onlinepngtools_14
       rect:
         serializedVersion: 2
-        x: 2705
-        y: 1793
-        width: 739
-        height: 778
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1800
+        y: 900
+        width: 900
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: output-onlinepngtools_15
       rect:
         serializedVersion: 2
-        x: 3596
-        y: 1801
-        width: 686
-        height: 786
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2700
+        y: 900
+        width: 900
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: output-onlinepngtools_16
       rect:
         serializedVersion: 2
-        x: 4506
-        y: 1793
-        width: 736
-        height: 813
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 3600
+        y: 900
+        width: 900
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,13 +336,13 @@ TextureImporter:
       name: output-onlinepngtools_17
       rect:
         serializedVersion: 2
-        x: 899
-        y: 1793
-        width: 16
-        height: 6
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 4471
+        y: 900
+        width: 925
+        height: 881
+      alignment: 9
+      pivot: {x: 0.688246, y: 0.33930215}
+      border: {x: 0, y: 0, z: 0, w: 9}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -357,12 +357,12 @@ TextureImporter:
       name: output-onlinepngtools_18
       rect:
         serializedVersion: 2
-        x: 4838
-        y: 1677
-        width: 14
-        height: 21
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 4500
+        y: 0
+        width: 900
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -375,78 +375,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: output-onlinepngtools_19
-      rect:
-        serializedVersion: 2
-        x: 5073
-        y: 1559
-        width: 8
-        height: 8
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eda03964eeccafa478a299a7e96f6f7a
-      internalID: 316377565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: output-onlinepngtools_20
-      rect:
-        serializedVersion: 2
-        x: 4472
-        y: 1342
-        width: 16
-        height: 24
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7cd3e746e6cec24ea0e88ca7baff913
-      internalID: -1131135701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: output-onlinepngtools_21
-      rect:
-        serializedVersion: 2
-        x: 4490
-        y: 897
-        width: 802
-        height: 648
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de026446f9c394e4e8e0fdfe327152f4
-      internalID: -1724170893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: output-onlinepngtools_1
       rect:
         serializedVersion: 2
-        x: 4024
-        y: 3426
-        width: 71
-        height: 174
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 900
+        y: 2700
+        width: 900
+        height: 900
+      alignment: 9
+      pivot: {x: 0.5688704, y: 0.33930203}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -462,12 +399,12 @@ TextureImporter:
       name: output-onlinepngtools_3
       rect:
         serializedVersion: 2
-        x: 4944
-        y: 3429
-        width: 76
-        height: 171
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2700
+        y: 2700
+        width: 900
+        height: 900
+      alignment: 9
+      pivot: {x: 0.56427926, y: 0.2979796}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -483,12 +420,12 @@ TextureImporter:
       name: output-onlinepngtools_6
       rect:
         serializedVersion: 2
-        x: 1822
-        y: 2701
-        width: 736
-        height: 812
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 1800
+        width: 900
+        height: 884
+      alignment: 9
+      pivot: {x: 0.6882461, y: 0.30257106}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -504,12 +441,12 @@ TextureImporter:
       name: output-onlinepngtools_7
       rect:
         serializedVersion: 2
-        x: 2726
-        y: 2690
-        width: 686
-        height: 786
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 900
+        y: 1808
+        width: 900
+        height: 900
+      alignment: 9
+      pivot: {x: 0.6056014, y: 0.31175375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -525,12 +462,12 @@ TextureImporter:
       name: output-onlinepngtools_8
       rect:
         serializedVersion: 2
-        x: 3122
-        y: 3421
-        width: 58
-        height: 166
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1800
+        y: 1800
+        width: 900
+        height: 900
+      alignment: 9
+      pivot: {x: 0.6010099, y: 0.33471057}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -546,12 +483,12 @@ TextureImporter:
       name: output-onlinepngtools_9
       rect:
         serializedVersion: 2
-        x: 3644
-        y: 2690
-        width: 649
-        height: 820
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2700
+        y: 1800
+        width: 900
+        height: 884
+      alignment: 9
+      pivot: {x: 0.6010102, y: 0.30716255}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -567,12 +504,12 @@ TextureImporter:
       name: output-onlinepngtools_10
       rect:
         serializedVersion: 2
-        x: 2679
-        y: 2685
-        width: 34
-        height: 29
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 3591
+        y: 1800
+        width: 902
+        height: 880
+      alignment: 9
+      pivot: {x: 0.49999973, y: 0.33011937}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -606,10 +543,7 @@ TextureImporter:
       output-onlinepngtools_16: -565321560
       output-onlinepngtools_17: -1587988391
       output-onlinepngtools_18: 1630701765
-      output-onlinepngtools_19: 316377565
       output-onlinepngtools_2: -361974228
-      output-onlinepngtools_20: -1131135701
-      output-onlinepngtools_21: -1724170893
       output-onlinepngtools_3: -1365581760
       output-onlinepngtools_4: 313738134
       output-onlinepngtools_5: 1497496328

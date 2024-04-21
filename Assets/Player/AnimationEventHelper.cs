@@ -7,6 +7,7 @@ public class AnimationEventHelper : MonoBehaviour
 {
     public UnityEvent OnAnimationEventTriggered,OnAttackPerformed;
 
+
     public void TriggerEvent()
     {
         OnAnimationEventTriggered?.Invoke();

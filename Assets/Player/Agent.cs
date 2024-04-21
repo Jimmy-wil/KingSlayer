@@ -3,30 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Agent : MonoBehaviour
 {
     private AgentAnimation agentAnimations;
     private AgentMover agentMover;
 
-    [SerializeField]
-    private InputActionReference movement,attack,pointerPosition;
+   
 
     private Vector2 pointerInput, movementInput;
+
+    public Vector2 PointerInput { get => pointerInput; set => pointerInput = value; }
+    public Vector2 MovementInput { get => movementInput; set => movementInput = value; }
 
     private WeaponParent weaponParent;
 
   
-    private void OnEnable()
-    {
-        attack.action.performed+=PerformAttack;
-    }
+    
 
-    private void OnDisable()
-    {
-        attack.action.performed-=PerformAttack;
-    }
-
-    private void PerformAttack(InputAction.CallbackContext obj)
+    public void PerformAttack()
     {
         weaponParent.Attack();
     }
@@ -48,22 +42,15 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        pointerInput=GetPointerInput();
+        //pointerInput = GetPointerInput();
 
-        weaponParent.Pointerposition=pointerInput;
-
-        movementInput=movement.action.ReadValue<Vector2>().normalized;
+       // movementInput = movement.action.ReadValue<Vector2>().normalized;
 
         agentMover.MovementInput =movementInput;
-
+        weaponParent.Pointerposition=pointerInput;
         AnimateCharacter();
 
     }
 
-    private Vector2 GetPointerInput()
-    {
-    Vector3 mousPos =pointerPosition.action.ReadValue<Vector2>();
-    mousPos.z =Camera.main.nearClipPlane;
-    return Camera.main.ScreenToWorldPoint(mousPos);
-    }
+    
 }

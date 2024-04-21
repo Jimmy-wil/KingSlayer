@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 45040d5e6c60d2743bc8be2b6eed79dd
+  productGUID: b86f8fb5d03967941a0b27d385104c8b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -702,12 +702,12 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 2
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 10d52229-1138-46f3-b5b0-a92852873319
+  cloudProjectId: 5d019359-c66c-4b12-afb5-3d8352ca2baf
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: King Slayer 2024-03-23_02-59-08
+  projectName: King Slayer 2024-03-23_02-10-58
   organizationId: yuperle
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

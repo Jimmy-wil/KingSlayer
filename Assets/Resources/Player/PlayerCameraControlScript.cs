@@ -20,7 +20,7 @@ public class PlayerCameraControl : NetworkBehaviour
         target = GetComponent<Transform>();
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {   
         if (!IsOwner) return;
         Vector3 targetPosition = target.position + offset;

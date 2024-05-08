@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6898758199079767872}
   - component: {fileID: 3173160934129429102}
+  - component: {fileID: -8231254067658006354}
   - component: {fileID: 64785135626205807}
   m_Layer: 0
   m_Name: PlayerPrefab
@@ -145,6 +146,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-8231254067658006354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6675146990396599461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2624636736
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &64785135626205807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,3 +179,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30cb2e604951c554397bbf4c778d6678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 3
+  rb: {fileID: 0}

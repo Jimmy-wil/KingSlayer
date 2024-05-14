@@ -24,6 +24,7 @@ public class LobbyScript : NetworkBehaviour
     public GameObject LoadingScreenGUI;
 
     public GameObject MessagePanelObject;
+    public GameObject MainMenu;
     public GameObject CreateLobbyMenu;
     public GameObject CurrentLobby;
     public GameObject PlayMenu;
@@ -65,6 +66,13 @@ public class LobbyScript : NetworkBehaviour
 
         await Authenticate();
 
+    }
+    private void Start()
+    {
+
+        NetworkManager.OnServerStopped += OnServerDisconnected;
+
+        NetworkManager.OnClientStopped += OnClientDisconnected;
     }
     private void Update()
     {
@@ -111,7 +119,7 @@ public class LobbyScript : NetworkBehaviour
                     hostLobby = null;
 
                     CurrentLobby.SetActive(false);
-                    PlayMenu.SetActive(true);
+                    MainMenu.SetActive(true);
 
                     NetworkManager.Shutdown(); // stop client/host
 
@@ -128,6 +136,7 @@ public class LobbyScript : NetworkBehaviour
             }
         }
     }
+
     private void DisplayErrorMessage(string messageContent)
     {
         GameObject clone = Instantiate(MessagePanelObject);
@@ -139,8 +148,6 @@ public class LobbyScript : NetworkBehaviour
 
         clone.SetActive(true);
     }
-
-
 
     private bool IsPlayerInLobby()
     {
@@ -202,7 +209,7 @@ public class LobbyScript : NetworkBehaviour
     }
 
 
-    // list all current players in a lobby through console logs
+    // list all current players in a lobby through Debug.Log
     public void PrintPlayers(Lobby lobby)
     {
         Debug.Log("Players in " + lobby.Players[0].Data["PlayerName"].Value + "'s lobby:");
@@ -329,6 +336,30 @@ public class LobbyScript : NetworkBehaviour
             DisplayErrorMessage("Failed to quick join a lobby!");
         }
     }
+
+    public void OnLobbyJoined()
+    {
+        if (joinedLobby.HostId == AuthenticationService.Instance.PlayerId)
+        {
+            HostPrivateToggle.isOn = _private.isOn;
+            HostPrivateToggle.gameObject.SetActive(true);
+            StartButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            HostPrivateToggle.gameObject.SetActive(false);
+
+        }
+
+        LobbyName.text = joinedLobby.Name;
+        HostName.text = joinedLobby.Players[0].Data["PlayerName"].Value + "'s lobby";
+
+
+
+        CurrentLobby.SetActive(true);
+
+    }
+
     public async void ListLobbies()
     {
         try
@@ -368,31 +399,10 @@ public class LobbyScript : NetworkBehaviour
     }
 
 
-    public void OnLobbyJoined()
-    {
-        if (joinedLobby.HostId == AuthenticationService.Instance.PlayerId)
-        {
-            HostPrivateToggle.isOn = _private.isOn;
-            HostPrivateToggle.gameObject.SetActive(true);
-            StartButton.gameObject.SetActive(true);
-        }
-        else
-        {
-            HostPrivateToggle.gameObject.SetActive(false);
-
-        }
-
-        LobbyName.text = joinedLobby.Name;
-        HostName.text = joinedLobby.Players[0].Data["PlayerName"].Value + "'s lobby";
-
-
-
-        CurrentLobby.SetActive(true);
-
-    }
-
 
     // --------------------- start the game -------------------
+
+    // [-------- TEST PURPOSES --------
     [ClientRpc]
     void PongClientRpc(string content)
     {
@@ -409,6 +419,7 @@ public class LobbyScript : NetworkBehaviour
     {
         MyServerRpc("Ping");
     }
+    // ---------------------------------]
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -422,10 +433,12 @@ public class LobbyScript : NetworkBehaviour
     [ClientRpc] 
     private void StartGameClientRpc() 
     {
+        CurrentLobby.SetActive(false);
         MainMenuGUI.gameObject.SetActive(false);
         LoadingScreenGUI.gameObject.SetActive(true);
         SceneManager.sceneLoaded += OnSceneLoaded; // trigger OnSceneLoaded if sceneLoaded (subscribe)
     }
+
     [ServerRpc(RequireOwnership = false)]
     private void StartGameServerRpc() 
     {
@@ -484,6 +497,14 @@ public class LobbyScript : NetworkBehaviour
     }
 
     // ------------------ disconnection ---------------------------
+    // return to main menu
+    public void BackToMainMenu()
+    {
+        MainMenu.SetActive(true);
+        MainMenuGUI.gameObject.SetActive(true);
+    }
+
+
     public async void LeaveLobby()
     {
         try
@@ -598,6 +619,29 @@ public class LobbyScript : NetworkBehaviour
             Debug.Log(e);
             DisplayErrorMessage("Failed to delete lobby!");
         }
+    }
+
+    // gets called by event Network.OnServerStopped in Update()
+    public void OnServerDisconnected(bool obj)
+    {
+        Debug.Log("Server disconnected! Shutting down connection.");
+        NetworkManager.Shutdown();
+
+        if (SceneManager.GetSceneAt(1).isLoaded)
+            SceneManager.UnloadSceneAsync(1);
+
+        BackToMainMenu();
+    }
+
+    private void OnClientDisconnected(bool obj)
+    {
+        Debug.Log("You've got disconnected pal, client gens man...");
+        NetworkManager.Shutdown();
+
+        if (SceneManager.GetSceneAt(1).isLoaded)
+            SceneManager.UnloadSceneAsync(1);
+
+        BackToMainMenu();
     }
 
     /*

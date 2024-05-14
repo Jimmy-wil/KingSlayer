@@ -640,6 +640,9 @@ public class LobbyScript : NetworkBehaviour
         Debug.Log("You've got disconnected pal, client gens man...");
         NetworkManager.Shutdown();
 
+        hostLobby = null;
+        joinedLobby = null;
+
         if (SceneManager.GetSceneAt(1).isLoaded)
             SceneManager.UnloadSceneAsync(1);
 

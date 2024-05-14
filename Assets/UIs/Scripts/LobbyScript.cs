@@ -329,6 +329,7 @@ public class LobbyScript : NetworkBehaviour
             _transport.SetClientRelayData(a.RelayServer.IpV4, (ushort)a.RelayServer.Port, a.AllocationIdBytes, a.Key, a.ConnectionData, a.HostConnectionData);
 
             NetworkManager.Singleton.StartClient(); // you join as a client
+
         }
         catch (LobbyServiceException e)
         {
@@ -348,6 +349,7 @@ public class LobbyScript : NetworkBehaviour
         else
         {
             HostPrivateToggle.gameObject.SetActive(false);
+            StartButton.gameObject.SetActive(false);
 
         }
 
@@ -355,7 +357,7 @@ public class LobbyScript : NetworkBehaviour
         HostName.text = joinedLobby.Players[0].Data["PlayerName"].Value + "'s lobby";
 
 
-
+        PlayMenu.gameObject.SetActive(false);
         CurrentLobby.SetActive(true);
 
     }

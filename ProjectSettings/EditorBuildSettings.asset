@@ -5,19 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 359839647f0330c448e66e2191e2bfe9
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: dd0368ca93b397a4189284ace3067f4c
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 444fc6757015c44479eb0e77427d3d20
-  - enabled: 0
-    path: Assets/Scenes/JubairTest.unity
-    guid: 1cce1d57c929e6649a62fe59cb3a508e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/JubairSceneTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/JubairSceneTest2.unity
+    guid: 5945e41d9fe1794459d7c70e672ef8d0
   m_configObjects: {}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -12,22 +13,32 @@ public class Health : NetworkBehaviour
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
 
     [SerializeField]
-    private bool isDead = false;
+    private bool isDead =false;
+
+    public event EventHandler OnHealthChanged;
 
     public void InitializeHealth(int healthValue)
     {
-        currentHealth = healthValue;
-        maxHealth = healthValue;
-        isDead = false;
+        currentHealth=healthValue;
+        maxHealth=healthValue;
+        isDead=false;
     }
 
     public void GetHit(int amount, GameObject sender)
     {
-        if(isDead) return;
-        if(sender.layer==gameObject.layer)//Dont Hit the Player Layer
-        return;
+        if (isDead) return;
+        if (sender == this.gameObject)
+        {
+            Debug.Log("hit yourself");
+            return;
+        }
+        if (sender.layer == gameObject.layer && sender.layer == LayerMask.NameToLayer("Enemy")) return;
+        
+        if(OnHealthChanged != null) 
+            OnHealthChanged(this, EventArgs.Empty);
 
-        currentHealth-=amount;
+        DealDamageServerRpc(amount);
+
         if (currentHealth>0)
         {
             OnHitWithReference?.Invoke(sender);
@@ -36,20 +47,18 @@ public class Health : NetworkBehaviour
         {
             OnDeathWithReference?.Invoke(sender);
             isDead=true;
-            DestroyServerRpc();
+            Destroy(gameObject);
         }
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void DestroyServerRpc()
+    [ServerRpc(RequireOwnership=false)]
+    private void DealDamageServerRpc(int amount)
     {
-        DestroyClientRpc();
-        Destroy(gameObject);
+        currentHealth -= amount;
     }
-    [ClientRpc]
-    public void DestroyClientRpc() 
-    {
-        Destroy(gameObject);
+
+    public float GetHealthPercent(){
+        return (float)currentHealth/(float)maxHealth;
     }
 
 }

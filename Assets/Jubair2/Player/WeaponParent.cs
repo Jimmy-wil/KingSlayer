@@ -55,12 +55,6 @@ public class WeaponParent : NetworkBehaviour
    
     }
 
-    [ClientRpc]
-    private void DisplayWeaponClientRpc()
-    {
-
-    }
-
     public void Attack()
     {
         if (attackBlocked)
@@ -91,7 +85,7 @@ public class WeaponParent : NetworkBehaviour
             Health health = collider.GetComponent<Health>();
             if(health)
             {
-            health.GetHit(dmg, transform.parent.gameObject);
+                health.GetHit(dmg, transform.parent.gameObject);
             }
         }
     }

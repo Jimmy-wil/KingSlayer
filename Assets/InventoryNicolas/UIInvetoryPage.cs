@@ -87,6 +87,8 @@ public class UIInvetoryPage : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+        listOfUIItems[0].SetData(image,quantity);
+        listOfUIItems[1].SetData(image2,quantity);
     }
     
     public void Hide()

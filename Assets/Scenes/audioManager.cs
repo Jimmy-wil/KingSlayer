@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class audioManager : MonoBehaviour
 {
     [Header("-----Audio Source-----")]
-  [SerializeField] AudioSource musicSource;
+  
    [SerializeField] AudioSource musicSFX;
 
  [Header("-----Audio Sfx-----")]
@@ -16,12 +16,7 @@ public class audioManager : MonoBehaviour
 
 
 
-private void Start()
-{
-  musicSource.clip = background;
-  
-  musicSource.Play();
-}
+
 
  public void PlaySFX(AudioClip clip)
  {

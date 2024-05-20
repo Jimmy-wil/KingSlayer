@@ -426,7 +426,7 @@ public class LobbyScript : NetworkBehaviour
         LoadingScreenGUI.gameObject.SetActive(true);
         SceneManager.sceneLoaded += OnSceneLoaded; // trigger OnSceneLoaded if sceneLoaded (subscribe)
     }
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     private void StartGameServerRpc() 
     {
         NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);

@@ -16,7 +16,7 @@ public class Agent : NetworkBehaviour
     public Vector2 PointerInput { get => pointerInput; set => pointerInput = value; }
     public Vector2 MovementInput { get => movementInput; set => movementInput = value; }
 
-    private WeaponParent weaponParent;
+    private WeaponInterface weaponParent;
 
   
     
@@ -29,7 +29,7 @@ public class Agent : NetworkBehaviour
     private void Awake()
     {
         agentAnimations = GetComponentInChildren<AgentAnimation>();
-        weaponParent = GetComponentInChildren<WeaponParent>();
+        weaponParent = GetComponentInChildren<WeaponInterface>();
         agentMover = GetComponent<AgentMover>();
     }
 

@@ -21,7 +21,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         if (!mainMenuGui.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("état présidence");
+            Debug.Log("etat presidence");
             open = !open;
             panel.SetActive(open);
         }

@@ -4,7 +4,7 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class WeaponParent : NetworkBehaviour
+public class WeaponParent : NetworkBehaviour, WeaponInterface
 {
     public int dmg = 20;
     public Vector2 Pointerposition { get; set; }
@@ -13,7 +13,7 @@ public class WeaponParent : NetworkBehaviour
     public float delay = 0.3f;
     private bool attackBlocked;
 
-    public bool IsAttacking{ get; private set; }
+    public bool IsAttacking{ get; set; }
 
     public Transform circleOrigin;
     public float radius;

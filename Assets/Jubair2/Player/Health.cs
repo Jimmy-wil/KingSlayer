@@ -8,6 +8,8 @@ using UnityEngine.Events;
 public class Health : NetworkBehaviour
 {
     [SerializeField]
+    private DeathMenuScript deathMenu;
+    [SerializeField]
     private int currentHealth, maxHealth;
 
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
@@ -47,6 +49,7 @@ public class Health : NetworkBehaviour
         {
             OnDeathWithReference?.Invoke(sender);
             isDead=true;
+            deathMenu.ShowDeathMenu();
             Destroy(gameObject);
         }
     }

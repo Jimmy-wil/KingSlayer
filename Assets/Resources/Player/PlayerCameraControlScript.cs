@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Security;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class PlayerCameraControl : NetworkBehaviour
     private float smoothTime = 0.25f;
     private Vector3 velocity = Vector3.zero;
 
-    [SerializeField]
+    [SerializeField]        
     private Transform target;
 
 

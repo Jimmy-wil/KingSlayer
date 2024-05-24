@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd0f3c9c2b92ec4ba1b7bc97f791b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 0}
   currentHealth: 50
   maxHealth: 50
   OnHitWithReference:
@@ -625,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c673109ecafd94ea42205de17c270b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 1
+  dmg: 199
   characterRenderer: {fileID: 677144060188974608}
   weaponRenderer: {fileID: 5848881397774299817}
   delay: 0.5

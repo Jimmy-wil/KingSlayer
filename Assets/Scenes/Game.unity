@@ -216,6 +216,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &142509828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142509826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081120adf907d9343b12f135e3e18a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 1264404302}
+  description: {fileID: 495682897}
 --- !u!1 &495682895
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CraftMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3545559668425679646, guid: e60958c5c20d3694c9d2005f55d4b2fb, type: 3}
+      propertyPath: itemDescription
+      value: 
+      objectReference: {fileID: 142509828}
     - target: {fileID: 3914863984844590139, guid: e60958c5c20d3694c9d2005f55d4b2fb, type: 3}
       propertyPath: m_MinHeight
       value: 120
@@ -1038,6 +1056,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 258262886244853430, guid: e60958c5c20d3694c9d2005f55d4b2fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 142509827}
+    - targetCorrespondingSourceObject: {fileID: 258262886244853430, guid: e60958c5c20d3694c9d2005f55d4b2fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 142509828}
     - targetCorrespondingSourceObject: {fileID: 3374339775595742700, guid: e60958c5c20d3694c9d2005f55d4b2fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 903487906}
@@ -1318,13 +1339,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 903487903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6eceaf27a8d71e4197ff945150f3d22, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c8c333357b8b81478956c0f608fb56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 903487902}
   inventoryData: {fileID: 11400000, guid: bba872eb63185d542beef53d27dbfca3, type: 2}
-  inventorySize: 10
-  inventoryIsClosed: 0
+  initialItems:
+  - quantity: 10
+    item: {fileID: 11400000, guid: 701434fd109a0cd42aa77e6a5f39fcd5, type: 2}
+  - quantity: 15
+    item: {fileID: 11400000, guid: c232338bd123a9045b1debe0ab320edd, type: 2}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

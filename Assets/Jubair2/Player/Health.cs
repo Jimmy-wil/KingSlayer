@@ -26,7 +26,7 @@ public class Health : NetworkBehaviour
         isDead=false;
     }
 
-    public void GetHit(int amount, GameObject sender)
+    public void GetHit(WeaponParent weapon, GameObject sender)
     {
         if (isDead) return;
         if (sender == this.gameObject)
@@ -34,7 +34,10 @@ public class Health : NetworkBehaviour
             Debug.Log("hit yourself");
             return;
         }
+        
         if (sender.layer == gameObject.layer && sender.layer == LayerMask.NameToLayer("Enemy")) return;
+        
+        int amount = weapon.dmg;
         
         if(OnHealthChanged != null) 
             OnHealthChanged(this, EventArgs.Empty);

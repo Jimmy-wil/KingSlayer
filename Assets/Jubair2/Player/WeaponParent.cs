@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class WeaponParent : NetworkBehaviour, WeaponInterface
 {
-    public int dmg = 20;
+    [SerializeField]
+    public int dmg;
+
     public Vector2 Pointerposition { get; set; }
 
     public SpriteRenderer characterRenderer, weaponRenderer;
@@ -87,7 +89,7 @@ public class WeaponParent : NetworkBehaviour, WeaponInterface
             Health health = collider.GetComponent<Health>();
             if(health)
             {
-                health.GetHit(dmg, transform.parent.gameObject);
+                health.GetHit(this, transform.parent.gameObject);
             }
         }
     }

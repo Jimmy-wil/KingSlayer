@@ -1,41 +1,53 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
-    [SerializeField] private UIInvetoryPage inventoryUI;
-   // [SerializeField] private MouseFollower _mouseFollower;
-    private bool inventoryIsClosed;
+   //Script a attacher au joueur pour qu il fonctionne !!!
 
-    public int inventorySize = 10;
+   [SerializeField] private UIInvetoryPage inventoryUI;
+   [SerializeField] private InventorySO inventoryData;
+   public int inventorySize = 10;
+   public bool inventoryIsClosed;
     void Start()
-    {
-        inventoryUI.InitializeInventoryUI(inventorySize);
-        inventoryIsClosed = false;
-    }
+   {
+      inventoryUI.InitializeInventoryUI(inventorySize);
+      //inventoryData.Initialize();
+      inventoryIsClosed = false;
+   }
 
 
     void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            if (inventoryIsClosed)
-            {
-                inventoryUI.Show();
-                inventoryIsClosed = false;
-            }
-            else
-            {
-                inventoryUI.Hide();
-                inventoryIsClosed = true;
-            }
-            
-           // toggle = !toggle;
-           // inventoryUI.gameObject.SetActive(toggle);
-           // _mouseFollower.gameObject.SetActive(toggle);
-        }
-    }
+   {
+      if (Input.GetKeyDown(KeyCode.I))
+      {
+         if (inventoryIsClosed == true)
+         {
+            inventoryUI.Show();
+           // foreach (var item in inventoryData.GetCurrentItemState())
+           // {
+           //    inventoryUI.UpdateData(item.Key,item.Value.item.ItemImage, item.Value.quantity);
+          //  }
+
+            inventoryIsClosed = false;
+         }
+         else
+         {
+            inventoryUI.Hide();
+            inventoryIsClosed = true;
+         }
+        
+      }
+     
+   }
+   
+
+   
+    
+    
+    
+    
+    
 }

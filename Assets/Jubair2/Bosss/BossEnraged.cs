@@ -13,7 +13,7 @@ public class BossEnraged : StateMachineBehaviour
 
         if (weaponParent != null)
         {
-            weaponParent.degat += 20; // Increase attack damage by 10
+            weaponParent.dmg += 20; // Increase attack damage by 10
             weaponParent.delay *= 0.5f; // Decrease attack delay by 50%
         }
     }
@@ -23,7 +23,7 @@ public class BossEnraged : StateMachineBehaviour
     {
         if (weaponParent != null)
         {
-            weaponParent.degat -= 10; // Reset attack damage to original value
+            weaponParent.dmg -= 10; // Reset attack damage to original value
             weaponParent.delay /= 0.5f; // Reset attack delay to original value
         }
     }

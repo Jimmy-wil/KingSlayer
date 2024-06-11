@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   inventoryItems:
-  - quantity: 16
-    item: {fileID: 11400000, guid: c232338bd123a9045b1debe0ab320edd, type: 2}
-  - quantity: 13
-    item: {fileID: 11400000, guid: 701434fd109a0cd42aa77e6a5f39fcd5, type: 2}
+  - quantity: 2
+    item: {fileID: 11400000, guid: 1b7c0faf5bbaa8a4385ee19df03db5c6, type: 2}
+  - quantity: 2
+    item: {fileID: 11400000, guid: 4b82f29cb48c9f643844d539990998f6, type: 2}
   - quantity: 0
     item: {fileID: 0}
   - quantity: 0

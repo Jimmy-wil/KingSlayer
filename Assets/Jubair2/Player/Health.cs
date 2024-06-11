@@ -52,7 +52,7 @@ public class Health : NetworkBehaviour
     }
 
     [ServerRpc(RequireOwnership=false)]
-    private void DealDamageServerRpc(int amount)
+    public void DealDamageServerRpc(int amount)
     {
         currentHealth -= amount;
     }
@@ -60,5 +60,12 @@ public class Health : NetworkBehaviour
     public float GetHealthPercent(){
         return (float)currentHealth/(float)maxHealth;
     }
+    
+    
+    [ServerRpc(RequireOwnership=false)]
+    public void AddHealthServerRpc(int health)
+   {
+      currentHealth += health;
+  }
 
 }

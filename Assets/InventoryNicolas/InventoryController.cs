@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.Services.Lobbies.Models;
 using UnityEngine;
 
-public class InventoryController : MonoBehaviour
+public class InventoryController : NetworkBehaviour
 {
     [SerializeField] 
     private UIInvetoryPage inventoryUI;
@@ -19,10 +20,14 @@ public class InventoryController : MonoBehaviour
     
     void Start()
     {
+      //inventoryUI =  GameObject.Find("Inventory").GetComponent<UIInvetoryPage>();
+      
         PrepareUI();
         PrepareInventoryData();
         inventoryIsClosed = false;
     }
+    
+    
 
     private void PrepareInventoryData()
     {
@@ -57,7 +62,19 @@ public class InventoryController : MonoBehaviour
 
     private void HandleItemActionRequest(int itemIndex)
     {
-       
+        InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
+        if(inventoryItem.IsEmpty)
+            return;
+        IItemAction itemAction = inventoryItem.item as IItemAction;
+        if (itemAction != null)
+        {
+            itemAction.PerfomAction(gameObject);
+        }
+        IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
+        if (destroyableItem != null)
+        {
+            inventoryData.RemoveItem(itemIndex,1);
+        }
     }
 
     private void HandleDragging(int itemIndex)

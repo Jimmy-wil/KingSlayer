@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,6 +32,8 @@ public class Agent : NetworkBehaviour
         agentAnimations = GetComponentInChildren<AgentAnimation>();
         weaponParent = GetComponentInChildren<WeaponParent>();
         agentMover = GetComponent<AgentMover>();
+        
+      //  Itemworld.SpawnItemworld(new Vector3(0,0), I)
     }
 
     private void AnimateCharacter()

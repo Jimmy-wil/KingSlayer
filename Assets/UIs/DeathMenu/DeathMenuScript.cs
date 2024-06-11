@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class DeathMenuScript : NetworkBehaviour
+public class DeathMenuScript : MonoBehaviour
 {
     public GameObject DeathMenu;
     public GameObject Players;
@@ -17,7 +17,8 @@ public class DeathMenuScript : NetworkBehaviour
 
     private int playerIndex = 0;
 
-    public List<GameObject> PlayerList{
+    public List<GameObject> PlayerList
+    {
         get
         {
             List<GameObject> res = new List<GameObject>();
@@ -38,14 +39,17 @@ public class DeathMenuScript : NetworkBehaviour
     void FixedUpdate()
     {   
         if (!target) return;
+
         Vector3 targetPosition = target.position + offset;
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, targetPosition, ref velocity, smoothTime);
+
     }
 
     public void ShowDeathMenu()
     {
         Debug.Log("Showing Death Menu");
         DeathMenu.SetActive(true);
+
     }
 
     public void SpectateNextPlayer()

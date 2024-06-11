@@ -12,8 +12,6 @@ public class AgentAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-
-
     public void RotateToPointer(Vector2 lookDirection)
     {
         Vector3 scale = transform.localScale;

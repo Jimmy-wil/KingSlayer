@@ -25,8 +25,8 @@ public class PlayerStatsScript : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+
         _playerName.OnValueChanged += OnUsernameChanged;
-        Debug.Log("OnNetworkSpawnInitialized");
 
     }
     private void OnUsernameChanged(FixedString32Bytes _, FixedString32Bytes newUsername)
@@ -46,7 +46,6 @@ public class PlayerStatsScript : NetworkBehaviour
 
         if (IsOwner)
         {
-            Debug.Log("Heya!");
             UserData = GameObject.Find("UserData").GetComponent<UserDataScript>();
             UpdateUsernameServerRpc(UserData.Username);
 

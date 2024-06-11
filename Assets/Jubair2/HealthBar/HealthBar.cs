@@ -18,7 +18,8 @@ public class HealthBar : NetworkBehaviour
 
     }
 
-    private void Setup(Health healthSystem){
+    private void Setup(Health healthSystem)
+    {
         this.healthSystem = healthSystem;
         healthSystem.OnHealthChanged += HealthSystemOnHealthChanged;
     }

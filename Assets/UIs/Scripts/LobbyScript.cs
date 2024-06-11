@@ -22,6 +22,7 @@ public class LobbyScript : NetworkBehaviour
 {
     public NetworkObject PlayerCharacterPrefab;
     public GameObject PlayerSpawnPoints;
+    private NetworkList<int> SpawnPointList;
 
     public Canvas Canvas;
 
@@ -67,19 +68,13 @@ public class LobbyScript : NetworkBehaviour
         // DisplayErrorMessage("Welcome to my game!");
     }
 
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
-
-        SpawnPointList = new NetworkList<int>();
-    }
-
     private async void Awake()
     {
         _transport = FindObjectOfType<UnityTransport>();
 
         await Authenticate();
 
+        SpawnPointList = new NetworkList<int>();
     }
 
     private void Start()
@@ -457,29 +452,25 @@ public class LobbyScript : NetworkBehaviour
         StartGameServerRpc();
 
     }
-
-    private NetworkList<int> SpawnPointList = new NetworkList<int>() { };
     
     [ServerRpc(RequireOwnership = false)]
     private void StartGameServerRpc() 
     {
         NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
-        /*
+        
         SpawnPointList.Clear();
-
-        Debug.Log(SpawnPointList == null);
-
-        Debug.Log(SpawnPointList);
         for (int i = 0; i < _maxPlayersInput.value; i++)
         {
             SpawnPointList.Add(i+1);
         }
         ShuffleList(SpawnPointList);
-        */
+
         StartGameClientRpc();
     }
+
     private void ShuffleList(NetworkList<int> networkList)
     {
+
         for (int i = 0; i < networkList.Count; i++)
         {
             int i1 = UnityEngine.Random.Range(0, networkList.Count-1);
@@ -488,6 +479,7 @@ public class LobbyScript : NetworkBehaviour
             (networkList[i1], networkList[i2]) = (networkList[i2], networkList[i1]);
 
         }
+
     }
     
     [ClientRpc]
@@ -510,12 +502,10 @@ public class LobbyScript : NetworkBehaviour
     {
         var clientId = serverRpcParams.Receive.SenderClientId;
         var PlayerCharacter = NetworkManager.SpawnManager.InstantiateAndSpawn(PlayerCharacterPrefab, clientId);
-        /*
+
         PlayerCharacter.transform.position = PlayerSpawnPoints.transform.GetChild(SpawnPointList[0]).transform.position;
         SpawnPointList.RemoveAt(0);
 
-        // PlayerCharacter.transform.position;
-        */
     }
 
     // ------------------- update lobby display -------------------
@@ -678,6 +668,7 @@ public class LobbyScript : NetworkBehaviour
         try
         {
             await LobbyService.Instance.DeleteLobbyAsync(joinedLobby.Id);
+
             joinedLobby = null;
             hostLobby = null;
 
@@ -727,7 +718,6 @@ public class LobbyScript : NetworkBehaviour
             BackToMainMenu();
         }
     }
-
 
     /*
     private async void OnDestroy()

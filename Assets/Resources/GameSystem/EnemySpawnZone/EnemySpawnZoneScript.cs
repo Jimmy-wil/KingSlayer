@@ -33,6 +33,7 @@ public class EnemySpawnZoneScript : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsServer) return;
         SpawnTimer();
     }
 

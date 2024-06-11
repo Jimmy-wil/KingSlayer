@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using Unity.Services.Authentication;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.GraphicsBuffer;
 
 public class Health : NetworkBehaviour
 {
     [SerializeField]
-    private DeathMenuScript deathMenu;
+    private GameObject deathMenu;
     [SerializeField]
     public int currentHealth, maxHealth;
 
@@ -28,11 +30,12 @@ public class Health : NetworkBehaviour
 
     public event EventHandler OnHealthChanged;
 
+
     public void InitializeHealth(int healthValue)
     {
-        currentHealth=healthValue;
-        maxHealth=healthValue;
-        isDead=false;
+        currentHealth = healthValue;
+        maxHealth = healthValue;
+        isDead = false;
     }
 
 
@@ -50,6 +53,7 @@ public class Health : NetworkBehaviour
     public void GetHit(int amount, GameObject sender)
     {
         if (isDead) return;
+
         // if self to self
         if (sender == this.gameObject)
         {
@@ -58,12 +62,6 @@ public class Health : NetworkBehaviour
 
         // if enemy to enemy
         if (sender.layer == gameObject.layer && sender.layer == LayerMask.NameToLayer("Enemy")) return;
-        
-        if(OnHealthChanged != null) 
-            OnHealthChanged(this, EventArgs.Empty);
-
-
-        DealDamageServerRpc(amount);
 
         if (changeSpriteColorRoutine != null)
         {
@@ -72,42 +70,80 @@ public class Health : NetworkBehaviour
         changeSpriteColorRoutine = StartCoroutine(ChangeSpriteColorRoutine());
 
 
-        if (currentHealth>0)
-        {
-            OnHitWithReference?.Invoke(sender);
-        }
-        else
-        {
-            OnDeathWithReference?.Invoke(sender);
-            isDead=true;
+        // if client to client
+        DealDamageServerRpc(amount, this.gameObject);
+    }
 
-            if(!(this.gameObject.layer == LayerMask.NameToLayer("Enemy")))
+    public void GetHit2(int amount)
+    {
+        if (OnHealthChanged != null)
+            OnHealthChanged(this, EventArgs.Empty);
+
+
+        if (changeSpriteColorRoutine != null)
+        {
+            StopCoroutine(changeSpriteColorRoutine);
+        }
+        changeSpriteColorRoutine = StartCoroutine(ChangeSpriteColorRoutine());
+
+
+        currentHealth -= amount;
+
+        if(currentHealth <= 0)
+        {
+            isDead = true;
+
+            Debug.Log($"IsOwner: {IsOwner}, {this.gameObject.name}");
+
+            if (this.gameObject.layer != LayerMask.NameToLayer("Enemy") && IsOwner)
             {
-                ShowDeathMenuServerRpc(AuthenticationService.Instance.PlayerId);
-                deathMenu.ShowDeathMenu();
+                deathMenu = GameObject.Find("DeathMenu");
+                deathMenu.GetComponent<DeathMenuScript>().ShowDeathMenu();
 
             }
 
             Destroy(gameObject);
+
         }
     }
 
-    [ServerRpc(RequireOwnership=false)]
-    private void ShowDeathMenuServerRpc(string playedId)
+    [ServerRpc(RequireOwnership = false)]
+    public void DealDamageServerRpc(int amount, NetworkObjectReference gameObject)
     {
-        ShowDeathMenuClientRpc(playedId);
-    }
-    [ClientRpc]
-    private void ShowDeathMenuClientRpc(string playedId)
-    {
-        if (AuthenticationService.Instance.PlayerId == playedId)
-            deathMenu.ShowDeathMenu();
+
+        if (gameObject.TryGet(out NetworkObject networkObject))
+        {
+            networkObject.GetComponent<Health>();
+
+            if (networkObject.IsOwnedByServer)
+            {
+                GetHit2(amount);
+                if(!IsHost)
+                    DealDamageClientRpc(amount, gameObject);
+            }
+            else
+            {
+                currentHealth -= amount;
+                DealDamageClientRpc(amount, gameObject);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Couldn't get network object from NetworkObjectReference!");
+        }
+
     }
 
-    [ServerRpc(RequireOwnership=false)]
-    private void DealDamageServerRpc(int amount)
+    [ClientRpc]
+    private void DealDamageClientRpc(int amount, NetworkObjectReference gameObject)
     {
-        currentHealth -= amount;
+        if (IsHost) return;
+
+        if (gameObject.TryGet(out NetworkObject networkObject))
+        {
+            networkObject.GetComponent<Health>().GetHit2(amount);
+        }
+
     }
 
     public float GetHealthPercent(){

@@ -12,10 +12,14 @@ public class InventoryController : NetworkBehaviour
    // [SerializeField] private MouseFollower _mouseFollower;
 
    [SerializeField] private InventorySO inventoryData;
+  // [SerializeField] private InventorySO hotbarData;
+
+  [SerializeField] private HotBarController hotbar;
    
     private bool inventoryIsClosed;
 
     public List<InventoryItem> initialItems = new List<InventoryItem>();
+  //  public List<InventoryItem> initialHotbarItems = new List<InventoryItem>();
 
     
     void Start()
@@ -23,6 +27,7 @@ public class InventoryController : NetworkBehaviour
       //inventoryUI =  GameObject.Find("Inventory").GetComponent<UIInvetoryPage>();
       
         PrepareUI();
+        PrepareHotbar();
         PrepareInventoryData();
         inventoryIsClosed = false;
     }
@@ -31,6 +36,7 @@ public class InventoryController : NetworkBehaviour
 
     private void PrepareInventoryData()
     {
+        
         inventoryData.Initialize();
         inventoryData.OnInventoryUpdated += UpdateInventoryUI;
         foreach (InventoryItem item in initialItems)
@@ -38,9 +44,23 @@ public class InventoryController : NetworkBehaviour
             if (item.IsEmpty)
                 continue;
             inventoryData.AddItem(item);
-            
         }
+        
+        
+        //  hotbarData.Initialize();
+      //  hotbarData.OnInventoryUpdated += UpdateInventoryUI;
+      // foreach (InventoryItem item in initialHotbarItems)// {
+      //      if (item.IsEmpty)
+      //          continue;
+      //      hotbarData.AddItem(item);
+      //  }
+        
     }
+
+   
+    
+    
+    
 
     private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
     {
@@ -58,6 +78,20 @@ public class InventoryController : NetworkBehaviour
         this.inventoryUI.OnSwapItems += HandleSwapItems;
         this.inventoryUI.OnStartDragging += HandleDragging;
         this.inventoryUI.OnItemActionRequested += HandleItemActionRequest;
+    }
+
+    private void PrepareHotbar()
+    {
+        hotbar.InitializeHotbar();
+    }
+
+    private void UpdateHotbarUI(Dictionary<int, InventoryItem> inventoryState)
+    {
+        hotbar.ResetAllHotBarItems();
+        foreach (var item in inventoryState)
+        {
+            hotbar.UpdateDataHotbar(item.Key,item.Value.item.ItemImage, item.Value.quantity);
+        }
     }
 
     private void HandleItemActionRequest(int itemIndex)
@@ -106,6 +140,15 @@ public class InventoryController : NetworkBehaviour
 
     void Update()
     {
+        hotbar.ResetAllHotBarItems();
+        int cpt = 0;
+        foreach (var item in inventoryData.GetCurrentItemState())
+        {
+            if(cpt > 3) break;
+            hotbar.UpdateDataHotbar(item.Key, item.Value.item.ItemImage,item.Value.quantity);
+            cpt++;
+        }
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (inventoryIsClosed)
@@ -116,16 +159,20 @@ public class InventoryController : NetworkBehaviour
                     inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage,item.Value.quantity);
                 }
                 inventoryIsClosed = false;
+               //  hotbar.UpdateDataHotbar(); //temp
+                
             }
             else
             {
                 inventoryUI.Hide();
                 inventoryIsClosed = true;
+              
             }
-            
-           // toggle = !toggle;
+        }
+        // toggle = !toggle;
            // inventoryUI.gameObject.SetActive(toggle);
            // _mouseFollower.gameObject.SetActive(toggle);
-        }
+          
+
     }
 }

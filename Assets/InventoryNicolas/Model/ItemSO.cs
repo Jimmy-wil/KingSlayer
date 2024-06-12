@@ -24,4 +24,19 @@ public abstract class ItemSO : ScriptableObject
     [field: SerializeField]
     public Sprite ItemImage { get; set;  }
     
+    public enum WeaponType
+    {
+        Sword,
+        Axe,
+        MagicSpear,
+       
+    
+    }
+    public enum ConsumableType
+    {
+        HealthPotion,
+        PoisonPotion
+    }
+
 }
+

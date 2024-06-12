@@ -6,15 +6,17 @@ using UnityEngine;
 
 public class UIInvetoryPage : MonoBehaviour
 {
-   [SerializeField] private UIInventoryItem itemPrefab;
+   [SerializeField] public UIInventoryItem itemPrefab;
 
    [SerializeField] private RectTransform contentPanel;
+
+   [SerializeField] private RectTransform hotbarContent;
 
    [SerializeField] private MouseFollower mousefollower;
 
    [SerializeField] private UIInventoryDescription itemDescription;
 
-   
+   //changed form private to public
     List<UIInventoryItem> listOfUIItems = new List<UIInventoryItem>();
 
     private int currentlyDraggedItemIndex = -1;
@@ -25,7 +27,20 @@ public class UIInvetoryPage : MonoBehaviour
     public event Action<int, int> OnSwapItems;
     public void InitializeInventoryUI(int inventorySize)
     {
-        for (int i = 0; i < inventorySize; i++)
+        for (int i = 0; i < 3; i++)
+        {
+            UIInventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
+            uiItem.transform.SetParent(hotbarContent);
+            listOfUIItems.Add(uiItem);
+            uiItem.OnItemClicked += HandleItemSelection;
+            uiItem.OnItemBegindrag += HandleBeginDrag;
+            uiItem.OnItemdroppedOn += HandleSwap;
+            uiItem.OnItemEndDrag += HandleEndDrag;
+            uiItem.OnRightMouseBoutonClick += HandleShowItemActions;
+        }
+        
+        
+        for (int i = 0; i < inventorySize ; i++)
         {
             UIInventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
             uiItem.transform.SetParent(contentPanel);
@@ -37,6 +52,9 @@ public class UIInvetoryPage : MonoBehaviour
             uiItem.OnRightMouseBoutonClick += HandleShowItemActions;
         }
     }
+
+   
+    
 
     public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity)
     {

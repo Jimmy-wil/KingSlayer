@@ -63,7 +63,6 @@ public class EnemySpawnZoneScript : NetworkBehaviour
                 GameObject gameObject = collider.gameObject;
                 if (gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
-                    Debug.Log("Player detected nearby, no longer spawning");
                     return true;
                 }
             }

@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
 public class DeathMenuScript : MonoBehaviour
 {
-    public GameObject DeathMenu;
+    public GameObject Group;
     public GameObject Players;
-    
+
+    public TMP_Text SpectateeText;
+
     [SerializeField]
     private Camera mainCamera;
     private Vector3 offset = new Vector3(0f, 0f, -10f);
@@ -22,17 +26,18 @@ public class DeathMenuScript : MonoBehaviour
         get
         {
             List<GameObject> res = new List<GameObject>();
-            foreach (GameObject gameObject in Players.transform)
+            for (int i = 0; i < Players.transform.childCount; i++)
             {
-                res.Add(gameObject);
+                res.Add(Players.transform.GetChild(i).gameObject);
             }
             return res;
         }
+
     }
 
     void Start()
     {
-        DeathMenu.SetActive(false);
+        Group.SetActive(false);
         mainCamera = Camera.main;
     }
     
@@ -48,21 +53,39 @@ public class DeathMenuScript : MonoBehaviour
     public void ShowDeathMenu()
     {
         Debug.Log("Showing Death Menu");
-        DeathMenu.SetActive(true);
+        Group.SetActive(true);
 
     }
 
     public void SpectateNextPlayer()
     {   
-        playerIndex = (playerIndex + 1) % PlayerList.Count;
-        target = PlayerList[playerIndex].transform;
+        try
+        {
+            playerIndex = (playerIndex + 1) % PlayerList.Count;
+            target = PlayerList[playerIndex].transform;
+
+            SpectateeText.text = PlayerList[playerIndex].name;
+
+        }
+        catch
+        {
+            Debug.LogWarning("Failed to spectate next player");
+        }
     }
 
     public void SpectatePrevPlayer()
-    {   
-        playerIndex = (playerIndex - 1) % PlayerList.Count;
-        target = PlayerList[playerIndex].transform;
-    
+    {
+        try
+        {
+            playerIndex = (playerIndex - 1) % PlayerList.Count;
+            target = PlayerList[playerIndex].transform;
+
+            SpectateeText.text = PlayerList[playerIndex].name;
+        }
+        catch 
+        {
+            Debug.LogWarning("Failed to spectate prev player");
+        }
     }
 
     public void LeaveGame()
@@ -70,8 +93,7 @@ public class DeathMenuScript : MonoBehaviour
         target = null;
         NetworkManager.Singleton.Shutdown();
         // SceneManager.UnloadSceneAsync("Game");
-
-        DeathMenu.SetActive(false);
+        Group.SetActive(false);
         
     }
 

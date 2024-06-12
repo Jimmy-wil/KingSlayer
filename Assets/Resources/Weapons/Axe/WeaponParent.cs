@@ -9,7 +9,7 @@ public class WeaponParent : NetworkBehaviour, WeaponInterface
     public int dmg = 20;
     public Vector2 Pointerposition { get; set; }
 
-    public SpriteRenderer characterRenderer, weaponRenderer;
+    public SpriteRenderer weaponRenderer;
     public float delay = 0.3f;
     private bool attackBlocked;
 
@@ -46,11 +46,11 @@ public class WeaponParent : NetworkBehaviour, WeaponInterface
    
         if(transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
         {
-            weaponRenderer.sortingOrder = characterRenderer.sortingOrder-1;
+            weaponRenderer.sortingOrder = weaponRenderer.sortingOrder-1;
         }
         else
         {
-            weaponRenderer.sortingOrder = characterRenderer.sortingOrder+1;
+            weaponRenderer.sortingOrder = weaponRenderer.sortingOrder+1;
         }
    
     }
@@ -82,10 +82,12 @@ public class WeaponParent : NetworkBehaviour, WeaponInterface
 
     public void DetectColliders()
     {
+        if (!IsOwner) return;
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position,radius))
         {
             Health health = collider.GetComponent<Health>();
-            if(health)
+        
+            if (health && IsOwner)
             {
                 health.GetHit(dmg, transform.parent.gameObject);
             }

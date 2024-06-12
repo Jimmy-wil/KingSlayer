@@ -170,7 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08eccfd6952bf94595f3673d69e405d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterRenderer: {fileID: 5965344032743553127}
 --- !u!95 &7206699105086203264
 Animator:
   serializedVersion: 5
@@ -495,8 +494,8 @@ Transform:
   m_Children:
   - {fileID: 2564961646673907495}
   - {fileID: 8252567898606138645}
-  - {fileID: 456326979581140188}
   - {fileID: 8520017173802533526}
+  - {fileID: 467793777844744017}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &495808774592365554
@@ -694,7 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd0f3c9c2b92ec4ba1b7bc97f791b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathMenu: {fileID: 2032041970897470524, guid: 02daa1fab488db1448ce403ee41df520, type: 3}
+  deathMenu: {fileID: 0}
   currentHealth: 200
   maxHealth: 200
   hitColor: {r: 0.8584906, g: 0.2794144, b: 0.2794144, a: 1}
@@ -847,7 +846,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!1001 &6313784123934601765
+--- !u!1001 &6320745157093343656
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -855,10 +854,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4911413009225203564}
     m_Modifications:
-    - target: {fileID: 4768515095343561793, guid: db829397f82f2334fa8b185e596924b4, type: 3}
-      propertyPath: characterRenderer
-      value: 
-      objectReference: {fileID: 5965344032743553127}
     - target: {fileID: 5703723777971365393, guid: db829397f82f2334fa8b185e596924b4, type: 3}
       propertyPath: m_Name
       value: WeaponParent
@@ -908,8 +903,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db829397f82f2334fa8b185e596924b4, type: 3}
---- !u!4 &456326979581140188 stripped
+--- !u!4 &467793777844744017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5893562426426863353, guid: db829397f82f2334fa8b185e596924b4, type: 3}
-  m_PrefabInstance: {fileID: 6313784123934601765}
+  m_PrefabInstance: {fileID: 6320745157093343656}
   m_PrefabAsset: {fileID: 0}

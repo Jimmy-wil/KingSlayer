@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Agent : NetworkBehaviour
@@ -9,7 +10,7 @@ public class Agent : NetworkBehaviour
     private AgentAnimation agentAnimations;
     private AgentMover agentMover;
 
-   
+    // private UnityEvent onChildAdded;
 
     private Vector2 pointerInput, movementInput;
 
@@ -23,7 +24,15 @@ public class Agent : NetworkBehaviour
 
     public void PerformAttack()
     {
-        weaponParent.Attack();
+        if (weaponParent == null)
+        {
+            Debug.Log("No Weapon parent!");
+        }
+        else
+        {
+            weaponParent.Attack();
+
+        }
     }
 
     private void Awake()
@@ -46,9 +55,30 @@ public class Agent : NetworkBehaviour
         //pointerInput = GetPointerInput();
 
         // movementInput = movement.action.ReadValue<Vector2>().normalized;
+
         if (!IsOwner) return;
+        
         agentMover.MovementInput = movementInput;
-        weaponParent.Pointerposition = pointerInput;
+        if(weaponParent != null)
+        {
+            weaponParent.Pointerposition = pointerInput;
+        }
+        else
+        {
+            /*
+            if (transform.childCount > previousChildCount)
+            {
+                onChildAdded.Invoke();
+                previousChildCount = transform.childCount;
+            }
+            else if (transform.childCount < previousChildCount)
+            {
+                previousChildCount = transform.childCount;
+            }
+            */
+            weaponParent = GetComponentInChildren<WeaponInterface>();
+
+        }
         AnimateCharacter();
 
     }

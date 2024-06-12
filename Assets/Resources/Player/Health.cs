@@ -28,6 +28,23 @@ public class Health : NetworkBehaviour
     [SerializeField]
     private bool isDead = false;
 
+    [ServerRpc(RequireOwnership=false)]
+    public void AddHpServerRpc(int amount)
+    {
+        Debug.Log("Healing1");
+        currentHealth += amount;
+        if(currentHealth > maxHealth) currentHealth = maxHealth;
+        AddHpClientRpc(amount);
+    }
+    [ClientRpc]
+    public void AddHpClientRpc(int amount)
+    {
+        if (IsHost) return;
+        Debug.Log("Healing2");
+        currentHealth += amount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+    }
+
     public event EventHandler OnHealthChanged;
 
 
@@ -57,9 +74,9 @@ public class Health : NetworkBehaviour
         // if self to self
         if (sender == this.gameObject)
         {
+            Debug.Log("Hit yourself");
             return;
         }
-
         // if enemy to enemy
         if (sender.layer == gameObject.layer && sender.layer == LayerMask.NameToLayer("Enemy")) return;
 
@@ -68,7 +85,6 @@ public class Health : NetworkBehaviour
             StopCoroutine(changeSpriteColorRoutine);
         }
         changeSpriteColorRoutine = StartCoroutine(ChangeSpriteColorRoutine());
-
 
         // if client to client
         DealDamageServerRpc(amount, this.gameObject);
@@ -102,15 +118,25 @@ public class Health : NetworkBehaviour
 
             }
 
-            Destroy(gameObject);
+            if (IsOwner)
+            {
+                DestroyObjectServerRpc();
+
+            }
 
         }
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(RequireOwnership=false)]
+    private void DestroyObjectServerRpc()
+    {
+        Destroy(gameObject);
+    }
+
+
+    [ServerRpc(RequireOwnership=false)]
     public void DealDamageServerRpc(int amount, NetworkObjectReference gameObject)
     {
-
         if (gameObject.TryGet(out NetworkObject networkObject))
         {
             networkObject.GetComponent<Health>();
@@ -118,8 +144,7 @@ public class Health : NetworkBehaviour
             if (networkObject.IsOwnedByServer)
             {
                 GetHit2(amount);
-                if(!IsHost)
-                    DealDamageClientRpc(amount, gameObject);
+                DealDamageClientRpc(amount, gameObject);
             }
             else
             {
@@ -138,7 +163,6 @@ public class Health : NetworkBehaviour
     private void DealDamageClientRpc(int amount, NetworkObjectReference gameObject)
     {
         if (IsHost) return;
-
         if (gameObject.TryGet(out NetworkObject networkObject))
         {
             networkObject.GetComponent<Health>().GetHit2(amount);

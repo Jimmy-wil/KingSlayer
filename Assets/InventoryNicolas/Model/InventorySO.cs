@@ -18,7 +18,7 @@ public class InventorySO : ScriptableObject
     public void Initialize()
     {
         inventoryItems = new List<InventoryItem>();
-        for (int i = 0; i < Size +3; i++)
+        for (int i = 0; i < Size + 3; i++)
         {
             inventoryItems.Add(InventoryItem.GetEmptyItem());
         }

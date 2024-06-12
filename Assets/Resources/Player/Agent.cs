@@ -10,8 +10,8 @@ public class Agent : NetworkBehaviour
     private AgentAnimation agentAnimations;
     private AgentMover agentMover;
 
-    // private UnityEvent onChildAdded;
-
+    private int previousChildCount;
+    
     private Vector2 pointerInput, movementInput;
 
     public Vector2 PointerInput { get => pointerInput; set => pointerInput = value; }
@@ -40,6 +40,7 @@ public class Agent : NetworkBehaviour
         agentAnimations = GetComponentInChildren<AgentAnimation>();
         weaponParent = GetComponentInChildren<WeaponInterface>();
         agentMover = GetComponent<AgentMover>();
+
     }
 
     private void AnimateCharacter()
@@ -57,31 +58,30 @@ public class Agent : NetworkBehaviour
         // movementInput = movement.action.ReadValue<Vector2>().normalized;
 
         if (!IsOwner) return;
-        
+
+        PreviousChildCountUpdate();
+
         agentMover.MovementInput = movementInput;
         if(weaponParent != null)
         {
             weaponParent.Pointerposition = pointerInput;
         }
-        else
-        {
-            /*
-            if (transform.childCount > previousChildCount)
-            {
-                onChildAdded.Invoke();
-                previousChildCount = transform.childCount;
-            }
-            else if (transform.childCount < previousChildCount)
-            {
-                previousChildCount = transform.childCount;
-            }
-            */
-            weaponParent = GetComponentInChildren<WeaponInterface>();
-
-        }
         AnimateCharacter();
 
     }
 
-    
+    private void PreviousChildCountUpdate()
+    {
+        if (transform.childCount > previousChildCount)
+        {
+            previousChildCount = transform.childCount;
+            weaponParent = GetComponentInChildren<WeaponInterface>();
+        }
+        else if (transform.childCount < previousChildCount)
+        {
+            previousChildCount = transform.childCount;
+        }
+    }
+
+
 }

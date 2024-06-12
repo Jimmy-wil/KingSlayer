@@ -9,7 +9,7 @@ public class KnockBackFeedBack : MonoBehaviour
     private Rigidbody2D rb2d;
 
     [SerializeField]
-    private float strength =16, delay =0.15f;
+    public float strength =16, delay =0.15f;
 
     public UnityEvent OnBegin, OnDone;
 

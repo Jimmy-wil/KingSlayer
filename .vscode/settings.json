@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "KingSlayer.sln"
+    "dotnet.defaultSolution": "King Slayer.sln"
 }

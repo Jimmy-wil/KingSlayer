@@ -6,6 +6,9 @@ using WebSocketSharp;
 
 public class UsernameMenuScript : MonoBehaviour
 {
+    [SerializeField]
+    private UserDataScript UserData;
+
     public TMP_InputField _usernameInput;
     public GameObject CurrentMenu;
     public GameObject ErrorPanel;
@@ -17,6 +20,7 @@ public class UsernameMenuScript : MonoBehaviour
     public void Start()
     {
         _usernameInput.text = "Player" + Random.Range(1, 99999999).ToString();
+        UserData.Username = _usernameInput.text;
     }
     public void TryConfirm()
     {
@@ -29,6 +33,9 @@ public class UsernameMenuScript : MonoBehaviour
         else
         {
             DisplayUsername.text = _usernameInput.text;
+
+            UserData.Username = _usernameInput.text;
+            
             CurrentMenu.SetActive(false);
             NextMenu.SetActive(true);
             DisplayUsername.gameObject.SetActive(true);

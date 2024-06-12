@@ -16,7 +16,7 @@ MonoBehaviour:
   pfItemWorld: {fileID: 0}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Health Potion
-  <Description>k__BackingField: restores Health
+  <Description>k__BackingField: Restores Health
   <ItemImage>k__BackingField: {fileID: 21300000, guid: 88f87f1908227d64da486c7894c34721, type: 3}
   modifiersData:
   - statModifier: {fileID: 11400000, guid: 200e71f20e3f21b4e9ba0afa962f4cc1, type: 2}

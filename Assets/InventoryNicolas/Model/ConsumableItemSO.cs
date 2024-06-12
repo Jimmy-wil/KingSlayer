@@ -14,7 +14,7 @@ public class ConsumableItemSO : ItemSO, IDestroyableItem, IItemAction
     {
         foreach (ModifierData data in modifiersData)
         {
-            data.statModifier.AffectCharacter(character,data.value);
+            data.statModifier.AffectCharacter(character, data.value);
         }
 
         return true;

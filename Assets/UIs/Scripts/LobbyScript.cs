@@ -20,8 +20,15 @@ using UnityEngine.UI;
 
 public class LobbyScript : NetworkBehaviour
 {
+    public NetworkObject PlayerCharacterPrefab;
+    public GameObject PlayerSpawnPoints;
+    private NetworkList<int> SpawnPointList;
+
+    public Canvas Canvas;
+
     public GameObject MainMenuGUI;
     public GameObject LoadingScreenGUI;
+    public GameObject GameGUI;
 
     public GameObject MessagePanelObject;
     public GameObject MainMenu;
@@ -60,20 +67,27 @@ public class LobbyScript : NetworkBehaviour
 
         // DisplayErrorMessage("Welcome to my game!");
     }
+
     private async void Awake()
     {
         _transport = FindObjectOfType<UnityTransport>();
 
         await Authenticate();
 
+        SpawnPointList = new NetworkList<int>();
     }
+
     private void Start()
     {
-
-        NetworkManager.OnServerStopped += OnServerDisconnected;
+        MainMenuGUI.SetActive(true);
+        LoadingScreenGUI.SetActive(false);
+        GameGUI.SetActive(false);
 
         NetworkManager.OnClientStopped += OnClientDisconnected;
+        NetworkManager.OnServerStopped += OnServerDisconnected;
+
     }
+
     private void Update()
     {
         HandleLobbyHeartbeat(); // send heartbeat to hostLobby
@@ -144,7 +158,7 @@ public class LobbyScript : NetworkBehaviour
         TMP_Text TMPtext = child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
         TMPtext.text = messageContent;
 
-        clone.transform.SetParent(MainMenuGUI.transform, false);
+        clone.transform.SetParent(Canvas.transform, false);
 
         clone.SetActive(true);
     }
@@ -429,23 +443,8 @@ public class LobbyScript : NetworkBehaviour
         {
             Debug.Log("Scene loaded");
             LoadingScreenGUI.gameObject.SetActive(false);
+            GameGUI.gameObject.SetActive(true);
         }
-    }
-
-    [ClientRpc] 
-    private void StartGameClientRpc() 
-    {
-        CurrentLobby.SetActive(false);
-        MainMenuGUI.gameObject.SetActive(false);
-        LoadingScreenGUI.gameObject.SetActive(true);
-        SceneManager.sceneLoaded += OnSceneLoaded; // trigger OnSceneLoaded if sceneLoaded (subscribe)
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void StartGameServerRpc() 
-    {
-        NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
-        StartGameClientRpc();
     }
 
     public void StartGame()
@@ -453,7 +452,61 @@ public class LobbyScript : NetworkBehaviour
         StartGameServerRpc();
 
     }
+    
+    [ServerRpc(RequireOwnership = false)]
+    private void StartGameServerRpc() 
+    {
+        NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        
+        SpawnPointList.Clear();
+        for (int i = 0; i < _maxPlayersInput.value; i++)
+        {
+            SpawnPointList.Add(i+1);
+        }
+        ShuffleList(SpawnPointList);
 
+        StartGameClientRpc();
+    }
+
+    private void ShuffleList(NetworkList<int> networkList)
+    {
+
+        for (int i = 0; i < networkList.Count; i++)
+        {
+            int i1 = UnityEngine.Random.Range(0, networkList.Count-1);
+            int i2 = UnityEngine.Random.Range(0, networkList.Count-1);
+
+            (networkList[i1], networkList[i2]) = (networkList[i2], networkList[i1]);
+
+        }
+
+    }
+    
+    [ClientRpc]
+    private void StartGameClientRpc()
+    {
+        CurrentLobby.SetActive(false);
+        MainMenuGUI.gameObject.SetActive(false);
+        LoadingScreenGUI.gameObject.SetActive(true);
+        
+        SceneManager.sceneLoaded += OnSceneLoaded; // trigger OnSceneLoaded if sceneLoaded (subscribe)
+
+
+
+        SpawnPlayerServerRpc();
+    }
+
+
+    [ServerRpc(RequireOwnership=false)]
+    private void SpawnPlayerServerRpc(ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        var PlayerCharacter = NetworkManager.SpawnManager.InstantiateAndSpawn(PlayerCharacterPrefab, clientId);
+
+        PlayerCharacter.transform.position = PlayerSpawnPoints.transform.GetChild(SpawnPointList[0]).transform.position;
+        SpawnPointList.RemoveAt(0);
+
+    }
 
     // ------------------- update lobby display -------------------
     public async void UpdateLobby()
@@ -504,17 +557,18 @@ public class LobbyScript : NetworkBehaviour
     {
         MainMenu.SetActive(true);
         MainMenuGUI.gameObject.SetActive(true);
+        GameGUI.gameObject.SetActive(false);
     }
 
 
-    public async void LeaveLobby()
+    public async void LeaveLobby()  
     {
         try
         {
             if (joinedLobby.HostId == AuthenticationService.Instance.PlayerId)
             {
                 Debug.Log("Deleting lobby...");
-                StartCoroutine (DeleteLobby());
+                StartCoroutine(DeleteLobby());
             }
             else
             {
@@ -538,7 +592,7 @@ public class LobbyScript : NetworkBehaviour
         try
         {
             await LobbyService.Instance.RemovePlayerAsync(joinedLobby.Id, joinedLobby.Players[i].Id);
-            Debug.Log("You got kicked from " + joinedLobby.Players[0].Data["PlayerName"].Value + "'s lobby!");
+            Debug.Log("You have kicked from your lobby!");
 
         }
         catch (LobbyServiceException e)
@@ -572,6 +626,7 @@ public class LobbyScript : NetworkBehaviour
         }
     }
 
+    // not needed for now
     public async void MigrateLobbyHost()
     {
         try
@@ -613,6 +668,7 @@ public class LobbyScript : NetworkBehaviour
         try
         {
             await LobbyService.Instance.DeleteLobbyAsync(joinedLobby.Id);
+
             joinedLobby = null;
             hostLobby = null;
 
@@ -626,27 +682,41 @@ public class LobbyScript : NetworkBehaviour
     // gets called by event Network.OnServerStopped in Update()
     public void OnServerDisconnected(bool obj)
     {
-        Debug.Log("Server disconnected! Shutting down connection.");
-        NetworkManager.Shutdown();
+        try
+        {
+            Debug.Log("Server disconnected! Shutting down connection.");
 
-        if (SceneManager.GetSceneAt(1).isLoaded)
-            SceneManager.UnloadSceneAsync(1);
+            if (SceneManager.GetSceneAt(1).isLoaded)
+                SceneManager.UnloadSceneAsync(1);
 
-        BackToMainMenu();
+        }
+        catch
+        {
+            BackToMainMenu();
+
+        }
     }
 
     private void OnClientDisconnected(bool obj)
     {
-        Debug.Log("You've got disconnected pal, client gens man...");
-        NetworkManager.Shutdown();
+        try
+        {
+            Debug.Log("You've got disconnected as a client pal, client gens man...");
 
-        hostLobby = null;
-        joinedLobby = null;
+            hostLobby = null;
+            joinedLobby = null;
 
-        if (SceneManager.GetSceneAt(1).isLoaded)
-            SceneManager.UnloadSceneAsync(1);
+            Debug.Log("End of heya");
 
-        BackToMainMenu();
+            if (SceneManager.GetSceneAt(1).isLoaded)
+                SceneManager.UnloadSceneAsync(1);
+
+            BackToMainMenu();
+        }
+        catch
+        {
+            BackToMainMenu();
+        }
     }
 
     /*

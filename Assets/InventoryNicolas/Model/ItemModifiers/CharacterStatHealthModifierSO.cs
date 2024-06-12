@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 [CreateAssetMenu]
 public class CharacterStatHealthModifierSO : CharacterStatModifierSO
@@ -8,7 +9,10 @@ public class CharacterStatHealthModifierSO : CharacterStatModifierSO
     {
         Health health = character.GetComponent<Health>();
         if(health == null) return;
-           health.AddHealthServerRpc((int)val);
+        NetworkObject networkObject = character.GetComponent<NetworkObject>();
+
+        health.AddHpServerRpc((int)val);
+
             
     }
 }

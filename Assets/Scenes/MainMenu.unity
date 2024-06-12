@@ -609,6 +609,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4791990698903667828, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
+      propertyPath: Controller
+      value: 
+      objectReference: {fileID: 2090056937}
+    - target: {fileID: 4791990698903667828, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
       propertyPath: inventoryData
       value: 
       objectReference: {fileID: 2090056932}
@@ -2182,6 +2186,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 2090056932}
   inventoryData: {fileID: 11400000, guid: bba872eb63185d542beef53d27dbfca3, type: 2}
   hotbar: {fileID: 485364195}
+  inventoryIsClosed: 0
   initialItems:
   - quantity: 12
     item: {fileID: 11400000, guid: 1b7c0faf5bbaa8a4385ee19df03db5c6, type: 2}

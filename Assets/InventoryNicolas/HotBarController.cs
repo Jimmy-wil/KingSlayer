@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HotBarController : MonoBehaviour
 {
- //[SerializeField] public InventoryController Controller;
+ [SerializeField] public InventoryController Controller;
 
     [SerializeField] public UIInvetoryPage inventoryData;
+
+    [SerializeField] private GameObject player;
 
     [SerializeField] public RectTransform hotbarUI;
 
@@ -15,14 +19,20 @@ public class HotBarController : MonoBehaviour
 
    // private bool Itemselected = false;
 
+   public InventoryItem SelectedItem;
+   public InventoryItem selectedItem;
+   
+   
     private void Update()
     {
+        // faire 3 cas pour eviter le indexOutofrange => 1 item, 2 item et 3 item !!!!!!
        
         if (Input.GetKeyDown("1"))
         {
            DeselectAll();
            listOfUIItemsHotbar[0].Select();
-            Debug.Log("1");
+           SelectedItem = Controller.initialItems[0];
+           Debug.Log("1");
         }
 
         if (Input.GetKeyDown("2"))
@@ -30,6 +40,7 @@ public class HotBarController : MonoBehaviour
             DeselectAll(); 
            listOfUIItemsHotbar[1].Select();
             Debug.Log("2");
+            SelectedItem = Controller.initialItems[1];
         }
 
         if (Input.GetKeyDown("3"))
@@ -37,6 +48,13 @@ public class HotBarController : MonoBehaviour
             DeselectAll();
             listOfUIItemsHotbar[2].Select();
             Debug.Log("3");
+            SelectedItem = Controller.initialItems[2];
+        }
+
+        if (Controller.inventoryIsClosed && Input.GetKeyDown(KeyCode.Space))
+        {
+            ItemAction();
+            Debug.Log("Is perfoming Action");
         }
     }
 
@@ -75,5 +93,28 @@ public class HotBarController : MonoBehaviour
         {
             item.Deselect();
         }
+    }
+
+    public void ItemAction()
+    {
+        player = GameObject.Find(Controller.UserData.Username);
+        if (player != null)
+        {
+            Debug.LogWarning("Player Not found");
+            return;
+        }
+        
+
+        if (SelectedItem.item is ConsumableItemSO  consumable)
+        {
+            consumable.PerfomAction(player);
+        }
+
+        if (SelectedItem.item is WeaponItemSO weapon && weapon.type is ItemSO.WeaponType.Axe)
+        {
+            weapon.PerformAction(player);
+        }
+        
+        player = null;
     }
 }

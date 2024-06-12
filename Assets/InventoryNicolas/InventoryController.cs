@@ -8,22 +8,22 @@ using UnityEngine;
 public class InventoryController : NetworkBehaviour
 {
     [SerializeField]
-    private UserDataScript UserData;
+    public UserDataScript UserData;
 
     [SerializeField]
-    private GameObject player;
+    public GameObject player;
 
     [SerializeField]
     private UIInvetoryPage inventoryUI;
 
     // [SerializeField] private MouseFollower _mouseFollower;
 
-    [SerializeField] private InventorySO inventoryData;
+    [SerializeField] public InventorySO inventoryData;
 
     [SerializeField]
     private HotBarController hotbar;
 
-    private bool inventoryIsClosed;
+    public bool inventoryIsClosed;
 
     public List<InventoryItem> initialItems = new List<InventoryItem>();
 
@@ -80,6 +80,10 @@ public class InventoryController : NetworkBehaviour
         this.inventoryUI.OnStartDragging += HandleDragging;
         this.inventoryUI.OnItemActionRequested += HandleItemActionRequest;
     }
+
+   
+      
+   
 
     private void HandleItemActionRequest(int itemIndex)
     {

@@ -13,13 +13,16 @@ public class InventoryController : NetworkBehaviour
     [SerializeField]
     private GameObject player;
 
-    [SerializeField] 
+    [SerializeField]
     private UIInvetoryPage inventoryUI;
 
     // [SerializeField] private MouseFollower _mouseFollower;
 
-   [SerializeField] private InventorySO inventoryData;
-   
+    [SerializeField] private InventorySO inventoryData;
+
+    [SerializeField]
+    private HotBarController hotbar;
+
     private bool inventoryIsClosed;
 
     public List<InventoryItem> initialItems = new List<InventoryItem>();
@@ -27,8 +30,10 @@ public class InventoryController : NetworkBehaviour
     void Start()
     {
         PrepareUI();
+        PrepareHotbar();
         PrepareInventoryData();
         inventoryIsClosed = false;
+
     }
 
     private void PrepareInventoryData()
@@ -40,7 +45,21 @@ public class InventoryController : NetworkBehaviour
             if (item.IsEmpty)
                 continue;
             inventoryData.AddItem(item);
-            
+
+        }
+    }
+
+    private void PrepareHotbar()
+    {
+        hotbar.InitializeHotbar();
+    }
+
+    private void UpdateHotbarUI(Dictionary<int, InventoryItem> inventoryState)
+    {
+        hotbar.ResetAllHotBarItems();
+        foreach (var item in inventoryState)
+        {
+            hotbar.UpdateDataHotbar(item.Key, item.Value.item.ItemImage, item.Value.quantity);
         }
     }
 
@@ -49,7 +68,7 @@ public class InventoryController : NetworkBehaviour
         inventoryUI.ResetAllItems();
         foreach (var item in inventoryState)
         {
-            inventoryUI.UpdateData(item.Key,item.Value.item.ItemImage, item.Value.quantity);
+            inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
         }
     }
 
@@ -65,7 +84,7 @@ public class InventoryController : NetworkBehaviour
     private void HandleItemActionRequest(int itemIndex)
     {
         InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
-        if(inventoryItem.IsEmpty)
+        if (inventoryItem.IsEmpty)
             return;
         IItemAction itemAction = inventoryItem.item as IItemAction;
         if (itemAction != null)
@@ -82,14 +101,14 @@ public class InventoryController : NetworkBehaviour
         IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
         if (destroyableItem != null)
         {
-            inventoryData.RemoveItem(itemIndex,1);
+            inventoryData.RemoveItem(itemIndex, 1);
         }
     }
 
     private void HandleDragging(int itemIndex)
     {
         InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
-        if(inventoryItem.IsEmpty)
+        if (inventoryItem.IsEmpty)
             return;
         inventoryUI.CreateDraggedItem(inventoryItem.item.ItemImage, inventoryItem.quantity);
     }
@@ -107,7 +126,7 @@ public class InventoryController : NetworkBehaviour
             inventoryUI.ResetSelection();
             return;
         }
-           
+
         ItemSO item = inventoryItem.item;
         inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.name, item.Description);
     }
@@ -115,6 +134,15 @@ public class InventoryController : NetworkBehaviour
 
     void Update()
     {
+        hotbar.ResetAllHotBarItems();
+        int cpt = 0;
+        foreach (var item in inventoryData.GetCurrentItemState())
+        {
+            if (cpt > 3) break;
+            hotbar.UpdateDataHotbar(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+            cpt++;
+        }
+
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (inventoryIsClosed)
@@ -122,19 +150,18 @@ public class InventoryController : NetworkBehaviour
                 inventoryUI.Show();
                 foreach (var item in inventoryData.GetCurrentItemState())
                 {
-                    inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage,item.Value.quantity);
+                    inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
                 }
                 inventoryIsClosed = false;
+                //  hotbar.UpdateDataHotbar(); //temp
+
             }
             else
             {
                 inventoryUI.Hide();
                 inventoryIsClosed = true;
+
             }
-            
-           // toggle = !toggle;
-           // inventoryUI.gameObject.SetActive(toggle);
-           // _mouseFollower.gameObject.SetActive(toggle);
         }
     }
 }

@@ -10,8 +10,8 @@ using UnityEngine.EventSystems;
 public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
     // Start is called before the first frame update
-    [SerializeField] private Image itemImage;
-    [SerializeField] private TMP_Text quantityTxt;
+    [SerializeField] public Image itemImage;
+    [SerializeField] public TMP_Text quantityTxt;
     [SerializeField] private Image borderImage;
 
     public event Action<UIInventoryItem> OnItemClicked, OnItemdroppedOn, OnItemBegindrag, OnItemEndDrag, OnRightMouseBoutonClick;

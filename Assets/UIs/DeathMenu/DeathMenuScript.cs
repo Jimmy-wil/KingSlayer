@@ -75,4 +75,37 @@ public class DeathMenuScript : MonoBehaviour
         
     }
 
+
+
+    public void RespawnAsGhost()
+    {
+        Debug.Log("Respawning as Ghost");
+        DeathMenu.SetActive(false);
+        
+        GameObject player = PlayerList[0]; 
+
+        Renderer[] renderers = player.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = false;
+        }
+
+        Collider[] colliders = player.GetComponentsInChildren<Collider>();
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = false;
+        }
+
+        MonoBehaviour[] scripts = player.GetComponentsInChildren<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            if (script != this) 
+            {
+                script.enabled = false;
+            }
+        }
+
+        target = player.transform;
+    }
+
 }

@@ -99,6 +99,8 @@ public class InventoryController : NetworkBehaviour
                 Debug.Log("Performing action");
                 itemAction.PerfomAction(player);
                 player = null;
+                
+                
 
             }
         }

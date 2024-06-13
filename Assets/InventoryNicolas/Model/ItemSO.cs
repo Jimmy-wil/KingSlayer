@@ -8,7 +8,7 @@ public abstract class ItemSO : ScriptableObject
     [field: SerializeField]
     public bool IsStackable { get; set; }
     public int ID => GetInstanceID();
-    public Transform pfItemWorld;
+   
    
     
     [field: SerializeField] 
@@ -36,6 +36,15 @@ public abstract class ItemSO : ScriptableObject
     {
         HealthPotion,
         PoisonPotion
+    }
+    
+    public enum CraftableItemType
+    {
+        EmptyPotion,
+        SpeedFlower,
+        CoagulatedBlood,
+        StrengthFlower,
+        
     }
 
 }

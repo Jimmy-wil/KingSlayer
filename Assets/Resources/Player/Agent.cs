@@ -72,7 +72,7 @@ public class Agent : NetworkBehaviour
 
     private void PreviousChildCountUpdate()
     {
-        if (transform.childCount > previousChildCount)
+        if (transform.childCount != previousChildCount)
         {
             previousChildCount = transform.childCount;
             weaponParent = GetComponentInChildren<WeaponInterface>();

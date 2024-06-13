@@ -7,7 +7,9 @@ using UnityEngine;
 
 public class HotBarController : MonoBehaviour
 {
- [SerializeField] public InventoryController Controller;
+    [SerializeField] private GameObjectDictionary GameObjectDictionary;
+
+    [SerializeField] public InventoryController Controller;
 
     [SerializeField] public UIInvetoryPage inventoryData;
 
@@ -19,9 +21,7 @@ public class HotBarController : MonoBehaviour
 
    // private bool Itemselected = false;
 
-   public InventoryItem SelectedItem;
-   public InventoryItem selectedItem;
-   
+    public InventoryItem SelectedItem;
    
     private void Update()
     {
@@ -29,35 +29,67 @@ public class HotBarController : MonoBehaviour
        
         if (Input.GetKeyDown("1"))
         {
+           DestroyCurrentWeapon();
            DeselectAll();
+
            listOfUIItemsHotbar[0].Select();
            SelectedItem = Controller.initialItems[0];
-           Debug.Log("1");
+           
+           ItemAction();
+
         }
 
         if (Input.GetKeyDown("2"))
         {
+            DestroyCurrentWeapon();
             DeselectAll(); 
-           listOfUIItemsHotbar[1].Select();
+
+            listOfUIItemsHotbar[1].Select();
             Debug.Log("2");
             SelectedItem = Controller.initialItems[1];
+
+            ItemAction();
         }
 
         if (Input.GetKeyDown("3"))
         {
+            DestroyCurrentWeapon();
             DeselectAll();
+
             listOfUIItemsHotbar[2].Select();
             Debug.Log("3");
             SelectedItem = Controller.initialItems[2];
+
+            ItemAction();
         }
 
-        if (Controller.inventoryIsClosed && Input.GetKeyDown(KeyCode.Space))
-        {
-            ItemAction();
-            Debug.Log("Is perfoming Action");
-        }
     }
 
+    private void DestroyCurrentWeapon()
+    {
+        player = GameObject.Find(Controller.UserData.Username);
+        if (player == null)
+        {
+            Debug.LogWarning("Player Not found");
+            return;
+        }
+
+        if(player.transform.childCount > 3)
+        {
+            GameObject ToDestroy = player.transform.GetChild(3).gameObject;
+            if (ToDestroy != null)
+            {
+                Destroy(ToDestroy);
+
+            }
+        }
+
+        else
+        {
+            Debug.Log("No 4th gameobject in player, nothing to destroy");
+        }
+
+    }
 
     public void InitializeHotbar()
     {
@@ -65,7 +97,7 @@ public class HotBarController : MonoBehaviour
         {   
             UIInventoryItem uiItem = Instantiate(inventoryData.itemPrefab, Vector3.zero, Quaternion.identity);
             uiItem.transform.SetParent(hotbarUI);
-             listOfUIItemsHotbar.Add(uiItem);
+            listOfUIItemsHotbar.Add(uiItem);
            
         }
     }
@@ -98,21 +130,37 @@ public class HotBarController : MonoBehaviour
     public void ItemAction()
     {
         player = GameObject.Find(Controller.UserData.Username);
-        if (player != null)
+        if (player == null)
         {
             Debug.LogWarning("Player Not found");
             return;
         }
         
 
-        if (SelectedItem.item is ConsumableItemSO  consumable)
+        if (SelectedItem.item is ConsumableItemSO consumable)
         {
             consumable.PerfomAction(player);
         }
 
-        if (SelectedItem.item is WeaponItemSO weapon && weapon.type is ItemSO.WeaponType.Axe)
+        if (SelectedItem.item is WeaponItemSO weapon)
         {
-            weapon.PerformAction(player);
+            // weapon.PerformAction(player);
+
+            if(GameObjectDictionary.ItemDictionary.TryGetValue(weapon.key, out GameObject weaponToEquip))
+            {
+                GameObject gameObject = Instantiate(weaponToEquip);
+
+                gameObject.GetComponent<NetworkObject>().Spawn();
+
+                gameObject.transform.SetParent(player.transform);
+                
+                gameObject.transform.position = player.transform.position;
+            }
+            else
+            {
+                Debug.LogWarning("Unable to get weapon from the dictionary!");
+            }
+
         }
         
         player = null;

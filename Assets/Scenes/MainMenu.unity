@@ -616,6 +616,10 @@ PrefabInstance:
       propertyPath: inventoryData
       value: 
       objectReference: {fileID: 2090056932}
+    - target: {fileID: 4791990698903667828, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
+      propertyPath: GameObjectDictionary
+      value: 
+      objectReference: {fileID: 765113401}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -885,6 +889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 765113398}
   - component: {fileID: 765113399}
+  - component: {fileID: 765113401}
   - component: {fileID: 765113400}
   m_Layer: 0
   m_Name: UserData
@@ -943,6 +948,21 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &765113401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765113397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4efac2b7aaac140bc9147c2322d56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 5703723777971365393, guid: db829397f82f2334fa8b185e596924b4, type: 3}
+  - {fileID: 5703723777971365393, guid: a0ffed5944bef764f9080d7d5f110609, type: 3}
 --- !u!1 &833345711 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6982112879533891976, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
@@ -2109,7 +2129,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6166243276007772430, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2090056938}
+      addedObject: {fileID: 2090056944}
     - targetCorrespondingSourceObject: {fileID: 6166243276007772430, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2090056937}
@@ -2190,9 +2210,11 @@ MonoBehaviour:
   initialItems:
   - quantity: 12
     item: {fileID: 11400000, guid: 1b7c0faf5bbaa8a4385ee19df03db5c6, type: 2}
-  - quantity: 12
-    item: {fileID: 11400000, guid: 4b82f29cb48c9f643844d539990998f6, type: 2}
---- !u!114 &2090056938
+  - quantity: 1
+    item: {fileID: 11400000, guid: 7d7dced87db7c53448a28ba171f683d9, type: 2}
+  - quantity: 1
+    item: {fileID: 11400000, guid: b090e69b77cda394fb5cbba9d6de437d, type: 2}
+--- !u!114 &2090056944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2204,7 +2226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1524072416
+  GlobalObjectIdHash: 1911859958
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5893562426426863353}
+  - component: {fileID: -730359012498548710}
   - component: {fileID: 6047678186590198827}
   - component: {fileID: 4768515095343561793}
   m_Layer: 6
-  m_Name: WeaponParent
+  m_Name: Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,6 +35,27 @@ Transform:
   - {fileID: 2265539814562808451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -359.22}
+--- !u!114 &-730359012498548710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703723777971365393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3630110281
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &6047678186590198827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 20
-  characterRenderer: {fileID: 0}
   weaponRenderer: {fileID: 603381060457865806}
   delay: 0.5
   circleOrigin: {fileID: 4700319705775636447}
@@ -242,7 +263,7 @@ MonoBehaviour:
   TransitionStateInfoList:
   - IsCrossFadeExit: 0
     Layer: 0
-    OriginatingState: 1720855248
+    OriginatingState: -492318147
     DestinationState: -917812759
     TransitionDuration: 0
     TriggerNameHash: 1080829965

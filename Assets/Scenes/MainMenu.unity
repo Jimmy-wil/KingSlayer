@@ -520,6 +520,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 454409841}
     m_Modifications:
+    - target: {fileID: 779350135536947691, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 779350135536947691, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fc79582e72ef00f4c96e106cf3893a64, type: 3}
     - target: {fileID: 2124146125097662737, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -604,10 +612,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hotbar
       objectReference: {fileID: 0}
-    - target: {fileID: 2967818749556845026, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4791990698903667828, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
       propertyPath: Controller
       value: 
@@ -616,6 +620,18 @@ PrefabInstance:
       propertyPath: inventoryData
       value: 
       objectReference: {fileID: 2090056932}
+    - target: {fileID: 5054383292804757269, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
+      propertyPath: m_Spacing.x
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5054383292804757269, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5054383292804757269, guid: 89e448997f9a7cc478bbb824cc3be3c1, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 53
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1977,6 +1993,10 @@ PrefabInstance:
     - target: {fileID: 6166243276007772430, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
       propertyPath: m_Name
       value: InventoryMenuUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166243276007772430, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6527650607177189583, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
       propertyPath: m_IsActive

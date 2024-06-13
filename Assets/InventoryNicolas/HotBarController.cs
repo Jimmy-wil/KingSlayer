@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class HotBarController : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class HotBarController : MonoBehaviour
 
     [SerializeField] public RectTransform hotbarUI;
 
+    [SerializeField] private SpawnWeaponHandlerScript spawnWeaponHandlerScript;
+
     public List<UIInventoryItem> listOfUIItemsHotbar = new List<UIInventoryItem>();
 
    // private bool Itemselected = false;
@@ -26,70 +29,67 @@ public class HotBarController : MonoBehaviour
     private void Update()
     {
         // faire 3 cas pour eviter le indexOutofrange => 1 item, 2 item et 3 item !!!!!!
-       
+
         if (Input.GetKeyDown("1"))
         {
-           DestroyCurrentWeapon();
-           DeselectAll();
+            GettingPlayerAndCall();
 
-           listOfUIItemsHotbar[0].Select();
-           SelectedItem = Controller.initialItems[0];
-           
-           ItemAction();
+            DeselectAll();
+            
+            Debug.Log("1");
+
+            listOfUIItemsHotbar[0].Select();
+            SelectedItem = Controller.initialItems[0];
+            
+            ItemAction();
 
         }
 
         if (Input.GetKeyDown("2"))
         {
-            DestroyCurrentWeapon();
-            DeselectAll(); 
+            GettingPlayerAndCall();
+            
+            DeselectAll();
+
+            Debug.Log("2");
 
             listOfUIItemsHotbar[1].Select();
-            Debug.Log("2");
             SelectedItem = Controller.initialItems[1];
 
             ItemAction();
+
         }
 
         if (Input.GetKeyDown("3"))
         {
-            DestroyCurrentWeapon();
+            GettingPlayerAndCall();
+            
             DeselectAll();
 
-            listOfUIItemsHotbar[2].Select();
             Debug.Log("3");
+
+            listOfUIItemsHotbar[2].Select();
             SelectedItem = Controller.initialItems[2];
 
             ItemAction();
+
         }
 
     }
 
-    private void DestroyCurrentWeapon()
+    private void GettingPlayerAndCall()
     {
+        Debug.Log("GettingPlayerAndCall");
         player = GameObject.Find(Controller.UserData.Username);
         if (player == null)
         {
             Debug.LogWarning("Player Not found");
             return;
         }
-
-        if(player.transform.childCount > 3)
-        {
-            GameObject ToDestroy = player.transform.GetChild(3).gameObject;
-            if (ToDestroy != null)
-            {
-                Destroy(ToDestroy);
-
-            }
-        }
-
-        else
-        {
-            Debug.Log("No 4th gameobject in player, nothing to destroy");
-        }
-
+        spawnWeaponHandlerScript.DestroyCurrentWeapon(player.GetComponent<NetworkObject>());
+        player = null;
     }
+
 
     public void InitializeHotbar()
     {
@@ -104,7 +104,7 @@ public class HotBarController : MonoBehaviour
 
     public void UpdateDataHotbar(int itemIndex, Sprite itemImage, int itemQuantity)
     {
-        if (listOfUIItemsHotbar.Count> itemIndex)
+        if (listOfUIItemsHotbar.Count > itemIndex)
         {
             listOfUIItemsHotbar[itemIndex].SetData(itemImage, itemQuantity);
         }
@@ -121,6 +121,7 @@ public class HotBarController : MonoBehaviour
 
     public void DeselectAll()
     {
+        Debug.Log("Deselecting all");
         foreach (var item in listOfUIItemsHotbar)
         {
             item.Deselect();
@@ -136,7 +137,6 @@ public class HotBarController : MonoBehaviour
             return;
         }
         
-
         if (SelectedItem.item is ConsumableItemSO consumable)
         {
             consumable.PerfomAction(player);
@@ -145,24 +145,11 @@ public class HotBarController : MonoBehaviour
         if (SelectedItem.item is WeaponItemSO weapon)
         {
             // weapon.PerformAction(player);
-
-            if(GameObjectDictionary.ItemDictionary.TryGetValue(weapon.key, out GameObject weaponToEquip))
-            {
-                GameObject gameObject = Instantiate(weaponToEquip);
-
-                gameObject.GetComponent<NetworkObject>().Spawn();
-
-                gameObject.transform.SetParent(player.transform);
-                
-                gameObject.transform.position = player.transform.position;
-            }
-            else
-            {
-                Debug.LogWarning("Unable to get weapon from the dictionary!");
-            }
+            spawnWeaponHandlerScript.SpawnWeapon(weapon.key, player.GetComponent<NetworkObject>());
 
         }
-        
+
         player = null;
     }
+
 }

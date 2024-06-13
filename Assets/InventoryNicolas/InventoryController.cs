@@ -5,7 +5,7 @@ using Unity.Netcode;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 
-public class InventoryController : NetworkBehaviour
+public class InventoryController : MonoBehaviour
 {
     [SerializeField]
     public UserDataScript UserData;
@@ -81,9 +81,6 @@ public class InventoryController : NetworkBehaviour
         this.inventoryUI.OnItemActionRequested += HandleItemActionRequest;
     }
 
-   
-      
-   
 
     private void HandleItemActionRequest(int itemIndex)
     {

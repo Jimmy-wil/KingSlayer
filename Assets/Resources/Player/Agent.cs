@@ -17,6 +17,7 @@ public class Agent : NetworkBehaviour
     public Vector2 PointerInput { get => pointerInput; set => pointerInput = value; }
     public Vector2 MovementInput { get => movementInput; set => movementInput = value; }
 
+    [SerializeField]
     private WeaponInterface weaponParent;
 
   
@@ -24,6 +25,8 @@ public class Agent : NetworkBehaviour
 
     public void PerformAttack()
     {
+        // agentAnimations = GetComponentInChildren<AgentAnimation>();
+        // weaponParent = GetComponentInChildren<WeaponInterface>();
         if (weaponParent == null)
         {
             Debug.Log("No Weapon parent!");
@@ -59,8 +62,14 @@ public class Agent : NetworkBehaviour
 
         if (!IsOwner) return;
 
-        PreviousChildCountUpdate();
-
+        // PreviousChildCountUpdate();
+        
+        agentAnimations = GetComponentInChildren<AgentAnimation>();
+        weaponParent = GetComponentInChildren<WeaponInterface>();
+        if(weaponParent != null)
+        {
+            this.transform.GetChild(3).position = this.transform.position;
+        }
         agentMover.MovementInput = movementInput;
         if(weaponParent != null)
         {
@@ -75,11 +84,9 @@ public class Agent : NetworkBehaviour
         if (transform.childCount != previousChildCount)
         {
             previousChildCount = transform.childCount;
+            agentAnimations = GetComponentInChildren<AgentAnimation>();
             weaponParent = GetComponentInChildren<WeaponInterface>();
-        }
-        else if (transform.childCount < previousChildCount)
-        {
-            previousChildCount = transform.childCount;
+            
         }
     }
 

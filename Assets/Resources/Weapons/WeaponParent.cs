@@ -26,8 +26,8 @@ public class WeaponParent : NetworkBehaviour, WeaponInterface
     public Animator animator;
     private void Update()
     {
-        if(!IsOwner) return;
-        if(IsAttacking) return;
+        if (!IsOwner) return;
+        if (IsAttacking) return;
 
         Vector2 direction = (Pointerposition - (Vector2)transform.position).normalized;
 
@@ -46,25 +46,31 @@ public class WeaponParent : NetworkBehaviour, WeaponInterface
    
         if(transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
         {
-            weaponRenderer.sortingOrder = weaponRenderer.sortingOrder-1;
+            weaponRenderer.sortingOrder = LayerMask.NameToLayer("Player") - 1;
         }
         else
         {
-            weaponRenderer.sortingOrder = weaponRenderer.sortingOrder+1;
+            weaponRenderer.sortingOrder = LayerMask.NameToLayer("Player") + 1;
         }
    
     }
 
     public void Attack()
     {
+
         if (attackBlocked) return;
 
+        animator = GetComponentInChildren<Animator>();
+        
         animator.SetTrigger("Attack");
+
+
         
         IsAttacking=true;
         attackBlocked=true;
 
         StartCoroutine(DelayAttack());
+
     }
 
     private IEnumerator DelayAttack()
@@ -93,4 +99,5 @@ public class WeaponParent : NetworkBehaviour, WeaponInterface
             }
         }
     }
+
 }

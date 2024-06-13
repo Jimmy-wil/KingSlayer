@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5893562426426863353}
+  - component: {fileID: -1119145128694865295}
   - component: {fileID: 6047678186590198827}
   - component: {fileID: 4768515095343561793}
   m_Layer: 6
@@ -34,6 +35,27 @@ Transform:
   - {fileID: 2265539814562808451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -359.22}
+--- !u!114 &-1119145128694865295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703723777971365393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1208880780
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 1
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &6047678186590198827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 20
-  characterRenderer: {fileID: 0}
   weaponRenderer: {fileID: 603381060457865806}
   delay: 0.5
   circleOrigin: {fileID: 4700319705775636447}
@@ -115,14 +136,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6623859258972756377}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.69341856, y: 0.72043926, z: 0.008541111, w: 0.008073468}
+  m_LocalRotation: {x: 0.22696169, y: 0.9738328, z: -0.002124117, w: 0.011559484}
   m_LocalPosition: {x: 0.694, y: 0.189, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4700319705775636447}
   m_Father: {fileID: 5893562426426863353}
-  m_LocalEulerAnglesHint: {x: -1.347, y: 180.012, z: -87.81}
+  m_LocalEulerAnglesHint: {x: 0.538, y: 178.765, z: 26.233}
 --- !u!212 &603381060457865806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -164,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 1429658294, guid: 006dc96bf587f0443af484e2177a7fb8, type: 3}
+  m_Sprite: {fileID: -399536262, guid: ad39a67abc3026648a27cab78c0c2c22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -216,7 +237,7 @@ Animator:
   m_GameObject: {fileID: 6623859258972756377}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2484df45351da7c43ad7b03627250a9e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 575e810fcd273144295fd4f397721e1a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -242,9 +263,9 @@ MonoBehaviour:
   TransitionStateInfoList:
   - IsCrossFadeExit: 0
     Layer: 0
-    OriginatingState: 1720855248
-    DestinationState: -917812759
-    TransitionDuration: 0
+    OriginatingState: 2085850745
+    DestinationState: -1544569874
+    TransitionDuration: 0.25
     TriggerNameHash: 1080829965
     TransitionIndex: 0
   m_Animator: {fileID: 5382795692134897230}

@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e97fb8c67635cb94b9ff83b09bdf1424, type: 3}
-  m_Name: MagicWandItemSo
+  m_Name: PurpleWandItemSO
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   pfItemWorld: {fileID: 0}
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: Magic Wand
-  <Description>k__BackingField: A magic powered wand used to cast "Purple Spells".
+  <Name>k__BackingField: Purple Wand
+  <Description>k__BackingField: An alternative version of the Magic Powered Wand.
+    Instead casting "Purple Magic", it uses "Crystal Magic" through transmutation
+    in order to pierce through any material.
   <ItemImage>k__BackingField: {fileID: 1296281824, guid: 8213da3405ccb8d46b0150052b10bedd, type: 3}
   type: 0
-  weaponDmg: 6
+  weaponDmg: 12
   range: 1
-  key: 1
+  key: 2

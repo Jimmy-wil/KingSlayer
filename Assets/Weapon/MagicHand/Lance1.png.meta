@@ -1,0 +1,465 @@
+fileFormatVersion: 2
+guid: ad39a67abc3026648a27cab78c0c2c22
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Lance1_2
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 928
+        width: 52
+        height: 340
+      alignment: 9
+      pivot: {x: 0.564371, y: 0.08158049}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4421420285e64de4ca2a6520d6e89517
+      internalID: -8364995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_3
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 1016
+        width: 64
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ccb79bc925cf3a48b27be04f45c8cbc
+      internalID: -704406586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_5
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 1157
+        width: 65
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186af77ca3f597d4db30e7f4a27b4eed
+      internalID: 1785374036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_31
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 612
+        width: 76
+        height: 327
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff528f320b9e6c94f88214ab2bd80b3f
+      internalID: -399536262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_32
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 612
+        width: 78
+        height: 327
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a4edf406f50a549ac6039547c7d0ba
+      internalID: -2105518826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_35
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 607
+        width: 97
+        height: 374
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8911e5a44ed3c9459f6483f210a21bb
+      internalID: -1714107749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_37
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 612
+        width: 89
+        height: 378
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2480fc49e27f64484571e0041c2114
+      internalID: -1767703724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_38
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 607
+        width: 86
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48374072923939343a8f64fa263eb237
+      internalID: 837407344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_39
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 607
+        width: 76
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c029c546feee342abaf82b72a69f5d
+      internalID: -1039005819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_40
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 607
+        width: 85
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 676eef83bbb824b46a13aa8eb1594a21
+      internalID: -1298652960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_42
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 605
+        width: 76
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d293f95edb4f6749a7438bacf27c138
+      internalID: -667060797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lance1_48
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 603
+        width: 103
+        height: 377
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce9b22e0aa3bfb4cacd614e6c38fd25
+      internalID: -1260381926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Lance1_0: 1879265376
+      Lance1_1: 41627719
+      Lance1_10: -450259241
+      Lance1_11: 34307370
+      Lance1_12: 1872879224
+      Lance1_13: 166261377
+      Lance1_14: 231843118
+      Lance1_15: -1679264755
+      Lance1_16: 1435261819
+      Lance1_17: -13486298
+      Lance1_18: -75630366
+      Lance1_19: 182215736
+      Lance1_2: -8364995
+      Lance1_20: 723339174
+      Lance1_21: -1583019579
+      Lance1_22: 1972720939
+      Lance1_23: 1434364696
+      Lance1_24: 522126893
+      Lance1_25: 624142442
+      Lance1_26: 894971494
+      Lance1_27: -418370713
+      Lance1_28: 224636708
+      Lance1_29: 4708077
+      Lance1_3: -704406586
+      Lance1_30: -317153657
+      Lance1_31: -399536262
+      Lance1_32: -2105518826
+      Lance1_33: -1006882091
+      Lance1_34: -551382099
+      Lance1_35: -1714107749
+      Lance1_36: 2086774416
+      Lance1_37: -1767703724
+      Lance1_38: 837407344
+      Lance1_39: -1039005819
+      Lance1_4: -979231727
+      Lance1_40: -1298652960
+      Lance1_41: -1037787487
+      Lance1_42: -667060797
+      Lance1_43: -1023362582
+      Lance1_44: 987903691
+      Lance1_45: 1913662589
+      Lance1_46: -527235747
+      Lance1_47: 1583245519
+      Lance1_48: -1260381926
+      Lance1_49: -462662413
+      Lance1_5: 1785374036
+      Lance1_50: -789022992
+      Lance1_51: 1713129764
+      Lance1_52: 460983365
+      Lance1_53: 28505040
+      Lance1_54: 101899920
+      Lance1_55: 1551061821
+      Lance1_56: -1394603343
+      Lance1_57: -634276484
+      Lance1_58: -298069401
+      Lance1_59: -489377091
+      Lance1_6: -488945714
+      Lance1_60: -1435295153
+      Lance1_61: -1585994673
+      Lance1_62: 1830649700
+      Lance1_63: 1863448768
+      Lance1_64: 1951425965
+      Lance1_65: -820960799
+      Lance1_66: 2140761559
+      Lance1_67: -603876631
+      Lance1_68: 1548114900
+      Lance1_69: -1198602955
+      Lance1_7: 983399098
+      Lance1_70: 409815126
+      Lance1_71: -49469127
+      Lance1_72: 187106699
+      Lance1_8: -1448898790
+      Lance1_9: 1293103503
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

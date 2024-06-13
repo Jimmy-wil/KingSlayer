@@ -14,8 +14,12 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHa
     [SerializeField] public TMP_Text quantityTxt;
     [SerializeField] private Image borderImage;
 
-    public event Action<UIInventoryItem> OnItemClicked, OnItemdroppedOn, OnItemBegindrag, OnItemEndDrag, OnRightMouseBoutonClick,
-        OnLeftMouseBoutonClick;
+    public event Action<UIInventoryItem> OnItemClicked,
+        OnItemdroppedOn,
+        OnItemBegindrag,
+        OnItemEndDrag,
+        OnRightMouseBoutonClick;
+      //  OnLeftMouseBoutonClick;
 
     private bool empty = true;
 
@@ -57,10 +61,10 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHa
             OnRightMouseBoutonClick?.Invoke(this);
         }
 
-        if (pointerData.button == PointerEventData.InputButton.Left)
-        {
-          OnLeftMouseBoutonClick?.Invoke(this);
-        }
+     //   if (pointerData.button == PointerEventData.InputButton.Left)
+     //   {
+     //     OnLeftMouseBoutonClick?.Invoke(this);
+     //   }
         else
         {
             OnItemClicked?.Invoke(this);

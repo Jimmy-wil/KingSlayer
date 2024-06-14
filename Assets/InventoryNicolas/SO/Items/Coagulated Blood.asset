@@ -16,7 +16,7 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Coagulated Blood
   <Description>k__BackingField: Coagulated blood of different creatures
-  <ItemImage>k__BackingField: {fileID: 0}
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: a846c6ea39afe024e99d199a7ec0d5bf, type: 3}
   type: 2
   recipes:
   - {fileID: 11400000, guid: 89a8c7b706122234fbfa1916cd33aed5, type: 2}

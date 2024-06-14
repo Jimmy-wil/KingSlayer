@@ -536,32 +536,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6662609234756311118, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
   m_PrefabInstance: {fileID: 2090056928}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &474743202 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7080054386919644769, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
-  m_PrefabInstance: {fileID: 2090056928}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &474743208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474743202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526cdbb6643cc1547bbf47581e0b1a2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftingUI: {fileID: 1432098350}
-  craftingData: {fileID: 11400000, guid: 031542718dc097a42867686a8c2edc3c, type: 2}
-  initialItems:
-  - quantity: 1
-    item: {fileID: 11400000, guid: 1b7c0faf5bbaa8a4385ee19df03db5c6, type: 2}
-  - quantity: 0
-    item: {fileID: 0}
-  - quantity: 0
-    item: {fileID: 0}
 --- !u!1001 &485364193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1678,33 +1652,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426186519}
   m_CullTransparentMesh: 1
---- !u!1 &1432098345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7250737225118538903, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
-  m_PrefabInstance: {fileID: 2090056928}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1432098346 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7732502591248030590, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
   m_PrefabInstance: {fileID: 2090056928}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1432098350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432098345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f45a04f45165a49bfe98ab16cc6141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recipeContent: {fileID: 1550154885}
-  resultContent: {fileID: 8499816160871064110, guid: 64945d6e2c0e7d64981f54bd0136a372, type: 3}
-  itemPrefab: {fileID: 3344772627729919997, guid: 64945d6e2c0e7d64981f54bd0136a372, type: 3}
-  mousefollower: {fileID: 2090056933}
-  itemDescription: {fileID: 2090056934}
 --- !u!1 &1465147286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 294803254474256199, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
@@ -2867,12 +2819,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4734289851697474598, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 282680040}
-    - targetCorrespondingSourceObject: {fileID: 7080054386919644769, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 474743208}
-    - targetCorrespondingSourceObject: {fileID: 7250737225118538903, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1432098350}
   m_SourcePrefab: {fileID: 100100000, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
 --- !u!1 &2090056929 stripped
 GameObject:
@@ -2894,8 +2840,11 @@ MonoBehaviour:
   itemPrefab: {fileID: 3344772627729919997, guid: 64945d6e2c0e7d64981f54bd0136a372, type: 3}
   contentPanel: {fileID: 1647073739}
   hotbarContent: {fileID: 2068486445}
+  craftingContent: {fileID: 1550154885}
+  craftingOutputContent: {fileID: 1072455751}
   mousefollower: {fileID: 2090056933}
   itemDescription: {fileID: 2090056934}
+  listOfUIItems: []
 --- !u!114 &2090056933 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5585211173977234138, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
@@ -2946,6 +2895,32 @@ MonoBehaviour:
     item: {fileID: 11400000, guid: 1b7c0faf5bbaa8a4385ee19df03db5c6, type: 2}
   - quantity: 12
     item: {fileID: 11400000, guid: 4b82f29cb48c9f643844d539990998f6, type: 2}
+  - quantity: 8
+    item: {fileID: 11400000, guid: 89a8c7b706122234fbfa1916cd33aed5, type: 2}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 8
+    item: {fileID: 11400000, guid: 88d7e939670bbe94088380da85ae8332, type: 2}
 --- !u!114 &2090056938
 MonoBehaviour:
   m_ObjectHideFlags: 0

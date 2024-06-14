@@ -29,11 +29,13 @@ public class InventoryController : NetworkBehaviour
 
     void Start()
     {
+      
         PrepareUI();
         PrepareHotbar();
         PrepareInventoryData();
         inventoryIsClosed = false;
-
+    
+        
     }
 
     private void PrepareInventoryData()
@@ -71,7 +73,86 @@ public class InventoryController : NetworkBehaviour
             inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
         }
     }
+    
 
+    private void CraftItem()
+    {
+        
+        InventoryItem inventoryItem = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -1);
+        InventoryItem inventoryItem2 = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -2);
+        
+        
+        
+        if ( inventoryItem.item is CraftableItemSO craft1 && 
+            inventoryItem2.item is CraftableItemSO craft2)
+        {
+           
+           
+            
+            for (int i = 0; i < craft1.recipes.Count; i++)
+            {
+                if (craft2.type == craft1.recipes[i].type)
+                {
+                    PrepareCraftOutput();
+                  //  var inventoryDataInventoryItem = inventoryData.inventoryItems[initialItems.Count];
+                  //  inventoryDataInventoryItem.item = craft1.craftedItem[i];
+                  inventoryData.inventoryItems[initialItems.Count] =
+                      new InventoryItem(GetCraftedAmount(inventoryItem,inventoryItem2), craft1.craftedItem[i]);
+                    inventoryData.InformAboutChange();
+
+                  //  inventoryData.inventoryItems[initialItems.Count] = inventoryDataInventoryItem;
+                  // inventoryUI.CanCraft = true;
+
+                  //  var initialItem = initialItems[initialItems.Count - 1];
+                  // initialItem.item =  craft1.craftedItem[i];
+
+                  //  initialItems[initialItems.Count - 1] = initialItem;
+
+
+                }
+
+               
+            }
+            
+            inventoryUI.CanCraft = true;
+            return;
+        }
+        
+        
+        
+        
+        InventoryItem inventoryItemRes = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -2);
+        InventoryItem inventoryItemRes2 = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -3);
+        
+        if(inventoryUI.CanCraft && (inventoryItemRes.item is not CraftableItemSO || inventoryItemRes2.item is not CraftableItemSO))
+        {
+          
+          inventoryUI.DeleteLastItem();
+          inventoryUI.CanCraft = false;
+          
+        }
+    }
+
+   private int GetCraftedAmount(InventoryItem item1, InventoryItem item2)
+   {
+      
+       if (item1.quantity > item2.quantity)
+       {
+           return item2.quantity;
+       }
+
+       if (item1.quantity < item2.quantity)
+       {
+           return item1.quantity;
+       }
+
+       else
+       {
+           return item1.quantity;
+       }
+   }
+    
+    
     private void PrepareUI()
     {
         inventoryUI.InitializeInventoryUI(inventoryData.Size);
@@ -79,6 +160,11 @@ public class InventoryController : NetworkBehaviour
         this.inventoryUI.OnSwapItems += HandleSwapItems;
         this.inventoryUI.OnStartDragging += HandleDragging;
         this.inventoryUI.OnItemActionRequested += HandleItemActionRequest;
+    }
+
+    private void PrepareCraftOutput()
+    {
+        inventoryUI.InitializeCraftResult(); 
     }
 
    
@@ -140,6 +226,9 @@ public class InventoryController : NetworkBehaviour
 
     void Update()
     {
+       
+        
+        
         hotbar.ResetAllHotBarItems();
         int cpt = 0;
         foreach (var item in inventoryData.GetCurrentItemState())
@@ -148,7 +237,7 @@ public class InventoryController : NetworkBehaviour
             hotbar.UpdateDataHotbar(item.Key, item.Value.item.ItemImage, item.Value.quantity);
             cpt++;
         }
-
+        CraftItem();
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (inventoryIsClosed)
@@ -160,6 +249,7 @@ public class InventoryController : NetworkBehaviour
                 }
                 inventoryIsClosed = false;
                 //  hotbar.UpdateDataHotbar(); //temp
+                
 
             }
             else

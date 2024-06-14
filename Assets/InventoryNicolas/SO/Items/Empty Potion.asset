@@ -20,10 +20,10 @@ MonoBehaviour:
   <ItemImage>k__BackingField: {fileID: 21300000, guid: cf0fd6b08f74e02488885e5b02cb7ad3, type: 3}
   type: 0
   recipes:
-  - {fileID: 11400000, guid: d77d1ee601b1dff41b66dd4518f58e1c, type: 2}
   - {fileID: 11400000, guid: 88d7e939670bbe94088380da85ae8332, type: 2}
+  - {fileID: 11400000, guid: d77d1ee601b1dff41b66dd4518f58e1c, type: 2}
   - {fileID: 11400000, guid: 853c9fe981ee8fc4b81657630aa44fe4, type: 2}
   craftedItem:
-  - {fileID: 11400000, guid: 547c9c6989a43304db68c9c32aa61158, type: 2}
   - {fileID: 11400000, guid: 1b7c0faf5bbaa8a4385ee19df03db5c6, type: 2}
+  - {fileID: 11400000, guid: 547c9c6989a43304db68c9c32aa61158, type: 2}
   - {fileID: 11400000, guid: 4b82f29cb48c9f643844d539990998f6, type: 2}

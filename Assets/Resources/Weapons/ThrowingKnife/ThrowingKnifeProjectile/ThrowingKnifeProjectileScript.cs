@@ -6,62 +6,48 @@ using UnityEngine;
 
 public class ThrowingKnifeProjectileScript : NetworkBehaviour
 {
-    public float speed;
+    public float speed = 8;
     public int dmg = 6;
     public float radius = 1.06f;
 
-    [SerializeField]
-    private float despawnTime;
-    
-    
+
     void Update()
     {
         Advance();
-
         DetectColliders();
-        
-        despawnTime -= Time.deltaTime;
-        if (despawnTime <= 0f)
-        {
-            Destroy(this.gameObject);
-        }
-
-
 
     }
 
     private void Advance()
     {
-        this.gameObject.GetComponent<Rigidbody2D>().velocity = this.transform.forward * speed * Time.deltaTime;
+        this.gameObject.GetComponent<Rigidbody2D>().velocity = this.transform.right * speed;
     }
 
     public void DetectColliders()
     {
         if (!IsOwner) return;
-        
-        try
+
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(this.transform.position, radius))
         {
-            foreach (Collider2D collider in Physics2D.OverlapCircleAll(this.transform.position, radius))
+        if (this.GetComponent<NetworkObject>().IsOwner && collider.gameObject.layer != LayerMask.NameToLayer("Enemy"))
             {
-                Health health = collider.GetComponent<Health>();
+                return;
+            }
 
-                if (health && IsOwner)
-                {
-                    health.GetHit(dmg, transform.parent.gameObject);
+            Health health = collider.GetComponent<Health>();
 
-                }
-
-                Debug.Log($"Hit {collider.gameObject.name}, beginning to destroy projectile");
-
-                Destroy(this.gameObject);
+            if (health && IsOwner)
+            {
+                health.GetHit(dmg, gameObject);
 
             }
 
+            Debug.Log($"Hit {collider.gameObject.name}, beginning to destroy projectile");
+
+            Destroy(this.gameObject);
+
         }
-        catch
-        {
-            Debug.LogWarning($"Failed to detect colliders as a {this.gameObject.name}!");
-        }
+
         
     }
 }

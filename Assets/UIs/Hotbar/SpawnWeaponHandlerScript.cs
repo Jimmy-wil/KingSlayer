@@ -9,21 +9,14 @@ public class SpawnWeaponHandlerScript : NetworkBehaviour
 {
     [SerializeField] private GameObjectDictionary GameObjectDictionary;
 
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
-
-        Debug.Log("spawned!");
-    }
 
     public void SpawnWeapon(int key, NetworkObjectReference playerReference)
-    {
-        Debug.Log("Take me on");    
+    { 
         if(IsServer)
         {
             if (!playerReference.TryGet(out NetworkObject networkObject))
             {
-                Debug.LogWarning("Unable to get played!");
+                Debug.LogWarning("Unable to get player!");
                 return;
             }
 
@@ -81,7 +74,6 @@ public class SpawnWeaponHandlerScript : NetworkBehaviour
 
     public void DestroyCurrentWeapon(NetworkObjectReference networkObjectReference)
     {
-        Debug.Log("Take me on");
         if (IsServer)
         {
             if (networkObjectReference.TryGet(out NetworkObject networkObject))
@@ -119,7 +111,6 @@ public class SpawnWeaponHandlerScript : NetworkBehaviour
     [ServerRpc(RequireOwnership=false)]
     private void DestroyCurrentWeaponServerRpc(NetworkObjectReference networkObjectReference)
     {
-        Debug.Log("Take me on");
 
         if (networkObjectReference.TryGet(out NetworkObject networkObject))
         {

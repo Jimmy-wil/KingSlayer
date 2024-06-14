@@ -88,27 +88,34 @@ public class RangedParent : NetworkBehaviour, WeaponInterface
 
     public void ShootProjectile()
     {
+        if (!IsOwner) return;
+
         Vector2 position = circleOrigin.position;
         Vector2 direction = (Pointerposition - (Vector2)transform.position).normalized;
+
+        tempProjectile = Instantiate(Projectile, position, Quaternion.FromToRotation(Vector3.right, direction));
         
-        ShootProjectileServerRpc(position, direction);
+        ShootProjectileServerRpc(IsServer);
+
+        Destroy(tempProjectile, 3);
+
+        tempProjectile = null;
     }
 
     [ServerRpc(RequireOwnership=false)]
-    private void ShootProjectileServerRpc(Vector2 position, Vector2 direction, ServerRpcParams serverRpcParams = default)
+    private void ShootProjectileServerRpc(bool isServer, ServerRpcParams serverRpcParams = default)
     {
-        GameObject clone = Instantiate(Projectile, position, Quaternion.LookRotation(direction));
+        if (tempProjectile == null) return;
 
-        if(clone != null)
+        tempProjectile.GetComponent<NetworkObject>().Spawn();
+
+        if (!isServer)
         {
-            clone.GetComponent<NetworkObject>().Spawn();
-            clone.GetComponent<NetworkObject>().ChangeOwnership(serverRpcParams.Receive.SenderClientId);
+            Debug.Log("New owner!");
+            tempProjectile.GetComponent<NetworkObject>().ChangeOwnership(serverRpcParams.Receive.SenderClientId);
 
         }
-        else
-        {
-            Debug.LogWarning("No projectile!");
-        }
+
     }
 
 }

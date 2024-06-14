@@ -22,15 +22,16 @@ public class AnimationEventHelper : MonoBehaviour
     }
     public void TriggerAttack()
     {
+        /*
         try
-        {
+        {*/
             OnAttackPerformed?.Invoke();
-
+            /*
         }
         catch 
         {
             Debug.Log("un pb?!");
         }
-
+            */
     } 
 }

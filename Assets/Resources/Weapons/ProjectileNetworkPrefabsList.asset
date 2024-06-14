@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e651dbb3fbac04af2b8f5abf007ddc23, type: 3}
-  m_Name: EnemyPrefab
+  m_Name: ProjectileNetworkPrefabsList
   m_EditorClassIdentifier: 
   IsDefault: 0
   List:
   - Override: 0
-    Prefab: {fileID: 1297866143489671681, guid: 8ad58a1296c1db2448eb7e9c28fdcb40, type: 3}
+    Prefab: {fileID: 5113089716765790066, guid: b9c5690f2ef98b5409fd45d4c9d1225d, type: 3}
     SourcePrefabToOverride: {fileID: 0}
     SourceHashToOverride: 0
     OverridingTargetPrefab: {fileID: 0}

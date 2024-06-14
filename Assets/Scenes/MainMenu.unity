@@ -2278,8 +2278,8 @@ MonoBehaviour:
   initialItems:
   - quantity: 12
     item: {fileID: 11400000, guid: 1b7c0faf5bbaa8a4385ee19df03db5c6, type: 2}
-  - quantity: 1
-    item: {fileID: 11400000, guid: 7d7dced87db7c53448a28ba171f683d9, type: 2}
+  - quantity: 64
+    item: {fileID: 11400000, guid: 0978dc5098be5584a82172d4cf6e52eb, type: 2}
   - quantity: 1
     item: {fileID: 11400000, guid: b090e69b77cda394fb5cbba9d6de437d, type: 2}
 --- !u!1001 &6549710975740248663
@@ -2342,6 +2342,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UserData
       objectReference: {fileID: 0}
+    - target: {fileID: 8942322267555794874, guid: f060d4c66dfca564fab958a687a61cdd, type: 3}
+      propertyPath: list.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942322267555794874, guid: f060d4c66dfca564fab958a687a61cdd, type: 3}
+      propertyPath: list.Array.data[3]
+      value: 
+      objectReference: {fileID: 5703723777971365393, guid: 73aff07bef6a098439f4e22aa0bb35a1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

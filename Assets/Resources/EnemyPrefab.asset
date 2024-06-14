@@ -10,27 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e651dbb3fbac04af2b8f5abf007ddc23, type: 3}
-  m_Name: WeaponNetworkPrefabList
+  m_Name: EnemyPrefab
   m_EditorClassIdentifier: 
   IsDefault: 0
   List:
   - Override: 0
-    Prefab: {fileID: 5703723777971365393, guid: db829397f82f2334fa8b185e596924b4, type: 3}
+    Prefab: {fileID: 1297866143489671681, guid: 8ad58a1296c1db2448eb7e9c28fdcb40, type: 3}
     SourcePrefabToOverride: {fileID: 0}
     SourceHashToOverride: 0
     OverridingTargetPrefab: {fileID: 0}
   - Override: 0
-    Prefab: {fileID: 5703723777971365393, guid: 0e06cff9a8c77ba49a899b26d46dd7f3, type: 3}
+    Prefab: {fileID: 8981024428793774494, guid: d753a5135ebcc4c4e8b05c48d996e943, type: 3}
     SourcePrefabToOverride: {fileID: 0}
     SourceHashToOverride: 0
     OverridingTargetPrefab: {fileID: 0}
   - Override: 0
-    Prefab: {fileID: 5703723777971365393, guid: a0ffed5944bef764f9080d7d5f110609, type: 3}
+    Prefab: {fileID: 9147300048161244670, guid: f2a823166b5d89943a6a7da8419b4f65, type: 3}
     SourcePrefabToOverride: {fileID: 0}
     SourceHashToOverride: 0
     OverridingTargetPrefab: {fileID: 0}
   - Override: 0
-    Prefab: {fileID: 5703723777971365393, guid: 73aff07bef6a098439f4e22aa0bb35a1, type: 3}
+    Prefab: {fileID: 4286174526776751180, guid: 6ce5fde39ca50f44ab96597e4ccc3906, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 642074337502002438, guid: cd2b0231b215dcf48bcaccec1f428126, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 4048200327472105750, guid: 4977a82fef7e5ff4289f6e4ba316ed45, type: 3}
     SourcePrefabToOverride: {fileID: 0}
     SourceHashToOverride: 0
     OverridingTargetPrefab: {fileID: 0}

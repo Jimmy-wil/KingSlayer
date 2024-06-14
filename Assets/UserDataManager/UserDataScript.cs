@@ -6,7 +6,6 @@ public class UserDataScript : MonoBehaviour
 {
     public string Username;
     public string LobbyName;
-    
 
-    
+
 }

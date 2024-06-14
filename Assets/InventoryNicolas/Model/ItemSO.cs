@@ -26,11 +26,19 @@ public abstract class ItemSO : ScriptableObject
     
     public enum WeaponType
     {
-        Sword,
-        Axe,
-        MagicSpear,
+        Melee,
+        Ranged
        
-    
+    }
+    public enum RangeType
+    {
+        VeryShort,
+        Short,
+        Medium,
+        Long,
+        VeryLong
+
+
     }
     public enum ConsumableType
     {

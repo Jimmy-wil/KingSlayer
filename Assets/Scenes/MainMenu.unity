@@ -1196,6 +1196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1072455751}
   - component: {fileID: 1072455752}
+  - component: {fileID: 1072455753}
   m_Layer: 5
   m_Name: Crafted
   m_TagString: Untagged
@@ -1246,6 +1247,19 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1072455753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072455750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39dc665f1753f44ea057158686e5fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisgameobject: {fileID: 1072455750}
 --- !u!114 &1085870295 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4355741292575336190, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
@@ -2889,6 +2903,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 2090056932}
   inventoryData: {fileID: 11400000, guid: bba872eb63185d542beef53d27dbfca3, type: 2}
   hotbar: {fileID: 485364195}
+  Solution: {fileID: 1072455753}
   inventoryIsClosed: 0
   initialItems:
   - quantity: 12
@@ -2921,6 +2936,7 @@ MonoBehaviour:
     item: {fileID: 0}
   - quantity: 8
     item: {fileID: 11400000, guid: 88d7e939670bbe94088380da85ae8332, type: 2}
+  len: 0
 --- !u!114 &2090056938
 MonoBehaviour:
   m_ObjectHideFlags: 0

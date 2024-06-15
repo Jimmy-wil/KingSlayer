@@ -121,7 +121,6 @@ public class HotBarController : MonoBehaviour
 
     public void DeselectAll()
     {
-        Debug.Log("Deselecting all");
         foreach (var item in listOfUIItemsHotbar)
         {
             item.Deselect();
@@ -144,7 +143,6 @@ public class HotBarController : MonoBehaviour
 
         if (SelectedItem.item is WeaponItemSO weapon)
         {
-            // weapon.PerformAction(player);
             spawnWeaponHandlerScript.SpawnWeapon(weapon.key, player.GetComponent<NetworkObject>());
 
         }

@@ -27,14 +27,7 @@ public class BossRageSound : StateMachineBehaviour
         audioSource.clip = rageSound;
 
         // Définir le mode boucle selon la condition
-        if (loopWhileRunning)
-        {
-            audioSource.loop = true;
-        }
-        else
-        {
-            audioSource.loop = false;
-        }
+       audioSource.loop = loopWhileRunning;
 
         // Jouer le son
         audioSource.Play();

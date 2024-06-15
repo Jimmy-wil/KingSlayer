@@ -36,6 +36,7 @@ public class InventoryController : NetworkBehaviour
     bool iscrafted = false;
 
     public int len;
+    private int amount;
 
     void Start()
     {
@@ -92,6 +93,8 @@ public class InventoryController : NetworkBehaviour
         InventoryItem inventoryItem = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -1);
         InventoryItem inventoryItem2 = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -2);
         int quant = GetCraftedAmount(inventoryItem, inventoryItem2);
+      //  Debug.Log(quant);
+        amount = GetCraftedAmount(inventoryItem, inventoryItem2);
         
         if ( inventoryItem.item is CraftableItemSO craft1 && 
             inventoryItem2.item is CraftableItemSO craft2)
@@ -126,19 +129,32 @@ public class InventoryController : NetworkBehaviour
            var lastUIItem = inventoryUI.listOfUIItems[inventoryUI.listOfUIItems.Count - 1];
            
          //  if (len < inventoryUI.listOfUIItems.Count && Solution.Alleluja && Solution.Exist)
-         
-         if( Solution.Alleluja)
-         {
-                
-             inventoryData.RemoveItem(inventoryUI.listOfUIItems.Count -2, quant );
-             inventoryData.RemoveItem(inventoryUI.listOfUIItems.Count -3, quant );
-             
-                
-         }
-         
          inventoryUI.CanCraft = true;
-           return;
+         
+         
+         
+         
+         
+         return;
+         
+           
         }
+        
+        
+
+        InventoryItem inventoryItemRes = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -2);
+        InventoryItem inventoryItemRes2 = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -3);
+        
+        
+        if(inventoryUI.CanCraft && Solution.Alleluja)
+        {
+            int quant2 = GetCraftedAmount(inventoryItemRes, inventoryItemRes2);
+            int index1 = inventoryUI.listOfUIItems.Count - 2;
+            int index2 = inventoryUI.listOfUIItems.Count - 3;
+           inventoryData.RemoveAtAllCost(index1, quant2);
+            inventoryData.RemoveAtAllCost(index2,quant2);
+          
+       }
         
         
         
@@ -147,9 +163,6 @@ public class InventoryController : NetworkBehaviour
         
        
 
-
-        InventoryItem inventoryItemRes = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -2);
-        InventoryItem inventoryItemRes2 = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -3);
         
         if(inventoryUI.CanCraft && (inventoryItemRes.item is not CraftableItemSO || inventoryItemRes2.item is not CraftableItemSO))
         {
@@ -267,6 +280,7 @@ public class InventoryController : NetworkBehaviour
         }
         
         CraftItem();
+       
         
         if (Input.GetKeyDown(KeyCode.I))
         {

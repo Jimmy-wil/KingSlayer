@@ -2934,7 +2934,7 @@ MonoBehaviour:
     item: {fileID: 0}
   - quantity: 0
     item: {fileID: 0}
-  - quantity: 8
+  - quantity: 6
     item: {fileID: 11400000, guid: 88d7e939670bbe94088380da85ae8332, type: 2}
   len: 0
 --- !u!114 &2090056938

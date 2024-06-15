@@ -154,6 +154,23 @@ public class InventorySO : ScriptableObject
         }
     }
 
+    public void RemoveAtAllCost(int itemIndex, int amount)
+    {
+        int reminder = inventoryItems[itemIndex].quantity - amount;
+        Debug.Log(reminder);
+        Debug.Log(amount);
+        if (reminder <= 0)
+        {
+           inventoryItems[itemIndex] = InventoryItem.GetEmptyItem();
+            Debug.Log("TESSSSSSSSSSSSSSSSSTTTTTT");
+        }
+           
+        else
+            inventoryItems[itemIndex] = inventoryItems[itemIndex].ChangeQuantity(reminder);
+        InformAboutChange();
+        
+    }
+
     public void RemoveItem(int itemIndex)
     {
         if (inventoryItems[itemIndex].IsEmpty)

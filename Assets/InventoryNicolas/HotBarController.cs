@@ -22,10 +22,10 @@ public class HotBarController : MonoBehaviour
 
     public List<UIInventoryItem> listOfUIItemsHotbar = new List<UIInventoryItem>();
 
-   // private bool Itemselected = false;
+    // private bool Itemselected = false;
 
     public InventoryItem SelectedItem;
-   
+
     private void Update()
     {
         // faire 3 cas pour eviter le indexOutofrange => 1 item, 2 item et 3 item !!!!!!
@@ -35,12 +35,12 @@ public class HotBarController : MonoBehaviour
             GettingPlayerAndCall();
 
             DeselectAll();
-            
+
             Debug.Log("1");
 
             listOfUIItemsHotbar[0].Select();
             SelectedItem = Controller.initialItems[0];
-            
+
             ItemAction();
 
         }
@@ -48,7 +48,7 @@ public class HotBarController : MonoBehaviour
         if (Input.GetKeyDown("2"))
         {
             GettingPlayerAndCall();
-            
+
             DeselectAll();
 
             Debug.Log("2");
@@ -63,7 +63,7 @@ public class HotBarController : MonoBehaviour
         if (Input.GetKeyDown("3"))
         {
             GettingPlayerAndCall();
-            
+
             DeselectAll();
 
             Debug.Log("3");
@@ -94,11 +94,11 @@ public class HotBarController : MonoBehaviour
     public void InitializeHotbar()
     {
         for (int i = 0; i < 3; i++)
-        {   
+        {
             UIInventoryItem uiItem = Instantiate(inventoryData.itemPrefab, Vector3.zero, Quaternion.identity);
             uiItem.transform.SetParent(hotbarUI);
             listOfUIItemsHotbar.Add(uiItem);
-           
+
         }
     }
 
@@ -115,7 +115,7 @@ public class HotBarController : MonoBehaviour
         foreach (var item in listOfUIItemsHotbar)
         {
             item.ResetData();
-            
+
         }
     }
 
@@ -135,7 +135,7 @@ public class HotBarController : MonoBehaviour
             Debug.LogWarning("Player Not found");
             return;
         }
-        
+
         if (SelectedItem.item is ConsumableItemSO consumable)
         {
             consumable.PerfomAction(player);

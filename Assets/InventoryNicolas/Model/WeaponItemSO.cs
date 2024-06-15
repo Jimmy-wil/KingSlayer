@@ -8,13 +8,12 @@ public class WeaponItemSO : ItemSO
 {
     public WeaponType type;
     public int weaponDmg;
-    public RangeType range;
-
+    public float range;
     public int key;
 
     public bool PerformAction(GameObject character)
     {
-        return true;    
+        return true;
     }
     
     

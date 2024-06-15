@@ -57,7 +57,6 @@ public class WeaponParent : NetworkBehaviour, WeaponInterface
 
     public void Attack()
     {
-
         if (attackBlocked) return;
 
         animator = GetComponentInChildren<Animator>();

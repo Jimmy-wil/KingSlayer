@@ -8,7 +8,7 @@ public abstract class ItemSO : ScriptableObject
     [field: SerializeField]
     public bool IsStackable { get; set; }
     public int ID => GetInstanceID();
-    public Transform pfItemWorld;
+   
    
     
     [field: SerializeField] 
@@ -26,24 +26,25 @@ public abstract class ItemSO : ScriptableObject
     
     public enum WeaponType
     {
-        Melee,
-        Ranged
+        Sword,
+        Axe,
+        MagicSpear,
        
-    }
-    public enum RangeType
-    {
-        VeryShort,
-        Short,
-        Medium,
-        Long,
-        VeryLong
-
-
+    
     }
     public enum ConsumableType
     {
         HealthPotion,
         PoisonPotion
+    }
+    
+    public enum CraftableItemType
+    {
+        EmptyPotion,
+        SpeedFlower,
+        CoagulatedBlood,
+        StrengthFlower,
+        
     }
 
 }

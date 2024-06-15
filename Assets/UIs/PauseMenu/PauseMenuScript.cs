@@ -36,4 +36,5 @@ public class PauseMenuScript : MonoBehaviour
         open = !open;
         panel.SetActive(open);
     }
+
 }

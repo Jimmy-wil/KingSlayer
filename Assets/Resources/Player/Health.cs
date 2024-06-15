@@ -31,7 +31,6 @@ public class Health : NetworkBehaviour
     [ServerRpc(RequireOwnership=false)]
     public void AddHpServerRpc(int amount)
     {
-        Debug.Log("Healing1");
         currentHealth += amount;
         if(currentHealth > maxHealth) currentHealth = maxHealth;
         AddHpClientRpc(amount);
@@ -40,7 +39,6 @@ public class Health : NetworkBehaviour
     public void AddHpClientRpc(int amount)
     {
         if (IsHost) return;
-        Debug.Log("Healing2");
         currentHealth += amount;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
@@ -53,6 +51,7 @@ public class Health : NetworkBehaviour
         currentHealth = healthValue;
         maxHealth = healthValue;
         isDead = false;
+
     }
 
 
@@ -85,6 +84,8 @@ public class Health : NetworkBehaviour
             StopCoroutine(changeSpriteColorRoutine);
         }
         changeSpriteColorRoutine = StartCoroutine(ChangeSpriteColorRoutine());
+
+        OnHitWithReference?.Invoke(sender);
 
         // if client to client
         DealDamageServerRpc(amount, this.gameObject);

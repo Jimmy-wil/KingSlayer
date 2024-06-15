@@ -25,9 +25,11 @@ public class LobbyScript : NetworkBehaviour
     private NetworkList<int> SpawnPointList;
 
     public Canvas Canvas;
+    public Camera currentCamera;
 
     public GameObject MainMenuGUI;
     public GameObject LoadingScreenGUI;
+    public BlackScreenFadeScript BlackScreen;
     public GameObject GameGUI;
 
     public GameObject MessagePanelObject;
@@ -442,9 +444,22 @@ public class LobbyScript : NetworkBehaviour
         if(scene.name == "Game")
         {
             Debug.Log("Scene loaded");
-            LoadingScreenGUI.gameObject.SetActive(false);
-            GameGUI.gameObject.SetActive(true);
+            StartCoroutine(OnSceneLoadedCooldown());
         }
+    }
+    private IEnumerator OnSceneLoadedCooldown()
+    {
+        Debug.Log("OnSceneLoadedCooldown");
+
+        yield return new WaitForSeconds(2);
+
+        BlackScreen.Fade();
+
+        LoadingScreenGUI.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(3);
+
+        GameGUI.gameObject.SetActive(true);
     }
 
     public void StartGame()
@@ -488,10 +503,7 @@ public class LobbyScript : NetworkBehaviour
         CurrentLobby.SetActive(false);
         MainMenuGUI.gameObject.SetActive(false);
         LoadingScreenGUI.gameObject.SetActive(true);
-        
         SceneManager.sceneLoaded += OnSceneLoaded; // trigger OnSceneLoaded if sceneLoaded (subscribe)
-
-
 
         SpawnPlayerServerRpc();
     }

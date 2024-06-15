@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class UIInvetoryPage : MonoBehaviour
@@ -12,12 +11,18 @@ public class UIInvetoryPage : MonoBehaviour
 
    [SerializeField] private RectTransform hotbarContent;
 
+   [SerializeField] private RectTransform craftingContent;
+    [SerializeField] public RectTransform craftingOutputContent;
+
    [SerializeField] private MouseFollower mousefollower;
+   
 
    [SerializeField] private UIInventoryDescription itemDescription;
 
+   public bool CanCraft { get; set; }
+
    //changed form private to public
-    List<UIInventoryItem> listOfUIItems = new List<UIInventoryItem>();
+   public List<UIInventoryItem> listOfUIItems = new List<UIInventoryItem>();
 
     private int currentlyDraggedItemIndex = -1;
     
@@ -51,6 +56,33 @@ public class UIInvetoryPage : MonoBehaviour
             uiItem.OnItemEndDrag += HandleEndDrag;
             uiItem.OnRightMouseBoutonClick += HandleShowItemActions;
         }
+
+        for (int i = 0; i < 2; i++)
+        {
+            UIInventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
+            uiItem.transform.SetParent(craftingContent);
+            listOfUIItems.Add(uiItem);
+            uiItem.OnItemClicked += HandleItemSelection;
+            uiItem.OnItemBegindrag += HandleBeginDrag;
+            uiItem.OnItemdroppedOn += HandleSwap;
+            uiItem.OnItemEndDrag += HandleEndDrag;
+            uiItem.OnRightMouseBoutonClick += HandleShowItemActions;
+        }
+
+    }
+
+    public void InitializeCraftResult()
+    {
+        UIInventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
+        uiItem.transform.SetParent(craftingOutputContent);
+        listOfUIItems.Add(uiItem);
+        uiItem.OnItemClicked += HandleItemSelection;
+        uiItem.OnItemBegindrag += HandleBeginDrag;
+    //   uiItem.OnItemdroppedOn += HandleSwap;
+        uiItem.OnItemEndDrag += HandleEndDrag;
+      //  uiItem.OnRightMouseBoutonClick += HandleShowItemActions;
+     
+
     }
 
    
@@ -169,5 +201,14 @@ public class UIInvetoryPage : MonoBehaviour
             item.ResetData();
             item.Deselect();
         }
+    }
+
+    public void DeleteLastItem()
+    {
+        listOfUIItems.RemoveAt(listOfUIItems.Count -1);
+       // craftingOutputContent.DetachChildren();
+       // craftingOutputContent.ForceUpdateRectTransforms();
+        Destroy(craftingOutputContent.transform.GetChild(0).gameObject);
+        
     }
 }

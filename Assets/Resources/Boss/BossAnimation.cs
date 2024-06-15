@@ -7,6 +7,8 @@ public class BossAnimation: MonoBehaviour
 {
     [SerializeField] private Health health;
 
+
+
     private Animator animator;
 
     private void Awake()
@@ -26,6 +28,7 @@ public class BossAnimation: MonoBehaviour
     private void Update()
     {
         PlayAnimation();
+       
     }
 
     public void PlayAnimation()

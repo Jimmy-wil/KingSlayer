@@ -4,27 +4,55 @@ using UnityEngine;
 
 public class BossEnraged : StateMachineBehaviour
 {
-    private WeaponParent weaponParent;
+    [SerializeField]
+    private int degatIncrease = 20;
 
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    [SerializeField]
+    private float delayIncrease = 0;
+
+    [SerializeField]
+    private float radius = 2;
+
+    [SerializeField]
+    private float attackDistance = 5.0f; // Ajouter une variable pour la distance d'attaque
+    
+    [SerializeField]
+    private float newSpeed; // Variable pour la nouvelle vitesse
+
+    private WeaponParent weaponParent;
+    private KnockBackFeedBack knockbackComponent;
+    private AI aiComponent;
+    private AgentMover agentMover;
+
+    
+  
+
+    // OnStateEnter est appelé au début de la transition et l'évaluation de cet état
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         weaponParent = animator.GetComponentInParent<WeaponParent>();
-
+        knockbackComponent = animator.GetComponentInParent<KnockBackFeedBack>();
+        aiComponent = animator.GetComponentInParent<AI>();
+        agentMover = weaponParent.GetComponentInParent<AgentMover>();
+       
         if (weaponParent != null)
         {
-            weaponParent.dmg += 20; // Increase attack damage by 10
-            weaponParent.delay *= 0.5f; // Decrease attack delay by 50%
+            weaponParent.dmg += degatIncrease; // Augmente les dégâts
+            weaponParent.delay += delayIncrease; // Réduit le délai d'attaque
+            weaponParent.radius += radius;
         }
+
+
+        if (aiComponent != null)
+        {
+            aiComponent.attackDistance += attackDistance; // Appliquer la distance d'attaque
+        }
+
+        if (agentMover != null)
+        {
+            agentMover.maxSpeed = newSpeed; // Appliquer la nouvelle vitesse
+        }
+        
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if (weaponParent != null)
-        {
-            weaponParent.dmg -= 10; // Reset attack damage to original value
-            weaponParent.delay /= 0.5f; // Reset attack delay to original value
-        }
-    }
 }

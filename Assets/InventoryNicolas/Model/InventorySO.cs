@@ -8,7 +8,7 @@ using UnityEngine;
 public class InventorySO : ScriptableObject
 {
     [SerializeField]
-    private List<InventoryItem> inventoryItems;
+    public List<InventoryItem> inventoryItems;
 
     [field: SerializeField]
     public int Size { get; private set; } = 10;
@@ -18,7 +18,7 @@ public class InventorySO : ScriptableObject
     public void Initialize()
     {
         inventoryItems = new List<InventoryItem>();
-        for (int i = 0; i < Size +3; i++)
+        for (int i = 0; i < Size + 6; i++)
         {
             inventoryItems.Add(InventoryItem.GetEmptyItem());
         }
@@ -132,7 +132,7 @@ public class InventorySO : ScriptableObject
         InformAboutChange();
     }
 
-    private void InformAboutChange()
+    public void InformAboutChange()
     {
         OnInventoryUpdated?.Invoke(GetCurrentItemState());
     }
@@ -153,6 +153,31 @@ public class InventorySO : ScriptableObject
 
         }
     }
+
+    public void RemoveAtAllCost(int itemIndex, int amount)
+    {
+        int reminder = inventoryItems[itemIndex].quantity - amount;
+        Debug.Log(reminder);
+        Debug.Log(amount);
+        if (reminder <= 0)
+        {
+           inventoryItems[itemIndex] = InventoryItem.GetEmptyItem();
+        }
+           
+        else
+            inventoryItems[itemIndex] = inventoryItems[itemIndex].ChangeQuantity(reminder);
+        InformAboutChange();
+        
+    }
+
+    public void RemoveItem(int itemIndex)
+    {
+        if (inventoryItems[itemIndex].IsEmpty) return;
+
+        inventoryItems[itemIndex] = InventoryItem.GetEmptyItem();
+        InformAboutChange();
+        
+    }
 }
 
 [Serializable]
@@ -160,6 +185,14 @@ public struct InventoryItem
 {
     public int quantity;
     public ItemSO item;
+
+    public InventoryItem(int quantity, ItemSO item)
+    {
+        this.quantity = quantity;
+        this.item = item;
+
+
+    }
 
     public bool IsEmpty => item == null;
 

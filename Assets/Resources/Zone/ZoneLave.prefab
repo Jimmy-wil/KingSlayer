@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2109624101046780982}
   - component: {fileID: 445979337789576668}
-  - component: {fileID: 7813656867574990986}
   - component: {fileID: 4743048445252759293}
+  - component: {fileID: 671901473496182421}
   m_Layer: 0
-  m_Name: BossBattleTrigger
+  m_Name: ZoneLave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2240875173825357508}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.46, y: 1.29, z: -0.009958562}
+  m_LocalPosition: {x: -0.67, y: 1.29, z: -0.009958562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,21 +79,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.138477, y: 3.529728}
   m_EdgeRadius: 0
---- !u!114 &7813656867574990986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2240875173825357508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b959c05ab29b24945998b792c7e0d088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 5
-  damageInterval: 2
-  damageAudioSource: {fileID: 4743048445252759293}
 --- !u!82 &4743048445252759293
 AudioSource:
   m_ObjectHideFlags: 0
@@ -104,7 +89,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 85e0b008586b5a8498fe7cffe8b6749c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0699ec810cdc4394a9739c959d2ffed0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -115,7 +100,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 6
-  MaxDistance: 25
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -190,3 +175,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &671901473496182421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2240875173825357508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be845160784b014b81c698f9bdaf458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 10
+  damageInterval: 2
+  damageAudioSource: {fileID: 4743048445252759293}

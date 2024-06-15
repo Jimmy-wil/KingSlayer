@@ -12,9 +12,10 @@ public class UIInvetoryPage : MonoBehaviour
    [SerializeField] private RectTransform hotbarContent;
 
    [SerializeField] private RectTransform craftingContent;
-    [SerializeField] private RectTransform craftingOutputContent;
+    [SerializeField] public RectTransform craftingOutputContent;
 
    [SerializeField] private MouseFollower mousefollower;
+   
 
    [SerializeField] private UIInventoryDescription itemDescription;
 
@@ -77,10 +78,11 @@ public class UIInvetoryPage : MonoBehaviour
         listOfUIItems.Add(uiItem);
         uiItem.OnItemClicked += HandleItemSelection;
         uiItem.OnItemBegindrag += HandleBeginDrag;
-    //    uiItem.OnItemdroppedOn += HandleSwap;
+    //   uiItem.OnItemdroppedOn += HandleSwap;
         uiItem.OnItemEndDrag += HandleEndDrag;
-        uiItem.OnRightMouseBoutonClick += HandleShowItemActions;
-        
+      //  uiItem.OnRightMouseBoutonClick += HandleShowItemActions;
+     
+
     }
 
    

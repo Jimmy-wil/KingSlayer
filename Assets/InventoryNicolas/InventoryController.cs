@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Netcode;
 using Unity.Services.Lobbies.Models;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryController : NetworkBehaviour
@@ -16,6 +18,8 @@ public class InventoryController : NetworkBehaviour
     [SerializeField]
     private UIInvetoryPage inventoryUI;
 
+    
+
     // [SerializeField] private MouseFollower _mouseFollower;
 
     [SerializeField] public InventorySO inventoryData;
@@ -23,9 +27,15 @@ public class InventoryController : NetworkBehaviour
     [SerializeField]
     private HotBarController hotbar;
 
+    [SerializeField] private craftingSolution Solution;
+    
     public bool inventoryIsClosed;
 
     public List<InventoryItem> initialItems = new List<InventoryItem>();
+    
+    bool iscrafted = false;
+
+    public int len;
 
     void Start()
     {
@@ -34,8 +44,10 @@ public class InventoryController : NetworkBehaviour
         PrepareHotbar();
         PrepareInventoryData();
         inventoryIsClosed = false;
-    
-        
+        len = inventoryUI.listOfUIItems.Count;
+
+
+
     }
 
     private void PrepareInventoryData()
@@ -77,50 +89,65 @@ public class InventoryController : NetworkBehaviour
 
     private void CraftItem()
     {
-        
         InventoryItem inventoryItem = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -1);
         InventoryItem inventoryItem2 = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -2);
-        
-        
+        int quant = GetCraftedAmount(inventoryItem, inventoryItem2);
         
         if ( inventoryItem.item is CraftableItemSO craft1 && 
             inventoryItem2.item is CraftableItemSO craft2)
         {
            
-           
+            
             
             for (int i = 0; i < craft1.recipes.Count; i++)
             {
                 if (craft2.type == craft1.recipes[i].type)
                 {
                     PrepareCraftOutput();
-                  //  var inventoryDataInventoryItem = inventoryData.inventoryItems[initialItems.Count];
-                  //  inventoryDataInventoryItem.item = craft1.craftedItem[i];
                   inventoryData.inventoryItems[initialItems.Count] =
-                      new InventoryItem(GetCraftedAmount(inventoryItem,inventoryItem2), craft1.craftedItem[i]);
-                    inventoryData.InformAboutChange();
-
-                  //  inventoryData.inventoryItems[initialItems.Count] = inventoryDataInventoryItem;
-                  // inventoryUI.CanCraft = true;
-
-                  //  var initialItem = initialItems[initialItems.Count - 1];
-                  // initialItem.item =  craft1.craftedItem[i];
-
-                  //  initialItems[initialItems.Count - 1] = initialItem;
-
-
+                      new InventoryItem(quant, craft1.craftedItem[i]);
+                  inventoryData.InformAboutChange();
+                    inventoryUI.UpdateData(initialItems.Count,
+                        inventoryData.GetCurrentItemState()[initialItems.Count].item.ItemImage, 
+                        inventoryData.GetCurrentItemState()[initialItems.Count].quantity);
+                    foreach (var item in inventoryData.GetCurrentItemState())
+                    {
+                        inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+                    }
+                   // inventoryData.Initialize();
+                    inventoryData.OnInventoryUpdated += UpdateInventoryUI;
                 }
-
-               
             }
-            
-            inventoryUI.CanCraft = true;
-            return;
+
+            InventoryItem inventoryItemCraft = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -1);
+
+           // inventoryUI.listOfUIItems[inventoryUI.listOfUIItems.Count -1].itemImage.gameObject.SetActive(true);
+
+           var lastUIItem = inventoryUI.listOfUIItems[inventoryUI.listOfUIItems.Count - 1];
+           
+         //  if (len < inventoryUI.listOfUIItems.Count && Solution.Alleluja && Solution.Exist)
+         
+         if( Solution.Alleluja)
+         {
+                
+             inventoryData.RemoveItem(inventoryUI.listOfUIItems.Count -2, quant );
+             inventoryData.RemoveItem(inventoryUI.listOfUIItems.Count -3, quant );
+             
+                
+         }
+         
+         inventoryUI.CanCraft = true;
+           return;
         }
         
         
         
         
+        
+        
+       
+
+
         InventoryItem inventoryItemRes = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -2);
         InventoryItem inventoryItemRes2 = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -3);
         
@@ -129,6 +156,7 @@ public class InventoryController : NetworkBehaviour
           
           inventoryUI.DeleteLastItem();
           inventoryUI.CanCraft = false;
+          return;
           
         }
     }
@@ -237,19 +265,23 @@ public class InventoryController : NetworkBehaviour
             hotbar.UpdateDataHotbar(item.Key, item.Value.item.ItemImage, item.Value.quantity);
             cpt++;
         }
+        
         CraftItem();
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (inventoryIsClosed)
             {
+                
                 inventoryUI.Show();
                 foreach (var item in inventoryData.GetCurrentItemState())
                 {
                     inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
                 }
                 inventoryIsClosed = false;
-                //  hotbar.UpdateDataHotbar(); //temp
                 
+                //  hotbar.UpdateDataHotbar(); //temp
+
 
             }
             else

@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68c72abe1745a54ab21db2701ec3a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rageSound: {fileID: 8300000, guid: 52de24be1c6b7e248af51c45c8c28f4d, type: 3}
+  rageSound: {fileID: 8300000, guid: b546452000f17ac45998fc2ac310a725, type: 3}
   loopWhileRunning: 0
 --- !u!1101 &2186522493711786769
 AnimatorStateTransition:

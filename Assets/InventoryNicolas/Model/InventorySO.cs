@@ -4,6 +4,8 @@ using System;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 [CreateAssetMenu]
 public class InventorySO : ScriptableObject
 {
@@ -182,18 +184,22 @@ public class InventorySO : ScriptableObject
 }
 
 [Serializable]
-public struct InventoryItem
+public struct InventoryItem 
 {
     public int quantity;
     public ItemSO item;
+    
+   // private InventoryController inventoryController =>  GameObject.Find("InventoryMenuUI").GetComponent<InventoryController>();
+    
+  
 
     public InventoryItem(int quantity, ItemSO item)
     {
         this.quantity = quantity;
         this.item = item;
-
-
+        
     }
+    
 
     public bool IsEmpty => item == null;
 

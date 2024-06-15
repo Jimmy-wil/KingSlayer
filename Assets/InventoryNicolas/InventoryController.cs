@@ -18,6 +18,8 @@ public class InventoryController : NetworkBehaviour
     [SerializeField]
     private UIInvetoryPage inventoryUI;
 
+    [SerializeField] private Vector3 spawnOffset = new Vector3(5, 0, 0);
+
     
 
     // [SerializeField] private MouseFollower _mouseFollower;
@@ -28,12 +30,19 @@ public class InventoryController : NetworkBehaviour
     private HotBarController hotbar;
 
     [SerializeField] private craftingSolution Solution;
+
+    [SerializeField] private Item itemDrop;
+    [SerializeField] private GameObject ItemSpawnPrefab;
     
     public bool inventoryIsClosed;
 
     public List<InventoryItem> initialItems = new List<InventoryItem>();
     
+    
+    
     bool iscrafted = false;
+
+    private UIInventoryItem hoveredItem;
 
     public int len;
     private int amount;
@@ -248,7 +257,29 @@ public class InventoryController : NetworkBehaviour
 
     private void HandleSwapItems(int itemIndex1, int itemIndex2)
     {
+        if (inventoryData.GetItemAt(itemIndex1).IsEmpty || inventoryData.GetItemAt(itemIndex1).IsEmpty)
+        {
+            inventoryData.SwapItems(itemIndex1, itemIndex2);
+            return;
+            
+        }
+
+        if (inventoryData.GetItemAt(itemIndex1).item == inventoryData.GetItemAt(itemIndex2).item &&
+            inventoryData.GetItemAt(itemIndex1).item.IsStackable && inventoryData.GetItemAt(itemIndex2).item.IsStackable) 
+        {
+          
+
+            inventoryData.AddItem(inventoryData.GetItemAt(itemIndex2).item,
+                inventoryData.GetItemAt(itemIndex1).quantity);
+             inventoryData.RemoveItem(itemIndex1,inventoryData.GetItemAt(itemIndex1).quantity);
+             inventoryData.InformAboutChange();
+          inventoryData.SwapItems(itemIndex1, itemIndex2);
+        } 
         inventoryData.SwapItems(itemIndex1, itemIndex2);
+       
+        
+        
+       
     }
 
     private void HandleDescriptionRequest(int itemIndex)
@@ -265,11 +296,31 @@ public class InventoryController : NetworkBehaviour
     }
 
 
+    public void SetHoveredItem(UIInventoryItem givenItem)
+    {
+        hoveredItem = givenItem;
+    }
+
+    private void SpawnItem()
+    {
+        if (player == null)
+        {
+            Debug.LogError("Player reference is not set.");
+            return;
+        }
+
+        Vector3 spawnPosition = player.transform.position + spawnOffset;
+        
+
+        Instantiate(ItemSpawnPrefab, spawnPosition, Quaternion.identity);
+        
+        
+
+    }
+
+
     void Update()
     {
-       
-        
-        
         hotbar.ResetAllHotBarItems();
         int cpt = 0;
         foreach (var item in inventoryData.GetCurrentItemState())
@@ -305,5 +356,23 @@ public class InventoryController : NetworkBehaviour
 
             }
         }
+        
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if (hoveredItem != null && hoveredItem.IsHovered )
+            {
+                Debug.Log(" Ca marche");
+                SpawnItem();
+            }
+        }
+
+      
+        
+            
+    
+        
+        
+        
+        
     }
 }

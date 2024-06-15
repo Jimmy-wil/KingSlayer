@@ -1,18 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
+public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     // Start is called before the first frame update
     [SerializeField] public Image itemImage;
     [SerializeField] public TMP_Text quantityTxt;
     [SerializeField] private Image borderImage;
+
+    public bool IsHovered { get; private set; }
+
+    private InventoryController InventoryController =>
+        GameObject.Find("InventoryMenuUI").GetComponent<InventoryController>();
 
     public event Action<UIInventoryItem> OnItemClicked,
         OnItemdroppedOn,
@@ -90,5 +96,17 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHa
     public void OnDrag(PointerEventData eventData)
     {
         
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        IsHovered = true;
+        InventoryController.SetHoveredItem(this);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        IsHovered = false;
+        InventoryController.SetHoveredItem(null);
     }
 }

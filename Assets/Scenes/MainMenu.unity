@@ -2901,9 +2901,12 @@ MonoBehaviour:
   UserData: {fileID: 765113399}
   player: {fileID: 0}
   inventoryUI: {fileID: 2090056932}
+  spawnOffset: {x: 5, y: 0, z: 0}
   inventoryData: {fileID: 11400000, guid: bba872eb63185d542beef53d27dbfca3, type: 2}
   hotbar: {fileID: 485364195}
   Solution: {fileID: 1072455753}
+  itemDrop: {fileID: 4911658372638357030, guid: 646947eb148dde54db0a36bac3d7138f, type: 3}
+  ItemSpawnPrefab: {fileID: 0}
   inventoryIsClosed: 0
   initialItems:
   - quantity: 12

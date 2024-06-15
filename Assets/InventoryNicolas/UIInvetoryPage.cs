@@ -121,6 +121,14 @@ public class UIInvetoryPage : MonoBehaviour
 
     private void HandleSwap(UIInventoryItem inventoryItemUI)
     {
+       //if (listOfUIItems[currentlyDraggedItemIndex].itemImage == inventoryItemUI.itemImage)
+      //  {
+       //     inventoryItemUI.quantityTxt += listOfUIItems[currentlyDraggedItemIndex].quantityTxt
+       //     listOfUIItems[currentlyDraggedItemIndex] = null;
+            
+
+      //  }
+        
         int index = listOfUIItems.IndexOf(inventoryItemUI);
         if (index == -1)
         {

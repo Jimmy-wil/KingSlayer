@@ -110,6 +110,7 @@ public class UIInvetoryPage : MonoBehaviour
     private void HandleEndDrag(UIInventoryItem inventoryItemUI)
     {
        ResetDraggedItem();
+       
     }
 
     private void ResetDraggedItem()

@@ -17,7 +17,7 @@ MonoBehaviour:
   <Name>k__BackingField: Empty Potion
   <Description>k__BackingField: An empty potion made out of glass. Maybe it can be
     used to make some potions ?
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: cf0fd6b08f74e02488885e5b02cb7ad3, type: 3}
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: 4ef88759343003840af06117145c5d34, type: 3}
   type: 0
   recipes:
   - {fileID: 11400000, guid: 88d7e939670bbe94088380da85ae8332, type: 2}

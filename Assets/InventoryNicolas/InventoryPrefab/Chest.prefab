@@ -328,7 +328,7 @@ Transform:
   m_GameObject: {fileID: 4516750509972748769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.2, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -375,7 +375,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 94985ac8520220141ac466bd965c5941, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7af061de69d5ab48a2f815f935b945b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -676,7 +676,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 88f87f1908227d64da486c7894c34721, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c72acf4690163f54fbd9d6930aafca13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -784,10 +784,14 @@ MonoBehaviour:
   chestData: {fileID: 11400000, guid: 44dca96c0f6ffeb41ae4940fd7e42437, type: 2}
   chestUI: {fileID: 5250754418015301981}
   initialItems:
-  - quantity: 17
-    item: {fileID: 11400000, guid: 1b7c0faf5bbaa8a4385ee19df03db5c6, type: 2}
   - quantity: 5
-    item: {fileID: 11400000, guid: 4b82f29cb48c9f643844d539990998f6, type: 2}
+    item: {fileID: 11400000, guid: 853c9fe981ee8fc4b81657630aa44fe4, type: 2}
+  - quantity: 9
+    item: {fileID: 11400000, guid: 88d7e939670bbe94088380da85ae8332, type: 2}
+  - quantity: 9
+    item: {fileID: 11400000, guid: 89a8c7b706122234fbfa1916cd33aed5, type: 2}
+  - quantity: 12
+    item: {fileID: 11400000, guid: d77d1ee601b1dff41b66dd4518f58e1c, type: 2}
 --- !u!1 &5940116083663179305
 GameObject:
   m_ObjectHideFlags: 0

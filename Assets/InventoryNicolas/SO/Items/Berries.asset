@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cea8aaffad961e24eae8c7d3494a5795, type: 3}
-  m_Name: Speed Potion
+  m_Name: Berries
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 64
-  <Name>k__BackingField: Speed Potion
-  <Description>k__BackingField: Potion enhancing ones speed
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: 5409f9261fb740341bcc2b236c8bcbb7, type: 3}
-  modifiersData: []
+  <Name>k__BackingField: Black Berries
+  <Description>k__BackingField: "Can be found everywhere in Helios domain. Restores
+    a very small amount of Hp. \n"
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: 1344a9879c028fc49b1d171edcbc6570, type: 3}
+  modifiersData:
+  - statModifier: {fileID: 11400000, guid: 200e71f20e3f21b4e9ba0afa962f4cc1, type: 2}
+    value: 5

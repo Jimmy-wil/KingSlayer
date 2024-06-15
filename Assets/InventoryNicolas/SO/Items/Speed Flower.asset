@@ -16,7 +16,7 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Speed Flower
   <Description>k__BackingField: A flower capable of enhancing ones ability to run
-  <ItemImage>k__BackingField: {fileID: 0}
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: 8bb0fe00382ae3d4abf157888b17e64d, type: 3}
   type: 1
   recipes:
   - {fileID: 11400000, guid: 89a8c7b706122234fbfa1916cd33aed5, type: 2}

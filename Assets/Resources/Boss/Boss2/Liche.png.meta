@@ -152,7 +152,7 @@ TextureImporter:
         width: 320
         height: 434
       alignment: 9
-      pivot: {x: 0.4625, y: 0.41013825}
+      pivot: {x: 0.46250018, y: 0.40336785}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
         width: 320
         height: 424
       alignment: 9
-      pivot: {x: 0.51875, y: 0.375}
+      pivot: {x: 0.51875, y: 0.38886103}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,7 +215,7 @@ TextureImporter:
         width: 320
         height: 428
       alignment: 9
-      pivot: {x: 0.55, y: 0.42056075}
+      pivot: {x: 0.55000037, y: 0.41369542}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,7 +236,7 @@ TextureImporter:
         width: 320
         height: 418
       alignment: 9
-      pivot: {x: 0.528125, y: 0.40669855}
+      pivot: {x: 0.51894265, y: 0.38912424}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,8 +273,8 @@ TextureImporter:
       name: Liche (1)_8
       rect:
         serializedVersion: 2
-        x: 634
-        y: 421
+        x: 635
+        y: 422
         width: 320
         height: 425
       alignment: 9
@@ -315,9 +315,9 @@ TextureImporter:
       name: Liche (1)_10
       rect:
         serializedVersion: 2
-        x: 1252
+        x: 1282
         y: 427
-        width: 320
+        width: 290
         height: 417
       alignment: 9
       pivot: {x: 0.55, y: 0.4052758}

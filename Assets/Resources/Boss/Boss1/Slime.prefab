@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c673109ecafd94ea42205de17c270b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 20
+  dmg: 7
   weaponRenderer: {fileID: 5467660061400327911}
   delay: 2
   circleOrigin: {fileID: 518902729667283465}
@@ -307,7 +307,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -61118740, guid: 2b6ccc9b70e72ca40a6efbecd8e1db09, type: 3}
+  m_Sprite: {fileID: 1416918067, guid: 2b6ccc9b70e72ca40a6efbecd8e1db09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -386,7 +386,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 2
-  MaxDistance: 25
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 2162398722071539541}
   - component: {fileID: 4450547415177005900}
   - component: {fileID: 5986226941480446336}
+  - component: {fileID: 8358063897342321442}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
@@ -865,7 +866,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 2
-  MaxDistance: 25
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -940,6 +941,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8358063897342321442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126462890681332024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d79bae46d8da4e4eb79d8f9421e7650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xOffset: 1
 --- !u!1 &8831590471668652998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff4155e52d2ba24686eaca66914bbd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 2
+  maxSpeed: 1.5
   acceleration: 50
   deacceleration: 100
   currentSpeed: 0
@@ -1189,8 +1203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 0}
-  currentHealth: 200
-  maxHealth: 200
+  currentHealth: 150
+  maxHealth: 150
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   Sprite: {fileID: 492055039362443919}
   OnHitWithReference:
@@ -1341,7 +1355,7 @@ MonoBehaviour:
   aiData: {fileID: 8246432752861277930}
   detectionDelay: 0.05
   aiUpdateDelay: 0.06
-  attackDelay: 1
+  attackDelay: 1.5
   attackDistance: 2.5
   OnAttackPressed:
     m_PersistentCalls:
@@ -1426,7 +1440,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 2
-  MaxDistance: 25
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -1522,7 +1536,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 2
-  MaxDistance: 25
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

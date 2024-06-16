@@ -18,6 +18,6 @@ MonoBehaviour:
   <Description>k__BackingField: A makeshift spear with a decent range of attack.
   <ItemImage>k__BackingField: {fileID: 6108012597462862368, guid: 4384fb45034b9d94b8b0826117fccb54, type: 3}
   type: 0
-  weaponDmg: 20
+  weaponDmg: 15
   range: 0
-  key: 0
+  key: 4

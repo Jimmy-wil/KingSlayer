@@ -94,9 +94,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 7
   weaponRenderer: {fileID: 5467660061400327911}
-  delay: 2
+  delay: 1.5
   circleOrigin: {fileID: 518902729667283465}
-  radius: 1
+  radius: 1.5
   animator: {fileID: 4482445036505883879}
 --- !u!114 &6112000844560849400
 MonoBehaviour:
@@ -520,7 +520,7 @@ Transform:
   m_GameObject: {fileID: 4915260376343098129}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7024118, y: -0.71167386, z: -0.008641561, w: 0.00796539}
-  m_LocalPosition: {x: 0.14, y: 0.64, z: 0.02}
+  m_LocalPosition: {x: 0.06, y: 0.3, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

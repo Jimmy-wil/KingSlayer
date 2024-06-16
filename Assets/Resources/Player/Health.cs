@@ -11,7 +11,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Health : NetworkBehaviour
 {
     [SerializeField]
-    private Item drop;
+    private RandomItemScript randomDrop;
 
     [SerializeField]
     private GameObject deathMenu;
@@ -48,7 +48,6 @@ public class Health : NetworkBehaviour
 
     public event EventHandler OnHealthChanged;
 
-
     public void InitializeHealth(int healthValue)
     {
         currentHealth = healthValue;
@@ -69,6 +68,10 @@ public class Health : NetworkBehaviour
         changeSpriteColorRoutine = null;
     }
 
+
+    private GameObject Sender;
+
+
     public void GetHit(int amount, GameObject sender)
     {
         if (isDead) return;
@@ -88,7 +91,7 @@ public class Health : NetworkBehaviour
         }
         changeSpriteColorRoutine = StartCoroutine(ChangeSpriteColorRoutine());
 
-        // OnHitWithReference?.Invoke(sender);
+        Sender = sender;
 
         // if client to client
         DealDamageServerRpc(amount, this.gameObject);
@@ -107,6 +110,9 @@ public class Health : NetworkBehaviour
         changeSpriteColorRoutine = StartCoroutine(ChangeSpriteColorRoutine());
 
 
+        OnHitWithReference?.Invoke(Sender);
+        Sender = null;
+
         currentHealth -= amount;
 
         if(currentHealth <= 0)
@@ -119,11 +125,10 @@ public class Health : NetworkBehaviour
             {
                 deathMenu = GameObject.Find("DeathMenu");
                 deathMenu.GetComponent<DeathMenuScript>().ShowDeathMenu();
-                if(drop != null)
+                if(randomDrop != null)
                 {
-                    var clone = Instantiate(drop, this.gameObject.transform.position, Quaternion.identity);
+                    var clone = Instantiate(randomDrop.GetItem(), this.gameObject.transform.position, Quaternion.identity);
                     clone.GetComponent<NetworkObject>().Spawn();
-
 
                 }
 
@@ -141,10 +146,16 @@ public class Health : NetworkBehaviour
     [ServerRpc(RequireOwnership=false)]
     private void DestroyObjectServerRpc()
     {
-        if (drop == null) return;
-        var clone = Instantiate(drop);
-        clone.GetComponent<NetworkObject>().Spawn();
-        Destroy(gameObject);
+        if (randomDrop != null && randomDrop.items.Count != 0)
+        {
+            Debug.Log("Dropping something");
+
+            var clone = Instantiate(randomDrop.GetItem(), this.gameObject.transform.position, Quaternion.identity);
+            clone.GetComponent<NetworkObject>().Spawn();
+
+        }
+
+        Destroy(gameObject); // die
     }
 
 

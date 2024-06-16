@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea8aaffad961e24eae8c7d3494a5795, type: 3}
+  m_Name: FriedEggsItemSo
+  m_EditorClassIdentifier: 
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 64
+  <Name>k__BackingField: Fried Eggs
+  <Description>k__BackingField: You got lucky to get your hands on eggs in this island.
+    Especially when they're fried...
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: a0e62fbcf12b02a4e9b5d44a18246864, type: 3}
+  modifiersData:
+  - statModifier: {fileID: 11400000, guid: 200e71f20e3f21b4e9ba0afa962f4cc1, type: 2}
+    value: 5

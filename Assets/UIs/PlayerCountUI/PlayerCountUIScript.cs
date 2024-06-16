@@ -4,12 +4,14 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerCountUIScript : NetworkBehaviour
+public class PlayerCountUIScript : MonoBehaviour
 {
+    [SerializeField]
+    private WinUIManagerScript winUIManagerScript;
     [SerializeField]
     private GameObject Players;
     [SerializeField]
-    private GameObject WinPanel;
+    public GameObject WinPanel;
     [SerializeField]
     private TMP_Text WinnerText;
 
@@ -17,17 +19,6 @@ public class PlayerCountUIScript : NetworkBehaviour
 
     [SerializeField]
     private TMP_Text text;
-
-    private void Start()
-    {
-        NetworkManager.OnClientStopped += OnClientDisconnected;
-    }
-
-    private void OnClientDisconnected(bool obj)
-    {
-        WinPanel.SetActive(false);
-        winner = false;
-    }
 
     public void Update()
     {
@@ -46,35 +37,19 @@ public class PlayerCountUIScript : NetworkBehaviour
             text.text = $"Players left: {Players.transform.childCount}";
 
             if (winner) return;
-            Debug.Log("We got a winner");
             winner = true;
 
-            DoSomethingServerRpc();
+            Debug.Log("We got a winner");
 
-            
+            // winUIManagerScript.DisplayWinner(Players.transform.GetChild(0).gameObject.name);
+
+
+
         }
         else
         {
             text.text = $"Players left: {Players.transform.childCount}";
         }
-    }
-
-    [ServerRpc(RequireOwnership=false)]
-    private void DoSomethingServerRpc()
-    {
-        DoSomethingClientRpc();
-    }
-    [ClientRpc]
-    private void DoSomethingClientRpc() 
-    {
-        Debug.Log("Do we have a winner?");
-        winner = true;
-
-        WinPanel.SetActive(true);
-        
-        WinnerText.text = $"{Players.transform.GetChild(0).name}";
-
-
     }
 
 }

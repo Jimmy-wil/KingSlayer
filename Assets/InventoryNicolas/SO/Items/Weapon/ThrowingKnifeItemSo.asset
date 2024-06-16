@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: ThrowingKnifeItemSo
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
-  pfItemWorld: {fileID: 0}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Throwing knife
   <Description>k__BackingField: A throwing knife.
-  <ItemImage>k__BackingField: {fileID: 1429658294, guid: 006dc96bf587f0443af484e2177a7fb8, type: 3}
+  <ItemImage>k__BackingField: {fileID: 6764707825347140516, guid: 1acb2997f9d56704ba29b3de6b4a6de8, type: 3}
   type: 0
-  weaponDmg: 20
+  weaponDmg: 6
   range: 0
   key: 3

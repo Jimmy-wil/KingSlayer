@@ -969,6 +969,7 @@ GameObject:
   - component: {fileID: 6628104218842632881}
   - component: {fileID: 1072845326134708174}
   - component: {fileID: 6251544504166024553}
+  - component: {fileID: 3191814891732587406}
   - component: {fileID: 3329553594176179621}
   - component: {fileID: 3527293993700088712}
   - component: {fileID: 7060320313262239829}
@@ -1100,9 +1101,9 @@ MonoBehaviour:
   SyncPositionZ: 1
   SyncRotAngleX: 1
   SyncRotAngleY: 1
-  SyncRotAngleZ: 0
+  SyncRotAngleZ: 1
   SyncScaleX: 1
-  SyncScaleY: 0
+  SyncScaleY: 1
   SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
@@ -1111,8 +1112,8 @@ MonoBehaviour:
   UseQuaternionCompression: 0
   UseHalfFloatPrecision: 0
   InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
+  Interpolate: 0
+  SlerpPosition: 1
 --- !u!114 &1615740262628317608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,6 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd0f3c9c2b92ec4ba1b7bc97f791b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drop: {fileID: 0}
   deathMenu: {fileID: 0}
   currentHealth: 50
   maxHealth: 50
@@ -1201,6 +1203,29 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
+--- !u!114 &3191814891732587406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8981024428793774494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7cbfd093224134380a5b38b1295563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 4911658372638357030, guid: e215fb06743eff84b872ebd065328385, type: 3}
+  - {fileID: 4911658372638357030, guid: e215fb06743eff84b872ebd065328385, type: 3}
+  - {fileID: 4911658372638357030, guid: e215fb06743eff84b872ebd065328385, type: 3}
+  - {fileID: 4911658372638357030, guid: e215fb06743eff84b872ebd065328385, type: 3}
+  - {fileID: 4911658372638357030, guid: e215fb06743eff84b872ebd065328385, type: 3}
+  - {fileID: 4911658372638357030, guid: e215fb06743eff84b872ebd065328385, type: 3}
+  - {fileID: 4911658372638357030, guid: e215fb06743eff84b872ebd065328385, type: 3}
+  - {fileID: 4911658372638357030, guid: e215fb06743eff84b872ebd065328385, type: 3}
+  - {fileID: 4911658372638357030, guid: e215fb06743eff84b872ebd065328385, type: 3}
+  - {fileID: 4911658372638357030, guid: aef474141dbaa974e861eb8c5ad45bc9, type: 3}
 --- !u!114 &3329553594176179621
 MonoBehaviour:
   m_ObjectHideFlags: 0

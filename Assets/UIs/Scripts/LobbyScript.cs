@@ -32,6 +32,7 @@ public class LobbyScript : NetworkBehaviour
     public BlackScreenFadeScript BlackScreen;
     public GameObject GameGUI;
     public GameObject WinScreen;
+    public PlayerCountUIScript PlayerCountUIScript;
 
     public GameObject MessagePanelObject;
     public GameObject MainMenu;
@@ -578,6 +579,8 @@ public class LobbyScript : NetworkBehaviour
         MainMenuGUI.gameObject.SetActive(true);
         GameGUI.gameObject.SetActive(false);
         WinScreen.transform.GetChild(0).gameObject.SetActive(false);
+        PlayerCountUIScript.winner = false;
+
     }
 
 

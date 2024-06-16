@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 4
   weaponRenderer: {fileID: 603381060457865806}
-  delay: 0.5
+  delay: 0.3
   circleOrigin: {fileID: 4700319705775636447}
   radius: 0.5
   animator: {fileID: 5382795692134897230}

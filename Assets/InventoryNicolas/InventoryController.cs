@@ -279,7 +279,7 @@ public class InventoryController : MonoBehaviour
         } 
         inventoryData.SwapItems(itemIndex1, itemIndex2);
        
-        (initialItems[itemIndex1], initialItems[itemIndex2]) = (initialItems[itemIndex2], initialItems[itemIndex1]);
+     //   (initialItems[itemIndex1], initialItems[itemIndex2]) = (initialItems[itemIndex2], initialItems[itemIndex1]);
         
        
     }
@@ -377,7 +377,7 @@ public class InventoryController : MonoBehaviour
         Debug.Log("1");
 
         hotbar.listOfUIItemsHotbar[0].Select();
-        hotbar.SelectedItem = initialItems[0];
+       hotbar.SelectedItem = inventoryData.GetItemAt(0);
             
 
         hotbar.ItemAction();
@@ -394,7 +394,7 @@ public class InventoryController : MonoBehaviour
         Debug.Log("2");
 
         hotbar.listOfUIItemsHotbar[1].Select();
-        hotbar.SelectedItem = initialItems[1];
+        hotbar.SelectedItem =  inventoryData.GetItemAt(1);
 
         hotbar.ItemAction();
      //   inventoryData.InformAboutChange();
@@ -410,12 +410,12 @@ public class InventoryController : MonoBehaviour
         Debug.Log("3");
 
         hotbar.listOfUIItemsHotbar[2].Select();
-        hotbar.SelectedItem = initialItems[2];
+        hotbar.SelectedItem =  inventoryData.GetItemAt(2);
 
         hotbar.ItemAction();
       //  inventoryData.InformAboutChange();
 
-    }
+     }
     
     
     

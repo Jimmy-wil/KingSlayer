@@ -1203,8 +1203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 0}
-  currentHealth: 150
-  maxHealth: 150
+  currentHealth: 100
+  maxHealth: 100
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   Sprite: {fileID: 492055039362443919}
   OnHitWithReference:

@@ -579,8 +579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 0}
-  currentHealth: 150
-  maxHealth: 150
+  currentHealth: 100
+  maxHealth: 100
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   Sprite: {fileID: 8585723770025080135}
   OnHitWithReference:
@@ -901,7 +901,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3951df2d62d46994cb2fedc3fe05c28d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e32211f0b29e1bd479e43fce1d74ec61, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

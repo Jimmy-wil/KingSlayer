@@ -25,58 +25,40 @@ public class HotBarController : MonoBehaviour
     // private bool Itemselected = false;
 
     public InventoryItem SelectedItem;
+    private int index;
 
     private void Update()
     {
         // faire 3 cas pour eviter le indexOutofrange => 1 item, 2 item et 3 item !!!!!!
 
-      // if (Input.GetKeyDown("1"))
-      // {
-     //      GettingPlayerAndCall();
-     //      DeselectAll();
+        if (Input.GetKeyDown("1"))
+        {
+            index = 0;
+        }
 
-     //       Debug.Log("1");
+        if (Input.GetKeyDown("2"))
+        {
+            index = 1;
 
-     //      listOfUIItemsHotbar[0].Select();
-      //     SelectedItem = Controller.initialItems[0];
-            
+        }
 
-      //      ItemAction();
+        if (Input.GetKeyDown("3"))
+        {
+            index = 2;
 
-    //    }
+        }
 
-     //   if (Input.GetKeyDown("2"))
-    //    {
-     //       GettingPlayerAndCall();
-
-     //       DeselectAll();
-
-      //      Debug.Log("2");
-
-     //      listOfUIItemsHotbar[1].Select();
-      //     SelectedItem = Controller.initialItems[1];
-
-      //    ItemAction();
-
-     //   }
-     ///   if (Input.GetKeyDown("3"))
-     //   {
-     //       GettingPlayerAndCall();
-
-      //      DeselectAll();
-
-      //     Debug.Log("3");
-//listOfUIItemsHotbar[2].Select();
-//            SelectedItem = Controller.initialItems[2];
-//
-        //   ItemAction();
-//
-    //    }
+        if (SelectedItem.item is ConsumableItemSO && (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)))
+        {
+            ItemAction();
+        }
+        
+        
 
     }
-    
-  //  private int NumberOfItemSlots()
-    
+
+    //  private int NumberOfItemSlots()
+
 
     public void GettingPlayerAndCall()
     {
@@ -87,6 +69,7 @@ public class HotBarController : MonoBehaviour
             Debug.LogWarning("Player Not found");
             return;
         }
+
         spawnWeaponHandlerScript.DestroyCurrentWeapon(player.GetComponent<NetworkObject>());
         player = null;
     }
@@ -139,16 +122,51 @@ public class HotBarController : MonoBehaviour
 
         if (SelectedItem.item is ConsumableItemSO consumable)
         {
-            consumable.PerfomAction(player);
-        }
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            {
 
+
+
+
+
+                IItemAction itemAction = SelectedItem.item as IItemAction;
+                if (itemAction != null)
+                {
+                    player = GameObject.Find(Controller.UserData.Username);
+                    if (player != null)
+                    {
+                        Debug.Log("Performing action");
+                        itemAction.PerfomAction(player);
+                        player = null;
+
+
+
+                    }
+                }
+
+                IDestroyableItem destroyableItem = SelectedItem.item as IDestroyableItem;
+                if (destroyableItem != null)
+                {
+                    Controller.inventoryData.RemoveItem(index, 1);
+                }
+
+            }
+
+            //consumable.PerfomAction(player);
+        }
+        
+        
+        
+        
+        
         if (SelectedItem.item is WeaponItemSO weapon)
         {
-            spawnWeaponHandlerScript.SpawnWeapon(weapon.key, player.GetComponent<NetworkObject>());
+                spawnWeaponHandlerScript.SpawnWeapon(weapon.key, player.GetComponent<NetworkObject>());
 
         }
 
         player = null;
-    }
+        
 
+    }
 }

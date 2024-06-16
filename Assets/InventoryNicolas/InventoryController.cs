@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using Unity.Netcode;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
@@ -36,8 +37,7 @@ public class InventoryController : MonoBehaviour
 
     public List<InventoryItem> initialItems = new List<InventoryItem>();
     
-    
-    
+   
     bool iscrafted = false;
 
     private UIInventoryItem hoveredItem;
@@ -95,6 +95,8 @@ public class InventoryController : MonoBehaviour
         }
     }
     
+    
+    
 
     private void CraftItem()
     {
@@ -147,8 +149,8 @@ public class InventoryController : MonoBehaviour
          
            
         }
-        
-        
+
+    
 
         InventoryItem inventoryItemRes = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -2);
         InventoryItem inventoryItemRes2 = inventoryData.GetItemAt(inventoryUI.listOfUIItems.Count -3);
@@ -163,11 +165,13 @@ public class InventoryController : MonoBehaviour
             inventoryData.RemoveAtAllCost(index2,quant2);
           
        }
-        
-        
-        
-        
-        
+
+
+
+
+
+
+      
         
        
 
@@ -296,6 +300,7 @@ public class InventoryController : MonoBehaviour
         ItemSO item = inventoryItem.item;
         inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.name, item.Description);
     }
+    
 
 
     public void SetHoveredItem(UIInventoryItem givenItem)
@@ -305,6 +310,7 @@ public class InventoryController : MonoBehaviour
         
     }
 
+   [ServerRpc]
     private void SpawnItem()
     {
         player = GameObject.Find(UserData.Username);
@@ -340,6 +346,30 @@ public class InventoryController : MonoBehaviour
         }
 
         throw new ArgumentException();
+    }
+
+    public bool GetWin()
+    {
+        int cpt = 0;
+
+        foreach (var item in inventoryData.GetCurrentItemState())
+        {
+            if (item.Value.item is CrownSO)
+            {
+                cpt++;
+            }
+        }
+
+        if (cpt == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;  
+        }
+       
+
     }
 
 
@@ -440,16 +470,11 @@ public class InventoryController : MonoBehaviour
           //  inventoryData.InformAboutChange();
 
         }
-    
-    
-    
 
-      
-        
-            
-    
-        
-        
+        if (GetWin())
+        {
+            Debug.Log( "The new King has been chosen.");
+        }
         
         
     }

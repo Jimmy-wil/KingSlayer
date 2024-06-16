@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: DropList
   m_EditorClassIdentifier: 
   IsDefault: 0
-  List: []
+  List:
+  - Override: 0
+    Prefab: {fileID: 7525377447293439688, guid: 646947eb148dde54db0a36bac3d7138f, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}

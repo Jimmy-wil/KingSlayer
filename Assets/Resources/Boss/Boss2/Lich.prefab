@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c673109ecafd94ea42205de17c270b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 20
+  dmg: 8
   weaponRenderer: {fileID: 7632885966279300663}
   delay: 2
   circleOrigin: {fileID: 1222187989394689746}

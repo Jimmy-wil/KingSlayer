@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 8850290345366397778}
   - component: {fileID: 2924787348471394584}
   - component: {fileID: 859337018883694827}
+  - component: {fileID: 2513645445784735853}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -509,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 497373700
+  GlobalObjectIdHash: 1895776312
   InScenePlacedSourceGlobalObjectIdHash: 3665341305
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -845,3 +846,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &2513645445784735853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7244700376203949278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad093b4af6ae394d91e693d91f8c146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryData: {fileID: 11400000, guid: bba872eb63185d542beef53d27dbfca3, type: 2}

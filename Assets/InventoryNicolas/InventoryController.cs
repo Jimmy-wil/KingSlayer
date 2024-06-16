@@ -300,24 +300,46 @@ public class InventoryController : MonoBehaviour
 
     public void SetHoveredItem(UIInventoryItem givenItem)
     {
+        
         hoveredItem = givenItem;
+        
     }
 
     private void SpawnItem()
     {
-        if (player == null)
+        player = GameObject.Find(UserData.Username);
+        if (player != null)
         {
-            Debug.LogError("Player reference is not set.");
-            return;
+            
+            Debug.Log("Performing action");
+            Vector3 spawnPosition = player.transform.position + spawnOffset;
+
+            itemDrop.InventoryItem = inventoryData.GetItemAt(GetHoveredIndex()).item;
+            itemDrop.Quantity = inventoryData.GetItemAt(GetHoveredIndex()).quantity;
+
+            Instantiate(itemDrop.gameObject, spawnPosition, Quaternion.identity);
+            
+            inventoryData.RemoveItem(GetHoveredIndex());
+            player = null;
+                
+                
+
+        }
+        //Debug.LogError("Player reference is not set.");
+    }
+
+    public int GetHoveredIndex()
+    {
+        for (int i = 0; i < inventoryUI.listOfUIItems.Count; i++)
+        {
+            if (inventoryUI.listOfUIItems[i] == hoveredItem)
+            {
+                return i;
+            }
+            
         }
 
-        Vector3 spawnPosition = player.transform.position + spawnOffset;
-        
-
-        Instantiate(ItemSpawnPrefab, spawnPosition, Quaternion.identity);
-        
-        
-
+        throw new ArgumentException();
     }
 
 
@@ -360,16 +382,19 @@ public class InventoryController : MonoBehaviour
             }
         }
         
-     //   if(Input.GetKeyDown(KeyCode.F))
-    //    {
-     //       if (hoveredItem != null && hoveredItem.IsHovered )
-     //       {
-    //            Debug.Log(" Ca marche");
-    //            SpawnItem();
-     //       }
-    //    }  
-    if (Input.GetKeyDown("1"))
-    {
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if (hoveredItem != null && hoveredItem.IsHovered )
+            {
+               Debug.Log(" Ca marche");
+                SpawnItem();
+            }
+        } 
+        
+        
+        
+        if (Input.GetKeyDown("1")) 
+        {
        hotbar.GettingPlayerAndCall();
 
        hotbar.DeselectAll();
@@ -383,39 +408,38 @@ public class InventoryController : MonoBehaviour
         hotbar.ItemAction();
        // inventoryData.InformAboutChange();
 
-    }
+        } 
+        
+        
+        if (Input.GetKeyDown("2"))
+        {
+         hotbar.GettingPlayerAndCall();
 
-    if (Input.GetKeyDown("2"))
-    {
-        hotbar.GettingPlayerAndCall();
+         hotbar.DeselectAll();
 
-        hotbar.DeselectAll();
+         Debug.Log("2");
 
-        Debug.Log("2");
+         hotbar.listOfUIItemsHotbar[1].Select();
+         hotbar.SelectedItem =  inventoryData.GetItemAt(1);
 
-        hotbar.listOfUIItemsHotbar[1].Select();
-        hotbar.SelectedItem =  inventoryData.GetItemAt(1);
-
-        hotbar.ItemAction();
+         hotbar.ItemAction();
      //   inventoryData.InformAboutChange();
+        } 
+        if (Input.GetKeyDown("3")) 
+        {
+         hotbar.GettingPlayerAndCall();
 
-    }
+         hotbar.DeselectAll();
 
-    if (Input.GetKeyDown("3"))
-    {
-        hotbar.GettingPlayerAndCall();
+         Debug.Log("3");
 
-        hotbar.DeselectAll();
+         hotbar.listOfUIItemsHotbar[2].Select();
+         hotbar.SelectedItem =  inventoryData.GetItemAt(2);
 
-        Debug.Log("3");
+         hotbar.ItemAction();
+          //  inventoryData.InformAboutChange();
 
-        hotbar.listOfUIItemsHotbar[2].Select();
-        hotbar.SelectedItem =  inventoryData.GetItemAt(2);
-
-        hotbar.ItemAction();
-      //  inventoryData.InformAboutChange();
-
-     }
+        }
     
     
     

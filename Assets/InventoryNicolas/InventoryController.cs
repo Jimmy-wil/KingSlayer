@@ -14,6 +14,8 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     public GameObject player;
 
+   // [SerializeField] public Player play;
+
     [SerializeField]
     private UIInvetoryPage inventoryUI;
 
@@ -39,10 +41,16 @@ public class InventoryController : MonoBehaviour
     private Item itemDrop;
     [SerializeField] 
     private GameObject ItemSpawnPrefab;
+
+     public Health PlayerHealth { get; set; }
     
     public bool inventoryIsClosed;
 
     public List<InventoryItem> initialItems = new List<InventoryItem>();
+    
+    
+    
+    
     
    
     bool iscrafted = false;
@@ -190,6 +198,7 @@ public class InventoryController : MonoBehaviour
           
         }
     }
+    
 
    private int GetCraftedAmount(InventoryItem item1, InventoryItem item2)
    {
@@ -335,6 +344,34 @@ public class InventoryController : MonoBehaviour
 
     }
 
+    private void SpawnItem(Item item, int quantity)
+    {
+        
+        player = GameObject.Find(UserData.Username);
+        if (player != null)
+        {
+
+            Vector3 spawnPosition = player.transform.position + spawnOffset;
+            Debug.Log(spawnPosition);
+
+            for (int i = 0; i < quantity; i++)
+            {
+                inventoryDropHandlerScript.DropItem(item, spawnPosition);
+                inventoryData.RemoveItem(GetHoveredIndex(), 1);
+          
+                
+            }
+            PlayerHealth = player.GetComponent<Health>();
+            
+            player = null;
+            
+
+        }
+        
+        
+    }
+    
+
     public int GetHoveredIndex()
     {
         for (int i = 0; i < inventoryUI.listOfUIItems.Count; i++)
@@ -374,6 +411,23 @@ public class InventoryController : MonoBehaviour
     }
 
 
+    private void DropAllItem()
+    {
+        if (PlayerHealth.isDead)
+        {
+            for (int i = 0; i < inventoryData.inventoryItems.Count; i++)
+            {
+                SpawnItem(inventoryData.GetItemAt(i).item.dropItem,inventoryData.GetItemAt(i).quantity );
+            }
+        }
+    }
+    
+    
+    
+    
+    
+
+
     void Update()
     {
         hotbar.ResetAllHotBarItems();
@@ -387,7 +441,12 @@ public class InventoryController : MonoBehaviour
         }
         
         CraftItem();
-       
+        
+        if (player != null)
+        {
+            DropAllItem();
+        }
+        
         
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -479,5 +538,10 @@ public class InventoryController : MonoBehaviour
         
         
     }
+    
+    
+    
+    
+    
 }
 

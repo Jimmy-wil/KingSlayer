@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lich Crown
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
+  dropItem: {fileID: 4911658372638357030, guid: dba87b5da7ae88c4db8cee0208c9a76b, type: 3}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Lich Crown
   <Description>k__BackingField: Crown of the shadowed King

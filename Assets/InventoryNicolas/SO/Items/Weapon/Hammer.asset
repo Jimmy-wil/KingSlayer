@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
+  dropItem: {fileID: 4911658372638357030, guid: 8d507336348c6bf45b38294dbaadf02a, type: 3}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Hammer
   <Description>k__BackingField: A sturdy hammer, it promises to deliver great damage

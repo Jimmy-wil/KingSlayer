@@ -323,10 +323,10 @@ public class InventoryController : MonoBehaviour
             Vector3 spawnPosition = player.transform.position + spawnOffset;
             Debug.Log(spawnPosition);
 
-            itemDrop.InventoryItem = inventoryData.GetItemAt(GetHoveredIndex()).item;
-            itemDrop.Quantity = inventoryData.GetItemAt(GetHoveredIndex()).quantity;
+           // itemDrop.InventoryItem = inventoryData.GetItemAt(GetHoveredIndex()).item;
+           // itemDrop.Quantity = inventoryData.GetItemAt(GetHoveredIndex()).quantity;
 
-            inventoryDropHandlerScript.DropItem(itemDrop, spawnPosition);
+            inventoryDropHandlerScript.DropItem(inventoryData.GetItemAt(GetHoveredIndex()).item.dropItem, spawnPosition);
 
             inventoryData.RemoveItem(GetHoveredIndex(), 1);
           

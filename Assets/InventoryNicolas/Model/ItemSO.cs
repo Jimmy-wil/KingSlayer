@@ -8,6 +8,8 @@ public abstract class ItemSO : ScriptableObject
     [field: SerializeField]
     public bool IsStackable { get; set; }
     public int ID => GetInstanceID();
+
+    [field: SerializeField] public Item dropItem;
    
    
     

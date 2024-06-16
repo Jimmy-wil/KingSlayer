@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Scimitar
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
+  dropItem: {fileID: 4911658372638357030, guid: 4cb90f05ed747c340a6a1cdb49cb2f84, type: 3}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Scimitar
   <Description>k__BackingField: This oriental shouldn't even be there in the first

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MushroomItemSo
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
+  dropItem: {fileID: 4911658372638357030, guid: 84d9dad26bbc23b4fafe0ad0db43f3f5, type: 3}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Mushroom
   <Description>k__BackingField: Mushroom.

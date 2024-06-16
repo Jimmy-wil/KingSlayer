@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Shortsword
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
+  dropItem: {fileID: 4911658372638357030, guid: 27ecc925010e99e4bb5b61c76e23cafc, type: 3}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Short sword
   <Description>k__BackingField: Classic RPG weapon.

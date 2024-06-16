@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SpearItemSo
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
+  dropItem: {fileID: 4911658372638357030, guid: 870f06d0f9002b74e8824a7e15108fc3, type: 3}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Spear
   <Description>k__BackingField: A makeshift spear with a decent range of attack.

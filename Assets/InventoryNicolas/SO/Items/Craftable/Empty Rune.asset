@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Empty Rune
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
+  dropItem: {fileID: 4911658372638357030, guid: eaf4577e1e4d02d4999074f9ab63af6f, type: 3}
   <MaxStackSize>k__BackingField: 64
-  <Name>k__BackingField: Strength Flower
+  <Name>k__BackingField: Empty rune
   <Description>k__BackingField: An empty rune which has lost its former power. Maybe
     it can be infused with some blood ?
   <ItemImage>k__BackingField: {fileID: 21300000, guid: 15acdc3f577a8d946b864bb190e4b1a1, type: 3}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cheese
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
+  dropItem: {fileID: 4911658372638357030, guid: bb09d1460af16f3418d5e874c39156a9, type: 3}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Cheese
   <Description>k__BackingField: Normal cheese made by cows. Restores a small amount

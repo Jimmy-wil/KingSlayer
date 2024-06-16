@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7625106121990881022}
   - component: {fileID: -7317791501375537967}
   m_Layer: 11
-  m_Name: Slime Crown
+  m_Name: Empowering rune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e354e4a492b5021458821cfd973d6477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryItem: {fileID: 11400000, guid: 207351de8248a9347902fcc39b5ef29f, type: 2}
+  InventoryItem: {fileID: 11400000, guid: 4b82f29cb48c9f643844d539990998f6, type: 2}
   Quantity: 1
   audioSource: {fileID: 7625106121990881022}
   duration: 0.3
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1655754728
+  GlobalObjectIdHash: 272002776
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

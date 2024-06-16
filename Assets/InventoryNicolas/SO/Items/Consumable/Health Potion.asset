@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Health Potion
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
+  dropItem: {fileID: 4911658372638357030, guid: 7b5481bf1c331384ebe0410618dd5782, type: 3}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Health Potion
   <Description>k__BackingField: Restores Health

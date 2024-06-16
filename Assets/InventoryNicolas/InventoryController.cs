@@ -17,21 +17,28 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     private UIInvetoryPage inventoryUI;
 
-    [SerializeField] private Vector3 spawnOffset = new Vector3(5, 0, 0);
+    [SerializeField]
+    private Vector3 spawnOffset = new Vector3(5, 0, 0);
 
-    
+    [SerializeField]
+    private ItemDropHandlerScript inventoryDropHandlerScript;
+
 
     // [SerializeField] private MouseFollower _mouseFollower;
 
-    [SerializeField] public InventorySO inventoryData;
+    [SerializeField]
+    public InventorySO inventoryData;
 
     [SerializeField]
     private HotBarController hotbar;
 
-    [SerializeField] private craftingSolution Solution;
+    [SerializeField] 
+    private craftingSolution Solution;
 
-    [SerializeField] private Item itemDrop;
-    [SerializeField] private GameObject ItemSpawnPrefab;
+    [SerializeField] 
+    private Item itemDrop;
+    [SerializeField] 
+    private GameObject ItemSpawnPrefab;
     
     public bool inventoryIsClosed;
 
@@ -220,10 +227,6 @@ public class InventoryController : MonoBehaviour
         inventoryUI.InitializeCraftResult(); 
     }
 
-   
-      
-   
-
     private void HandleItemActionRequest(int itemIndex)
     {
         InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
@@ -312,29 +315,27 @@ public class InventoryController : MonoBehaviour
 
     private void SpawnItem()
     {
-        /*
+
         player = GameObject.Find(UserData.Username);
         if (player != null)
         {
-            
-            Debug.Log("Performing action");
+
             Vector3 spawnPosition = player.transform.position + spawnOffset;
+            Debug.Log(spawnPosition);
+
             itemDrop.InventoryItem = inventoryData.GetItemAt(GetHoveredIndex()).item;
             itemDrop.Quantity = inventoryData.GetItemAt(GetHoveredIndex()).quantity;
 
-            var clone = Instantiate(itemDrop.gameObject, spawnPosition, Quaternion.identity);
+            inventoryDropHandlerScript.DropItem(itemDrop, spawnPosition);
 
-            clone.GetComponent<NetworkObject>().Spawn();
-        */  
-        inventoryData.RemoveItem(GetHoveredIndex());
-         /*player = null;
-                
-                
+            inventoryData.RemoveItem(GetHoveredIndex());
+          
+            player = null;
 
         }
         //Debug.LogError("Player reference is not set.");
-        */
-        }
+
+    }
 
     public int GetHoveredIndex()
     {

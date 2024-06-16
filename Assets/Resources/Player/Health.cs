@@ -146,7 +146,8 @@ public class Health : NetworkBehaviour
     [ServerRpc(RequireOwnership=false)]
     private void DestroyObjectServerRpc()
     {
-        if (randomDrop != null && randomDrop.items.Count != 0)
+        Debug.Log("Getting destroyed");
+        if (randomDrop != null)
         {
             Debug.Log("Dropping something");
 
@@ -155,7 +156,7 @@ public class Health : NetworkBehaviour
 
         }
 
-        Destroy(gameObject); // die
+        Destroy(gameObject); // Die
     }
 
 

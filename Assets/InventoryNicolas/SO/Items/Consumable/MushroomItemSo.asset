@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 64
-  <Name>k__BackingField: Cheese
-  <Description>k__BackingField: Normal cheese made by cows. Restores a small amount
-    of Hp.
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: e1b86fc7e5ff1ed47936f49ae00da397, type: 3}
+  <Name>k__BackingField: Mushroom
+  <Description>k__BackingField: Mushroom.
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: a6036ea8975129749832bf8a36566eb1, type: 3}
   modifiersData:
   - statModifier: {fileID: 11400000, guid: 200e71f20e3f21b4e9ba0afa962f4cc1, type: 2}
-    value: 20
+    value: 5

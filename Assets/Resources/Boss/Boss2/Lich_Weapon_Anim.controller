@@ -312,9 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f4943d1f1cc2f4a987798582421b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degatIncrease: 10
-  delayIncrease: 1
-  radius: 0
+  degatIncrease: 8
+  delayIncrease: 1.5
+  radius: 0.5
   attackDistance: 0.5
   newSpeed: 0
 --- !u!114 &6706566419013592748

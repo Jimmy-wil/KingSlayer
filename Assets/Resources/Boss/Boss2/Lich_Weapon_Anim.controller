@@ -30,7 +30,7 @@ MonoBehaviour:
   delayIncrease: 0
   radius: 0
   attackDistance: 0
-  newSpeed: 1.5
+  newSpeed: 2
 --- !u!1102 &-2815459665704479388
 AnimatorState:
   serializedVersion: 6

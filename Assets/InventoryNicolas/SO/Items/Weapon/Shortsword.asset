@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e97fb8c67635cb94b9ff83b09bdf1424, type: 3}
-  m_Name: Scythe
+  m_Name: Shortsword
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: Scythe
-  <Description>k__BackingField: 
-  <ItemImage>k__BackingField: {fileID: 7045053761058034914, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
+  <Name>k__BackingField: Short sword
+  <Description>k__BackingField: Classic RPG weapon.
+  <ItemImage>k__BackingField: {fileID: 2463493976517071750, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
   type: 0
-  weaponDmg: 9
-  range: 3
+  weaponDmg: 4
+  range: 1
   key: 7

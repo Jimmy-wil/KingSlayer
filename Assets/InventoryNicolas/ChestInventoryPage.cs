@@ -7,7 +7,7 @@ public class ChestInventoryPage : MonoBehaviour
 {
     [SerializeField] public UIInventoryItem itemPrefab;
 
-   [SerializeField] private RectTransform contentPanel;
+    [SerializeField] private RectTransform contentPanel;
 
    //changed form private to public
     List<UIInventoryItem> listOfUIItems = new List<UIInventoryItem>();
@@ -15,19 +15,19 @@ public class ChestInventoryPage : MonoBehaviour
     private int currentlyDraggedItemIndex = -1;
 
     public event Action<int> OnItemActionRequested;
-    
-    
-    
+
+
     public void InitializeInventoryUI(int inventorySize)
     {
         for (int i = 0; i < inventorySize ; i++)
         {
             UIInventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
             uiItem.transform.SetParent(contentPanel);
-            listOfUIItems.Add(uiItem);
-          //  uiItem.OnItemClicked += HandleItemSelection;
-            uiItem.OnRightMouseBoutonClick += HandleShowItemActions;
             
+            listOfUIItems.Add(uiItem);
+            
+            // uiItem.OnItemClicked += HandleItemSelection;
+            uiItem.OnRightMouseBoutonClick += HandleShowItemActions;
            
         }
     }
@@ -46,6 +46,7 @@ public class ChestInventoryPage : MonoBehaviour
         int index = listOfUIItems.IndexOf(inventoryItemUI);
         if (index == -1) 
             return;
+
     }
     
     private void HandleShowItemActions(UIInventoryItem inventoryItemUI)
@@ -59,8 +60,6 @@ public class ChestInventoryPage : MonoBehaviour
         OnItemActionRequested?.Invoke(index);
     }
 
-   
-    
 
     private void DeselectAllItems()
     {
@@ -69,8 +68,6 @@ public class ChestInventoryPage : MonoBehaviour
             item.Deselect();
         }
     }
-    
-   
     
     public void ResetAllItems()
     {

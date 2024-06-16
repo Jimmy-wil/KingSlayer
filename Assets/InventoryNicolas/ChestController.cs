@@ -8,7 +8,9 @@ public class ChestController : MonoBehaviour
     public GameObject ChestClose,ChestOpen;
 
     [SerializeField] private InventoryController controller => GameObject.Find("InventoryMenuUI").GetComponent<InventoryController>();
+    
     [SerializeField] private InventorySO chestData;
+    
     [SerializeField] private ChestInventoryPage chestUI;
     
     
@@ -16,12 +18,12 @@ public class ChestController : MonoBehaviour
     public List<InventoryItem> initialItems = new List<InventoryItem>();
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {   
        ChestClose.SetActive(true); 
        ChestOpen.SetActive(false);
        PrepareUI();
        PrepareInventoryData();
+
     }
 
     // Update is called once per frame

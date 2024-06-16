@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e97fb8c67635cb94b9ff83b09bdf1424, type: 3}
-  m_Name: Daguer
+  m_Name: Halberd
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: Dager
-  <Description>k__BackingField: 
-  <ItemImage>k__BackingField: {fileID: 1087410081271262417, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
+  <Name>k__BackingField: Halberd
+  <Description>k__BackingField: Now it's time to replace your makeshit weapons with
+    this awesome martial weapon!
+  <ItemImage>k__BackingField: {fileID: -4671630583497048383, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
   type: 0
-  weaponDmg: 4
+  weaponDmg: 8
   range: 1
   key: 4

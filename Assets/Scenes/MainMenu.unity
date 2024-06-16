@@ -863,6 +863,17 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &478088283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5877035743089117585, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
+  m_PrefabInstance: {fileID: 2090056928}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478088278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda56932b8dafd64abadb435d1532bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &513671816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,7 +2220,7 @@ MonoBehaviour:
   BlackScreen: {fileID: 156287005}
   GameGUI: {fileID: 454409840}
   WinScreen: {fileID: 1388237901}
-  PlayerCountUIScript: {fileID: 0}
+  PlayerCountUIScript: {fileID: 478088283}
   MessagePanelObject: {fileID: 207272745}
   MainMenu: {fileID: 1270370204}
   CreateLobbyMenu: {fileID: 1722646542}
@@ -2981,6 +2992,14 @@ PrefabInstance:
     - target: {fileID: 2303529556162842576, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852020632608051686, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894591105568038176, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2386282269
       objectReference: {fileID: 0}
     - target: {fileID: 3043347987425142173, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
       propertyPath: UserData
@@ -3945,6 +3964,10 @@ PrefabInstance:
     - {fileID: 6982112879533891976, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
     - {fileID: 6166243276007772430, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
     - {fileID: 294803254474256199, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
+    - {fileID: 5842993424172208933, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
+    - {fileID: 3215870562733711168, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
+    - {fileID: 7757510813252558421, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
+    - {fileID: 4486049484941469836, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3767684014632326628, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
       insertIndex: 0
@@ -4260,16 +4283,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8942322267555794874, guid: f060d4c66dfca564fab958a687a61cdd, type: 3}
       propertyPath: list.Array.size
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8942322267555794874, guid: f060d4c66dfca564fab958a687a61cdd, type: 3}
       propertyPath: list.Array.data[3]
       value: 
-      objectReference: {fileID: 5703723777971365393, guid: 73aff07bef6a098439f4e22aa0bb35a1, type: 3}
+      objectReference: {fileID: 5703723777971365393, guid: 7770e15c047d7e04b95a7e6a0cd6575f, type: 3}
     - target: {fileID: 8942322267555794874, guid: f060d4c66dfca564fab958a687a61cdd, type: 3}
       propertyPath: list.Array.data[4]
       value: 
-      objectReference: {fileID: 5703723777971365393, guid: aec874e75d206e34f8b12a20dabfdca6, type: 3}
+      objectReference: {fileID: 5703723777971365393, guid: 2e74e5b43fac2cc4faf8219721dd9852, type: 3}
+    - target: {fileID: 8942322267555794874, guid: f060d4c66dfca564fab958a687a61cdd, type: 3}
+      propertyPath: list.Array.data[5]
+      value: 
+      objectReference: {fileID: 5703723777971365393, guid: fd3fc9b9f2e6f7b46acbe672b975e1c1, type: 3}
+    - target: {fileID: 8942322267555794874, guid: f060d4c66dfca564fab958a687a61cdd, type: 3}
+      propertyPath: list.Array.data[6]
+      value: 
+      objectReference: {fileID: 5703723777971365393, guid: 682fc56c84a503f4da57f75bbe030570, type: 3}
+    - target: {fileID: 8942322267555794874, guid: f060d4c66dfca564fab958a687a61cdd, type: 3}
+      propertyPath: list.Array.data[7]
+      value: 
+      objectReference: {fileID: 5703723777971365393, guid: 7a1fec9a41726e64985020a247e939ff, type: 3}
+    - target: {fileID: 8942322267555794874, guid: f060d4c66dfca564fab958a687a61cdd, type: 3}
+      propertyPath: list.Array.data[8]
+      value: 
+      objectReference: {fileID: 5703723777971365393, guid: 0604466f1bd8c474ab631643d862e7a6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

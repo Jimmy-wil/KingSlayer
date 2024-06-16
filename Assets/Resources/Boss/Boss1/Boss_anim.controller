@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rageSound: {fileID: 8300000, guid: 291fd1ee4f14d31489fadd2031ef63c4, type: 3}
-  loopWhileRunning: 0
+  loopWhileRunning: 1
 --- !u!1101 &1347949119483916184
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

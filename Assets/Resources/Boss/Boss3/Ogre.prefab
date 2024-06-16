@@ -1365,6 +1365,7 @@ GameObject:
   - component: {fileID: 5405258339183006539}
   - component: {fileID: 6823471352176160691}
   - component: {fileID: 3230165706476239188}
+  - component: {fileID: 4007129865453351589}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -1582,3 +1583,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4007129865453351589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895448514676631933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8189367232342a14eab64cc4dac62ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 2877609537267987337}

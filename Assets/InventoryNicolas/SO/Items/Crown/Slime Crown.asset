@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Slime Crown
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
+  dropItem: {fileID: 4911658372638357030, guid: 27d2bd25b3018024f98db1c3af825aa9, type: 3}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Slime Crown
   <Description>k__BackingField: Crown of the gluttonous King

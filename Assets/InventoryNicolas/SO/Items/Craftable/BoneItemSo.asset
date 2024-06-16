@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BoneItemSo
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
+  dropItem: {fileID: 4911658372638357030, guid: e6a3d9bdfd90a5d41b7c0d0c37a9c7a1, type: 3}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: BoneItemSo
   <Description>k__BackingField: These bones are kind of hefty.

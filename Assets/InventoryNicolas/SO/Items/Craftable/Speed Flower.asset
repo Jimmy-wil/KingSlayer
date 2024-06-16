@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Speed Flower
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
+  dropItem: {fileID: 4911658372638357030, guid: 88199272991b09b418234b30be3796bb, type: 3}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Speed Flower
   <Description>k__BackingField: A flower capable of enhancing ones ability to run

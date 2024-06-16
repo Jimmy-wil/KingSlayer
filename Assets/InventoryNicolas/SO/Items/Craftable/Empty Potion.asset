@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Empty Potion
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
+  dropItem: {fileID: 4911658372638357030, guid: f5f151064846f7944af570bc0a5814c3, type: 3}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Empty Potion
   <Description>k__BackingField: An empty potion made out of glass. Maybe it can be

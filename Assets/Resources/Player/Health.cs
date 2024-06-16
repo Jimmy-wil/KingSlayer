@@ -29,7 +29,7 @@ public class Health : NetworkBehaviour
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
 
     [SerializeField]
-    private bool isDead = false;
+    public bool isDead = false;
 
     [ServerRpc(RequireOwnership=false)]
     public void AddHpServerRpc(int amount)

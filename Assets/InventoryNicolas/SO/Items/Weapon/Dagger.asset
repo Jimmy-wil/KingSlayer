@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dagger
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
+  dropItem: {fileID: 4911658372638357030, guid: 8533365201eea37429c1498161fce3ba, type: 3}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Dagger
   <Description>k__BackingField: A sneaky weapon for sneaky people.

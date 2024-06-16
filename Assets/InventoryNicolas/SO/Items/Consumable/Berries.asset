@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Berries
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
+  dropItem: {fileID: 4911658372638357030, guid: 52e6c567f6d8aff4f9643ba695681ddc, type: 3}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Black Berries
   <Description>k__BackingField: "Can be found everywhere in Helios domain. Restores

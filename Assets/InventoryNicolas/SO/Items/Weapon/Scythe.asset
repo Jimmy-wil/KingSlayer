@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Scythe
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
+  dropItem: {fileID: 4911658372638357030, guid: 619558aec30d88d45aeec8097857c0ab, type: 3}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Scythe
   <Description>k__BackingField: Used to harvest crops. Maybe you could harvest corpses

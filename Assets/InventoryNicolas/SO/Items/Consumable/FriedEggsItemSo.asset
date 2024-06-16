@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FriedEggsItemSo
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
+  dropItem: {fileID: 4911658372638357030, guid: 329cbab25d73c6840832cb156a6c2eca, type: 3}
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Fried Eggs
   <Description>k__BackingField: You got lucky to get your hands on eggs in this island.

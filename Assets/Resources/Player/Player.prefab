@@ -292,7 +292,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -792,8 +792,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drop: {fileID: 0}
   deathMenu: {fileID: 0}
-  currentHealth: 200
-  maxHealth: 200
+  currentHealth: 150
+  maxHealth: 150
   hitColor: {r: 0.8584906, g: 0.2794144, b: 0.2794144, a: 1}
   Sprite: {fileID: 5965344032743553127}
   OnHitWithReference:
@@ -967,7 +967,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e32211f0b29e1bd479e43fce1d74ec61, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

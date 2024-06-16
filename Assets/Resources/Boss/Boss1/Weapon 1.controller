@@ -121,7 +121,7 @@ AnimatorStateMachine:
     m_Position: {x: 210, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2718933723150125986}
-    m_Position: {x: 530, y: 230, z: 0}
+    m_Position: {x: 440, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3440088567589056315}
     m_Position: {x: 370, y: 40, z: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f4943d1f1cc2f4a987798582421b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degatIncrease: 20
+  degatIncrease: 6
   delayIncrease: 2
   radius: 0.5
   attackDistance: 2.5
@@ -261,7 +261,7 @@ MonoBehaviour:
   delayIncrease: 0
   radius: 0
   attackDistance: 0
-  newSpeed: 0
+  newSpeed: 1.5
 --- !u!114 &1478960477162931621
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68c72abe1745a54ab21db2701ec3a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rageSound: {fileID: 8300000, guid: b546452000f17ac45998fc2ac310a725, type: 3}
+  rageSound: {fileID: 8300000, guid: 52de24be1c6b7e248af51c45c8c28f4d, type: 3}
   loopWhileRunning: 0
 --- !u!1101 &2186522493711786769
 AnimatorStateTransition:
@@ -313,7 +313,6 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8267008995734306758}
-  - {fileID: -2658400934249383629}
   m_StateMachineBehaviours:
   - {fileID: 3414961163874758922}
   m_Position: {x: 50, y: 50, z: 0}

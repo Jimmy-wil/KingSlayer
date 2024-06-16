@@ -36,10 +36,13 @@ public class BossRageSound : StateMachineBehaviour
     // OnStateExit est appelé lorsque la transition se termine et que l'état cesse d'être évalué par le state machine
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (audioSource!=null)
+        {
         if (loopWhileRunning)
         {
             audioSource.loop = false;
             audioSource.Stop();
+        }
         }
     }
 }

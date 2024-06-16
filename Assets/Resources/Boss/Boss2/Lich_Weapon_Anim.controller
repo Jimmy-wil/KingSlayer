@@ -313,8 +313,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   degatIncrease: 8
-  delayIncrease: 1.5
-  radius: 0.5
+  delayIncrease: 1
+  radius: 1
   attackDistance: 0.5
   newSpeed: 0
 --- !u!114 &6706566419013592748

@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 444fc6757015c44479eb0e77427d3d20
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JubairSceneTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JubairSceneTest2.unity
     guid: 5945e41d9fe1794459d7c70e672ef8d0
   m_configObjects: {}

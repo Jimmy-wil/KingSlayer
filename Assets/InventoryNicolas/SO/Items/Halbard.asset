@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e97fb8c67635cb94b9ff83b09bdf1424, type: 3}
-  m_Name: AxeItemSo
+  m_Name: Halbard
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: Axe
-  <Description>k__BackingField: A sturdy axe made for chopping trees.
-  <ItemImage>k__BackingField: {fileID: 1429658294, guid: 006dc96bf587f0443af484e2177a7fb8, type: 3}
+  <Name>k__BackingField: Halbard
+  <Description>k__BackingField: 
+  <ItemImage>k__BackingField: {fileID: -4671630583497048383, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
   type: 0
-  weaponDmg: 5
-  range: 0
-  key: 0
+  weaponDmg: 8
+  range: 1
+  key: 5

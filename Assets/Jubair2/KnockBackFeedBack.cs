@@ -17,7 +17,9 @@ public class KnockBackFeedBack : MonoBehaviour
     {
         StopAllCoroutines();
         OnBegin?.Invoke();
+            
         Vector2 direction = (transform.position-sender.transform.position).normalized;
+
         rb2d.AddForce(direction*strength,ForceMode2D.Impulse);
         StartCoroutine(Reset());
     }

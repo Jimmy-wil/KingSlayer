@@ -1,14 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PickUpItem : MonoBehaviour
+public class PickUpItem : NetworkBehaviour
 {
     [SerializeField] private InventorySO inventoryData;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!IsOwner) return;
+
         Item item = collision.GetComponent<Item>();
         if (item != null)
         {

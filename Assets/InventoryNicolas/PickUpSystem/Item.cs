@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [field: SerializeField] public ItemSO InventoryItem { get;  set; }
+    [SerializeField] public ItemSO InventoryItem;
 
-    [field: SerializeField] public int Quantity { get; set; } = 1;
+    [SerializeField]  public int Quantity = 1;
 
-    [field: SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
-    [field: SerializeField] private float duration = 0.3f;
+    [SerializeField] private float duration = 0.3f;
 
     private void Start()
     {

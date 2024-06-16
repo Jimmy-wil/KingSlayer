@@ -328,7 +328,7 @@ public class InventoryController : MonoBehaviour
 
             inventoryDropHandlerScript.DropItem(itemDrop, spawnPosition);
 
-            inventoryData.RemoveItem(GetHoveredIndex());
+            inventoryData.RemoveItem(GetHoveredIndex(), 1);
           
             player = null;
 

@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 6791174252670995887}
   - component: {fileID: 585260240943316407}
   - component: {fileID: 6445463987278103959}
+  - component: {fileID: 1421625418535814023}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -278,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd0f3c9c2b92ec4ba1b7bc97f791b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomDrop: {fileID: 1421625418535814023}
   deathMenu: {fileID: 0}
   currentHealth: 50
   maxHealth: 50
@@ -552,6 +554,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1421625418535814023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297866143489671681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7cbfd093224134380a5b38b1295563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
+  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
+  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
+  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
+  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
 --- !u!1 &1928485943629319134
 GameObject:
   m_ObjectHideFlags: 0

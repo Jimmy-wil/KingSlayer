@@ -6,7 +6,6 @@ using UnityEngine;
 public class ItemDropHandlerScript : NetworkBehaviour
 {
     private Item ItemToDrop;
-
     public void DropItem(Item itemToDrop, Vector2 position)
     {
         ItemToDrop = itemToDrop;
@@ -14,11 +13,14 @@ public class ItemDropHandlerScript : NetworkBehaviour
 
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership=false)]
     private void DropItemServerRpc(Vector2 position)
     {
         var clone = Instantiate(ItemToDrop.gameObject, position, Quaternion.identity);
         clone.GetComponent<NetworkObject>().Spawn();
+
+        ItemToDrop.GetComponent<Item>().InventoryItem = ItemToDrop.InventoryItem;
+
     }
 
 }

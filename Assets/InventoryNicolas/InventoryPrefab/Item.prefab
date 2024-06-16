@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e354e4a492b5021458821cfd973d6477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <InventoryItem>k__BackingField: {fileID: 11400000, guid: 88d7e939670bbe94088380da85ae8332, type: 2}
+  <InventoryItem>k__BackingField: {fileID: 11400000, guid: b85eb5e7827e7ab49ab79e422b2bf04d, type: 2}
   <Quantity>k__BackingField: 1
   audioSource: {fileID: 7625106121990881022}
   duration: 0.3

@@ -17,7 +17,7 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Halberd
   <Description>k__BackingField: Now it's time to replace your makeshit weapons with
-    this awesome martial weapon!
+    this awesome two-handed martial weapon!
   <ItemImage>k__BackingField: {fileID: -4671630583497048383, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
   type: 0
   weaponDmg: 8

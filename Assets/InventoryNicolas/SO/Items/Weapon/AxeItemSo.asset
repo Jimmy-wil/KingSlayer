@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: AxeItemSo
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
-  pfItemWorld: {fileID: 0}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Axe
   <Description>k__BackingField: A sturdy axe made for chopping trees.
   <ItemImage>k__BackingField: {fileID: 1429658294, guid: 006dc96bf587f0443af484e2177a7fb8, type: 3}
   type: 0
-  weaponDmg: 20
+  weaponDmg: 5
   range: 0
   key: 0

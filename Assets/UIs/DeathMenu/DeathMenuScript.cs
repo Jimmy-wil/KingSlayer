@@ -91,9 +91,9 @@ public class DeathMenuScript : MonoBehaviour
     public void LeaveGame()
     {
         target = null;
+        Group.SetActive(false);
         NetworkManager.Singleton.Shutdown();
         // SceneManager.UnloadSceneAsync("Game");
-        Group.SetActive(false);
         
     }
 

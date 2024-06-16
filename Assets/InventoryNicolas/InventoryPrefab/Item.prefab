@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3846750737515344179}
   - component: {fileID: 4911658372638357030}
   - component: {fileID: 7625106121990881022}
+  - component: {fileID: -7317791501375537967}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -134,8 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e354e4a492b5021458821cfd973d6477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <InventoryItem>k__BackingField: {fileID: 11400000, guid: ac7150c71480d6646888bb96cdf084cd, type: 2}
-  <Quantity>k__BackingField: 5
+  <InventoryItem>k__BackingField: {fileID: 11400000, guid: 88d7e939670bbe94088380da85ae8332, type: 2}
+  <Quantity>k__BackingField: 16
   audioSource: {fileID: 7625106121990881022}
   duration: 0.3
 --- !u!82 &7625106121990881022
@@ -234,3 +235,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7317791501375537967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7525377447293439688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 155773681
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 1
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 1
+  AutoObjectParentSync: 1

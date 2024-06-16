@@ -15,7 +15,7 @@ MonoBehaviour:
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 64
   <Name>k__BackingField: Cheese
-  <Description>k__BackingField: Normal cheese made by cows. Restore a small amount
+  <Description>k__BackingField: Normal cheese made by cows. Restores a small amount
     of Hp.
   <ItemImage>k__BackingField: {fileID: 21300000, guid: e1b86fc7e5ff1ed47936f49ae00da397, type: 3}
   modifiersData:

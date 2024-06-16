@@ -310,29 +310,31 @@ public class InventoryController : MonoBehaviour
         
     }
 
-   [ServerRpc]
     private void SpawnItem()
     {
+        /*
         player = GameObject.Find(UserData.Username);
         if (player != null)
         {
             
             Debug.Log("Performing action");
             Vector3 spawnPosition = player.transform.position + spawnOffset;
-
             itemDrop.InventoryItem = inventoryData.GetItemAt(GetHoveredIndex()).item;
             itemDrop.Quantity = inventoryData.GetItemAt(GetHoveredIndex()).quantity;
 
-            Instantiate(itemDrop.gameObject, spawnPosition, Quaternion.identity);
-            
-            inventoryData.RemoveItem(GetHoveredIndex());
-            player = null;
+            var clone = Instantiate(itemDrop.gameObject, spawnPosition, Quaternion.identity);
+
+            clone.GetComponent<NetworkObject>().Spawn();
+        */  
+        inventoryData.RemoveItem(GetHoveredIndex());
+         /*player = null;
                 
                 
 
         }
         //Debug.LogError("Player reference is not set.");
-    }
+        */
+        }
 
     public int GetHoveredIndex()
     {
@@ -473,7 +475,7 @@ public class InventoryController : MonoBehaviour
 
         if (GetWin())
         {
-            Debug.Log( "The new King has been chosen.");
+            // Debug.Log( "The new King has been chosen.");
         }
         
         

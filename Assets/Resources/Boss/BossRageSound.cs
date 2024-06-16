@@ -27,14 +27,7 @@ public class BossRageSound : StateMachineBehaviour
         audioSource.clip = rageSound;
 
         // Définir le mode boucle selon la condition
-        if (loopWhileRunning)
-        {
-            audioSource.loop = true;
-        }
-        else
-        {
-            audioSource.loop = false;
-        }
+       audioSource.loop = loopWhileRunning;
 
         // Jouer le son
         audioSource.Play();
@@ -43,11 +36,14 @@ public class BossRageSound : StateMachineBehaviour
     // OnStateExit est appelé lorsque la transition se termine et que l'état cesse d'être évalué par le state machine
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(audioSource != null)
+        {
         // Arrêter la lecture en boucle lorsque l'état se termine
         if (loopWhileRunning)
         {
             audioSource.loop = false;
             audioSource.Stop();
+        }
         }
     }
 }

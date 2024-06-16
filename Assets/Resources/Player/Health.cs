@@ -11,6 +11,9 @@ using static UnityEngine.GraphicsBuffer;
 public class Health : NetworkBehaviour
 {
     [SerializeField]
+    private Item drop;
+
+    [SerializeField]
     private GameObject deathMenu;
     [SerializeField]
     public int currentHealth, maxHealth;
@@ -85,7 +88,7 @@ public class Health : NetworkBehaviour
         }
         changeSpriteColorRoutine = StartCoroutine(ChangeSpriteColorRoutine());
 
-        OnHitWithReference?.Invoke(sender);
+        // OnHitWithReference?.Invoke(sender);
 
         // if client to client
         DealDamageServerRpc(amount, this.gameObject);
@@ -116,6 +119,13 @@ public class Health : NetworkBehaviour
             {
                 deathMenu = GameObject.Find("DeathMenu");
                 deathMenu.GetComponent<DeathMenuScript>().ShowDeathMenu();
+                if(drop != null)
+                {
+                    var clone = Instantiate(drop, this.gameObject.transform.position, Quaternion.identity);
+                    clone.GetComponent<NetworkObject>().Spawn();
+
+
+                }
 
             }
 
@@ -131,6 +141,8 @@ public class Health : NetworkBehaviour
     [ServerRpc(RequireOwnership=false)]
     private void DestroyObjectServerRpc()
     {
+        var clone = Instantiate(drop);
+        clone.GetComponent<NetworkObject>().Spawn();
         Destroy(gameObject);
     }
 

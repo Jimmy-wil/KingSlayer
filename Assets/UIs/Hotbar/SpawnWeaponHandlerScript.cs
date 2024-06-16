@@ -139,4 +139,14 @@ public class SpawnWeaponHandlerScript : NetworkBehaviour
 
     }
 
+    public void DropObject()
+    {
+        DropObjectServerRpc();
+    }
+    [ServerRpc(RequireOwnership=false)]
+    private void DropObjectServerRpc()
+    {
+
+    }
+
 }

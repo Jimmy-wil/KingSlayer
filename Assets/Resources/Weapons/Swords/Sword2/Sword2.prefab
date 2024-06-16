@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5893562426426863353}
-  - component: {fileID: 4622786537176893286}
+  - component: {fileID: -730359012498548710}
   - component: {fileID: 6047678186590198827}
   - component: {fileID: 4768515095343561793}
   m_Layer: 6
-  m_Name: PurpleWand
+  m_Name: Sword2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 2265539814562808451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -359.22}
---- !u!114 &4622786537176893286
+--- !u!114 &-730359012498548710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3711003771
+  GlobalObjectIdHash: 749718557
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -99,11 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c673109ecafd94ea42205de17c270b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 12
+  dmg: 9
   weaponRenderer: {fileID: 603381060457865806}
-  delay: 0.5
+  delay: 1.5
   circleOrigin: {fileID: 4700319705775636447}
-  radius: 0.7
+  radius: 0.75
   animator: {fileID: 5382795692134897230}
 --- !u!1 &6623859258972756377
 GameObject:
@@ -136,14 +136,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6623859258972756377}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16178177, y: 0.9867567, z: -0.0005187189, w: 0.011738142}
-  m_LocalPosition: {x: 0.24094857, y: -0.17278859, z: 0.01}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.694, y: 0.189, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4700319705775636447}
   m_Father: {fileID: 5893562426426863353}
-  m_LocalEulerAnglesHint: {x: 0.276, y: 178.682, z: 18.619}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &603381060457865806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -185,9 +185,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 1296281824, guid: 8213da3405ccb8d46b0150052b10bedd, type: 3}
+  m_Sprite: {fileID: 6753790045691043994, guid: da8ed6e8a5bf7614eb6ac59e5ff0ae6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.5720568, y: 1.937143}
@@ -237,7 +237,7 @@ Animator:
   m_GameObject: {fileID: 6623859258972756377}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba476fc7e29a0694b9e46163efc9623d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7f8f4f5a53754b34b9c482930a4a873d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
   TransitionStateInfoList:
   - IsCrossFadeExit: 0
     Layer: 0
-    OriginatingState: -62138772
-    DestinationState: -827177123
+    OriginatingState: 439282437
+    DestinationState: 1066324851
     TransitionDuration: 0
     TriggerNameHash: 1080829965
     TransitionIndex: 0
@@ -409,7 +409,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -444,7 +444,7 @@ Transform:
   m_GameObject: {fileID: 6936776883213151904}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7024118, y: -0.71167386, z: -0.008641561, w: 0.00796539}
-  m_LocalPosition: {x: 0.063, y: 1.69, z: 0.99}
+  m_LocalPosition: {x: -0.006, y: 1.051, z: 0.987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

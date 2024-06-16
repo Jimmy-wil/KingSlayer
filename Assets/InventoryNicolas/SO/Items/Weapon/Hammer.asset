@@ -17,9 +17,9 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Hammer
   <Description>k__BackingField: A sturdy hammer, it promises to deliver great damage
-    upon your foes as long as they're still alive!
+    upon your foes!
   <ItemImage>k__BackingField: {fileID: 1447792044, guid: 8bf96d952e1a8494281d7a9d2ecc096a, type: 3}
   type: 0
   weaponDmg: 4
   range: 1
-  key: 4
+  key: 5

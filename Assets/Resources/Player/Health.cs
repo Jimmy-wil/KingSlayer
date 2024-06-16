@@ -141,6 +141,7 @@ public class Health : NetworkBehaviour
     [ServerRpc(RequireOwnership=false)]
     private void DestroyObjectServerRpc()
     {
+        if (drop == null) return;
         var clone = Instantiate(drop);
         clone.GetComponent<NetworkObject>().Spawn();
         Destroy(gameObject);

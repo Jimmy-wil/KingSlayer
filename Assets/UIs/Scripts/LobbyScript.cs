@@ -31,6 +31,7 @@ public class LobbyScript : NetworkBehaviour
     public GameObject LoadingScreenGUI;
     public BlackScreenFadeScript BlackScreen;
     public GameObject GameGUI;
+    public GameObject WinScreen;
 
     public GameObject MessagePanelObject;
     public GameObject MainMenu;
@@ -467,8 +468,9 @@ public class LobbyScript : NetworkBehaviour
         if (hostLobby.Players.Count <= 1)
         {
             DisplayErrorMessage("Not enough players in your lobby!");
-            return;
+            // return;
         }
+
         StartGameServerRpc();
 
     }
@@ -575,6 +577,7 @@ public class LobbyScript : NetworkBehaviour
         MainMenu.SetActive(true);
         MainMenuGUI.gameObject.SetActive(true);
         GameGUI.gameObject.SetActive(false);
+        WinScreen.transform.GetChild(0).gameObject.SetActive(false);
     }
 
 

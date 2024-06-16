@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 8520017173802533526}
   - component: {fileID: 5120122309469848361}
   - component: {fileID: 1368822570995548569}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Username
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,6 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd0f3c9c2b92ec4ba1b7bc97f791b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drop: {fileID: 0}
   deathMenu: {fileID: 0}
   currentHealth: 200
   maxHealth: 200

@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cea8aaffad961e24eae8c7d3494a5795, type: 3}
-  m_Name: Strength Potion
+  m_Name: Pumpkin
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 64
-  <Name>k__BackingField: Strength  Potion
-  <Description>k__BackingField: Empowers the user
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: 94985ac8520220141ac466bd965c5941, type: 3}
+  <Name>k__BackingField: Helios Pumpkin
+  <Description>k__BackingField: A special pumpkin only growing in helios domain.
+    Restores a moderate amount of Hp.
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: d330aa5794a86014cb4b3b3ac6cf3625, type: 3}
   modifiersData:
   - statModifier: {fileID: 11400000, guid: 200e71f20e3f21b4e9ba0afa962f4cc1, type: 2}
-    value: -15
+    value: 30

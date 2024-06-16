@@ -30,54 +30,55 @@ public class HotBarController : MonoBehaviour
     {
         // faire 3 cas pour eviter le indexOutofrange => 1 item, 2 item et 3 item !!!!!!
 
-        if (Input.GetKeyDown("1"))
-        {
-            GettingPlayerAndCall();
+      // if (Input.GetKeyDown("1"))
+      // {
+     //      GettingPlayerAndCall();
+     //      DeselectAll();
 
-            DeselectAll();
+     //       Debug.Log("1");
 
-            Debug.Log("1");
+     //      listOfUIItemsHotbar[0].Select();
+      //     SelectedItem = Controller.initialItems[0];
+            
 
-            listOfUIItemsHotbar[0].Select();
-            SelectedItem = Controller.initialItems[0];
+      //      ItemAction();
 
-            ItemAction();
+    //    }
 
-        }
+     //   if (Input.GetKeyDown("2"))
+    //    {
+     //       GettingPlayerAndCall();
 
-        if (Input.GetKeyDown("2"))
-        {
-            GettingPlayerAndCall();
+     //       DeselectAll();
 
-            DeselectAll();
+      //      Debug.Log("2");
 
-            Debug.Log("2");
+     //      listOfUIItemsHotbar[1].Select();
+      //     SelectedItem = Controller.initialItems[1];
 
-            listOfUIItemsHotbar[1].Select();
-            SelectedItem = Controller.initialItems[1];
+      //    ItemAction();
 
-            ItemAction();
+     //   }
+     ///   if (Input.GetKeyDown("3"))
+     //   {
+     //       GettingPlayerAndCall();
 
-        }
+      //      DeselectAll();
 
-        if (Input.GetKeyDown("3"))
-        {
-            GettingPlayerAndCall();
-
-            DeselectAll();
-
-            Debug.Log("3");
-
-            listOfUIItemsHotbar[2].Select();
-            SelectedItem = Controller.initialItems[2];
-
-            ItemAction();
-
-        }
+      //     Debug.Log("3");
+//listOfUIItemsHotbar[2].Select();
+//            SelectedItem = Controller.initialItems[2];
+//
+        //   ItemAction();
+//
+    //    }
 
     }
+    
+  //  private int NumberOfItemSlots()
+    
 
-    private void GettingPlayerAndCall()
+    public void GettingPlayerAndCall()
     {
         Debug.Log("GettingPlayerAndCall");
         player = GameObject.Find(Controller.UserData.Username);

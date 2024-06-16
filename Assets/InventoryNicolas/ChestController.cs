@@ -72,11 +72,11 @@ public class ChestController : MonoBehaviour
         
         controller.inventoryData.AddItem(chestData.GetItemAt(itemIndex));
        
-       IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
-       if (destroyableItem != null)
-       {
+      // IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
+     //  if (destroyableItem != null)
+     //  {
            chestData.RemoveItem(itemIndex, initialItems[itemIndex].quantity );
-       }
+      // }
     }
     
     

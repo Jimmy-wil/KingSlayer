@@ -102,8 +102,6 @@ public class InventoryController : MonoBehaviour
         }
     }
     
-    
-    
 
     private void CraftItem()
     {

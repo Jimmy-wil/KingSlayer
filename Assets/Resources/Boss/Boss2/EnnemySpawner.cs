@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class EnnemySpawner : MonoBehaviour
@@ -27,7 +28,9 @@ public class EnnemySpawner : MonoBehaviour
             Vector3 randomPosition = GetRandomPositionInZone(spawnZone.bounds);
 
             // Instancie l'ennemi à la position aléatoire
-            Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+            var clone = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+            clone.GetComponent<NetworkObject>().Spawn();
+
         }
     }
 

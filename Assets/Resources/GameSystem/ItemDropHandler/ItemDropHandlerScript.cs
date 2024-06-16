@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class ItemDropHandlerScript : NetworkBehaviour
 {
+    public List<Item> droplist;
+
     private Item ItemToDrop;
     public void DropItem(Item itemToDrop, Vector2 position)
     {
+        droplist.Contains(itemToDrop);
+
         ItemToDrop = itemToDrop;
         DropItemServerRpc(position);
 

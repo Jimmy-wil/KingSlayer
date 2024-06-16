@@ -18,7 +18,7 @@ MonoBehaviour:
   <Name>k__BackingField: Scythe
   <Description>k__BackingField: Used to harvest crops. Maybe you could harvest corpses
     with it?
-  <ItemImage>k__BackingField: {fileID: 7045053761058034914, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
+  <ItemImage>k__BackingField: {fileID: 1279560283, guid: 8bf96d952e1a8494281d7a9d2ecc096a, type: 3}
   type: 0
   weaponDmg: 9
   range: 3

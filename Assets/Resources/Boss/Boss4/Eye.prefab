@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 8474202300440631761}
   - component: {fileID: 5666151147133288230}
   - component: {fileID: 4861098110735980}
+  - component: {fileID: 2743719518051375240}
   m_Layer: 7
   m_Name: Eye
   m_TagString: Untagged
@@ -281,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1549958719
+  GlobalObjectIdHash: 209563874
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -435,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd0f3c9c2b92ec4ba1b7bc97f791b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drop: {fileID: 0}
+  randomDrop: {fileID: 2743719518051375240}
   deathMenu: {fileID: 0}
   currentHealth: 100
   maxHealth: 100
@@ -830,6 +831,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2743719518051375240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4048200327472105750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7cbfd093224134380a5b38b1295563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 4911658372638357030, guid: 8805b711371f5c04990687c503ab0c0a, type: 3}
 --- !u!1 &4869915756059521742
 GameObject:
   m_ObjectHideFlags: 0

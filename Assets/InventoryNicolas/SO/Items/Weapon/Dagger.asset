@@ -16,7 +16,7 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Dagger
   <Description>k__BackingField: A sneaky weapon for sneaky people.
-  <ItemImage>k__BackingField: {fileID: 1087410081271262417, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: 389317994c0fd014398ff08dc18ef977, type: 3}
   type: 0
   weaponDmg: 4
   range: 1

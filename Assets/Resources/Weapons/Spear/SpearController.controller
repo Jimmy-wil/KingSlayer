@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68c72abe1745a54ab21db2701ec3a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rageSound: {fileID: 8300000, guid: add4fcb2a7c923848ad6320f8028a97d, type: 3}
+  rageSound: {fileID: 8300000, guid: fb36433e827c9664e9bfc5d3f7c742b7, type: 3}
   loopWhileRunning: 0
 --- !u!1101 &-1896659526037180729
 AnimatorStateTransition:

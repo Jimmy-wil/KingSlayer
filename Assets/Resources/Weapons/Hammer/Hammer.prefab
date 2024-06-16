@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c673109ecafd94ea42205de17c270b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 14
+  dmg: 15
   weaponRenderer: {fileID: 603381060457865806}
   delay: 3
   circleOrigin: {fileID: 4700319705775636447}
@@ -333,7 +333,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: add4fcb2a7c923848ad6320f8028a97d, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -444,7 +444,7 @@ Transform:
   m_GameObject: {fileID: 6936776883213151904}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7024118, y: -0.71167386, z: -0.008641561, w: 0.00796539}
-  m_LocalPosition: {x: -0.028, y: 1.84, z: 0.987}
+  m_LocalPosition: {x: -0.03, y: 1.672, z: 0.987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

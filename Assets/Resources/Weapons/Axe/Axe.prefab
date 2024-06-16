@@ -103,7 +103,7 @@ MonoBehaviour:
   weaponRenderer: {fileID: 603381060457865806}
   delay: 0.5
   circleOrigin: {fileID: 4700319705775636447}
-  radius: 0.7
+  radius: 0.6
   animator: {fileID: 5382795692134897230}
 --- !u!1 &6623859258972756377
 GameObject:
@@ -444,7 +444,7 @@ Transform:
   m_GameObject: {fileID: 6936776883213151904}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7024118, y: -0.71167386, z: -0.008641561, w: 0.00796539}
-  m_LocalPosition: {x: -0.697, y: -0.241, z: 1.002}
+  m_LocalPosition: {x: -0.736, y: -0.24, z: 1.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

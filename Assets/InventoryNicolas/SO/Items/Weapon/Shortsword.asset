@@ -16,8 +16,8 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Short sword
   <Description>k__BackingField: Classic RPG weapon.
-  <ItemImage>k__BackingField: {fileID: 2463493976517071750, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: 604412fdf0e6ebd4aacd32c40569178b, type: 3}
   type: 0
   weaponDmg: 4
   range: 1
-  key: 7
+  key: 6

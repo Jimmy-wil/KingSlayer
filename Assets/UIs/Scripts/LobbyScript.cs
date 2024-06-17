@@ -476,7 +476,7 @@ public class LobbyScript : NetworkBehaviour
 
     }
     
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(RequireOwnership=false)]
     private void StartGameServerRpc() 
     {
         NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
@@ -509,7 +509,7 @@ public class LobbyScript : NetworkBehaviour
     [ClientRpc]
     private void StartGameClientRpc()
     {
-        NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        // NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
 
         CurrentLobby.SetActive(false);
         MainMenuGUI.gameObject.SetActive(false);

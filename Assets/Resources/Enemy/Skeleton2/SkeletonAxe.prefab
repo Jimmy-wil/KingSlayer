@@ -379,7 +379,7 @@ MonoBehaviour:
   aiData: {fileID: 6791174252670995887}
   detectionDelay: 0.05
   aiUpdateDelay: 0.06
-  attackDelay: 2.5
+  attackDelay: 1.5
   attackDistance: 1.5
   OnAttackPressed:
     m_PersistentCalls:

@@ -96,7 +96,7 @@ MonoBehaviour:
   weaponRenderer: {fileID: 5467660061400327911}
   delay: 1.5
   circleOrigin: {fileID: 518902729667283465}
-  radius: 1.5
+  radius: 1.8
   animator: {fileID: 4482445036505883879}
 --- !u!114 &6112000844560849400
 MonoBehaviour:

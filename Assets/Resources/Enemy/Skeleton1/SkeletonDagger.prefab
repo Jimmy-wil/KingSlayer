@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4040420709
+  GlobalObjectIdHash: 2589136132
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -410,7 +410,7 @@ MonoBehaviour:
   aiData: {fileID: 6791174252670995887}
   detectionDelay: 0.05
   aiUpdateDelay: 0.06
-  attackDelay: 2.5
+  attackDelay: 1
   attackDistance: 1.5
   OnAttackPressed:
     m_PersistentCalls:
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c673109ecafd94ea42205de17c270b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 7
+  dmg: 5
   weaponRenderer: {fileID: 5848881397774299817}
   delay: 1
   circleOrigin: {fileID: 1774505271057687928}

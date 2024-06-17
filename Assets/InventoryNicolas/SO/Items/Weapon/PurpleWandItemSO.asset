@@ -19,7 +19,7 @@ MonoBehaviour:
   <Description>k__BackingField: An alternative version of the Magic Powered Wand.
     Instead it uses "Crystal Magic" through transmutation in order to pierce through
     any material.
-  <ItemImage>k__BackingField: {fileID: 1296281824, guid: 8213da3405ccb8d46b0150052b10bedd, type: 3}
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: 3813f0020e005de4d9c2efd710f1b741, type: 3}
   type: 0
   weaponDmg: 12
   range: 1

@@ -15,10 +15,10 @@ MonoBehaviour:
   <IsStackable>k__BackingField: 0
   dropItem: {fileID: 4911658372638357030, guid: 27ecc925010e99e4bb5b61c76e23cafc, type: 3}
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: Short sword
+  <Name>k__BackingField: Ancient Greatsword
   <Description>k__BackingField: An ancient greatsword. The identity of their wielders
     are unknown.
-  <ItemImage>k__BackingField: {fileID: 2463493976517071750, guid: 26219afe650eca349a89f642aec6aaf2, type: 3}
+  <ItemImage>k__BackingField: {fileID: -1013535920, guid: a1de449f1e259324cbd197316e2958a4, type: 3}
   type: 0
   weaponDmg: 4
   range: 1

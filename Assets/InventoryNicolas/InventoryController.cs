@@ -361,7 +361,7 @@ public class InventoryController : MonoBehaviour
           
                 
             }
-            PlayerHealth = player.GetComponent<Health>();
+            // PlayerHealth = player.GetComponent<Health>();
             
             player = null;
             
@@ -410,7 +410,7 @@ public class InventoryController : MonoBehaviour
 
     }
 
-
+    /*
     private void DropAllItem()
     {
         if (PlayerHealth.isDead)
@@ -421,7 +421,7 @@ public class InventoryController : MonoBehaviour
             }
         }
     }
-    
+    */
     
     
     
@@ -441,11 +441,6 @@ public class InventoryController : MonoBehaviour
         }
         
         CraftItem();
-        
-        if (player != null)
-        {
-            DropAllItem();
-        }
         
         
         if (Input.GetKeyDown(KeyCode.I))

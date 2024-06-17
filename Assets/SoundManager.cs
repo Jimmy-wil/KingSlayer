@@ -30,6 +30,8 @@ public class SoundManager : MonoBehaviour
 
     public void setmusicvolume()
     {
+        if (!musicslid) return;
+
         float volume = musicslid.value;
         MyMixer.SetFloat("Music", Mathf.Log10(volume)*20);
         PlayerPrefs.SetFloat("musicVol", volume);
@@ -37,6 +39,8 @@ public class SoundManager : MonoBehaviour
 
      public void setsfxvolume()
     {
+        if (!sfxslid) return;
+
         float volume = sfxslid.value;
         MyMixer.SetFloat("SFX", Mathf.Log10(volume)*20);
         PlayerPrefs.SetFloat("sfxVol", volume);
@@ -45,8 +49,16 @@ public class SoundManager : MonoBehaviour
 
     private void Loadvolume()
     {
-        musicslid.value = PlayerPrefs.GetFloat("musicVol");
-        sfxslid.value = PlayerPrefs.GetFloat("sfxVol");
+        if (musicslid)
+        {
+            musicslid.value = PlayerPrefs.GetFloat("musicVol");
+
+        }
+        if(sfxslid)
+        {
+            sfxslid.value = PlayerPrefs.GetFloat("sfxVol");
+
+        }
         setmusicvolume();
         setsfxvolume();
        

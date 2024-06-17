@@ -268,7 +268,7 @@ MonoBehaviour:
   SyncPositionZ: 1
   SyncRotAngleX: 1
   SyncRotAngleY: 1
-  SyncRotAngleZ: 0
+  SyncRotAngleZ: 1
   SyncScaleX: 1
   SyncScaleY: 1
   SyncScaleZ: 0
@@ -659,8 +659,8 @@ MonoBehaviour:
   UseQuaternionCompression: 0
   UseHalfFloatPrecision: 0
   InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
+  Interpolate: 0
+  SlerpPosition: 1
 --- !u!70 &680274287778625109
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

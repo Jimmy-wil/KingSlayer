@@ -465,7 +465,7 @@ public class LobbyScript : NetworkBehaviour
     }
 
     public void StartGame()
-    {
+    {   
         if (hostLobby.Players.Count <= 1)
         {
             DisplayErrorMessage("Not enough players in your lobby!");
@@ -489,6 +489,7 @@ public class LobbyScript : NetworkBehaviour
         ShuffleList(SpawnPointList);
 
         StartGameClientRpc();
+
     }
 
     private void ShuffleList(NetworkList<int> networkList)

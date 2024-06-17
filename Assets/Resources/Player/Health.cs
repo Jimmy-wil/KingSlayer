@@ -109,8 +109,9 @@ public class Health : NetworkBehaviour
         }
         changeSpriteColorRoutine = StartCoroutine(ChangeSpriteColorRoutine());
 
-
-        OnHitWithReference?.Invoke(Sender);
+        if(Sender != null)
+            OnHitWithReference?.Invoke(Sender);
+        
         Sender = null;
 
         currentHealth -= amount;

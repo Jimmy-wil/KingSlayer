@@ -538,8 +538,8 @@ MonoBehaviour:
   UseQuaternionCompression: 0
   UseHalfFloatPrecision: 0
   InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
+  Interpolate: 0
+  SlerpPosition: 1
 --- !u!114 &9101840925333026071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 4911658372638357030, guid: f4645d436709b32458a5b961cde782fd, type: 3}
+  - {fileID: 4911658372638357030, guid: dba87b5da7ae88c4db8cee0208c9a76b, type: 3}
 --- !u!1 &4745305857269644840
 GameObject:
   m_ObjectHideFlags: 0

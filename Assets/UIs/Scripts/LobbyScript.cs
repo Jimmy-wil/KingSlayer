@@ -469,7 +469,7 @@ public class LobbyScript : NetworkBehaviour
         if (joinedLobby.Players.Count <= 1)
         {
             DisplayErrorMessage("Not enough players in your lobby!");
-            return;
+            // return;
         }
 
         StartGameServerRpc();
@@ -509,9 +509,12 @@ public class LobbyScript : NetworkBehaviour
     [ClientRpc]
     private void StartGameClientRpc()
     {
+        NetworkManager.SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+
         CurrentLobby.SetActive(false);
         MainMenuGUI.gameObject.SetActive(false);
         LoadingScreenGUI.gameObject.SetActive(true);
+
         SceneManager.sceneLoaded += OnSceneLoaded; // trigger OnSceneLoaded if sceneLoaded (subscribe)
 
         SpawnPlayerServerRpc();

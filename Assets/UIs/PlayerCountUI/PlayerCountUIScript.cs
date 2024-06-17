@@ -41,7 +41,7 @@ public class PlayerCountUIScript : MonoBehaviour
 
             Debug.Log("We got a winner");
 
-            winUIManagerScript.DisplayWinner(Players.transform.GetChild(0).gameObject.name);
+            // winUIManagerScript.DisplayWinner(Players.transform.GetChild(0).gameObject.name);
 
 
 

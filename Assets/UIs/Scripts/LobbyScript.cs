@@ -469,7 +469,7 @@ public class LobbyScript : NetworkBehaviour
         if (hostLobby.Players.Count <= 1)
         {
             DisplayErrorMessage("Not enough players in your lobby!");
-            // return;
+            return;
         }
 
         StartGameServerRpc();

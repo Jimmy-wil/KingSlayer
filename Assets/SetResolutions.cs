@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SetResolutions : MonoBehaviour
 {
-      List<int> widths = new List<int>() {720, 1080, 1200, 1440, 1550};
-     List<int> heights = new List<int>() {720, 1080, 1200, 1440, 1550};
-    
-public void Setscreensize( int index)
+    List<int> widths = new List<int>() { 1280, 1440, 1920, 1920, 2560 };
+    List<int> heights = new List<int>() { 720, 1080, 1080, 1200, 1440 };
+
+    public void Setscreensize( int index)
 {
     bool fullscreen = Screen.fullScreen;
     int width = widths[index];

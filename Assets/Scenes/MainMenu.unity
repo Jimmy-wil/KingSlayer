@@ -1542,6 +1542,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2881698445
       objectReference: {fileID: 0}
+    - target: {fileID: 5842993424172208933, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5877035743089117585, guid: 49f298f5188a0cb45a79d0f5ac42e5a3, type: 3}
       propertyPath: Players
       value: 

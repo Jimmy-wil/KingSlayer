@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e97fb8c67635cb94b9ff83b09bdf1424, type: 3}
-  m_Name: SpearItemSo
+  m_Name: Axe
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
-  dropItem: {fileID: 4911658372638357030, guid: 870f06d0f9002b74e8824a7e15108fc3, type: 3}
+  dropItem: {fileID: 4911658372638357030, guid: ead8790cc2f2e004e842a07a26901c61, type: 3}
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: Spear
-  <Description>k__BackingField: A makeshift spear with a decent range of attack.
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: 2331e4fac6dd3d94dab5a80bb460cd56, type: 3}
+  <Name>k__BackingField: Axe
+  <Description>k__BackingField: A sturdy axe made for chopping trees.
+  <ItemImage>k__BackingField: {fileID: 1429658294, guid: 006dc96bf587f0443af484e2177a7fb8, type: 3}
   type: 0
-  weaponDmg: 10
-  range: 0
-  key: 7
+  weaponDmg: 5
+  range: 4
+  key: 0

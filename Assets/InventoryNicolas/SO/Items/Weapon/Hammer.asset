@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
+  dropItem: {fileID: 0}
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Hammer
   <Description>k__BackingField: A sturdy hammer, it promises to deliver great damage
@@ -21,4 +22,4 @@ MonoBehaviour:
   type: 0
   weaponDmg: 4
   range: 1
-  key: 4
+  key: 5

@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1954703670
+  GlobalObjectIdHash: 2304725570
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff4155e52d2ba24686eaca66914bbd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3
+  maxSpeed: 3.8
   acceleration: 50
   deacceleration: 100
   currentSpeed: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   aiData: {fileID: 6791174252670995887}
   detectionDelay: 0.05
   aiUpdateDelay: 0.06
-  attackDelay: 2.5
+  attackDelay: 1.5
   attackDistance: 1.5
   OnAttackPressed:
     m_PersistentCalls:
@@ -568,11 +568,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
-  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
-  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
-  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
-  - {fileID: 4911658372638357030, guid: c2940898cb3ac6b48a8187d90774b10f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &244792216409077684
 AudioSource:
   m_ObjectHideFlags: 0

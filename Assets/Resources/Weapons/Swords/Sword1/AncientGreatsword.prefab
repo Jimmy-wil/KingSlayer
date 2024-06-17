@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c673109ecafd94ea42205de17c270b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 9
+  dmg: 8
   weaponRenderer: {fileID: 603381060457865806}
-  delay: 1
+  delay: 2.7
   circleOrigin: {fileID: 4700319705775636447}
   radius: 1.1
   animator: {fileID: 5382795692134897230}

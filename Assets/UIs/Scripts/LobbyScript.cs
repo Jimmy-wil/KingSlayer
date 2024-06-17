@@ -466,7 +466,7 @@ public class LobbyScript : NetworkBehaviour
 
     public void StartGame()
     {   
-        if (hostLobby.Players.Count <= 1)
+        if (joinedLobby.Players.Count <= 1)
         {
             DisplayErrorMessage("Not enough players in your lobby!");
             return;

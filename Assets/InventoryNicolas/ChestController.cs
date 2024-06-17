@@ -77,7 +77,7 @@ public class ChestController : MonoBehaviour
       // IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
      //  if (destroyableItem != null)
      //  {
-           chestData.RemoveItem(itemIndex, initialItems[itemIndex].quantity );
+           chestData.RemoveItem(itemIndex, chestData.GetItemAt(itemIndex).quantity );
       // }
     }
     
